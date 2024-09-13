@@ -8,10 +8,11 @@ interface GridProps {
     row: number;
   }
   
-const Grid: React.FC<GridProps> = ({ children }) => {
+const Grid: React.FC<GridProps> = ({ children, col , row }) => {
+    const gridComponent = `grid-cols-${col} grid-rows-${row}`;
         
     return (
-        <div className={"grid"}>
+        <div className={`grid ${gridComponent}`}>
             {
                children
             }
