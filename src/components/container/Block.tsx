@@ -14,21 +14,12 @@ interface BlockProps {
   style?: React.CSSProperties;
 }
 
-interface ComponetProps {
-  type?: string;
-  col_start?: number;
-  col_end?: number;
-  row_start?: number;
-  row_end?: number;
-  style?: React.CSSProperties;
-  children: ReactNode;
-}
 
 
 
 // Component
 
-const Container: React.FC<ComponetProps> = (
+const Container: React.FC<BlockProps> = (
   { 
     children, 
     type,
@@ -37,7 +28,7 @@ const Container: React.FC<ComponetProps> = (
     row_start,
     row_end,
     style
-  }: ComponetProps) => {
+  }: BlockProps) => {
     const ClassContainer = `  
           ${col_start && 'col-start-'+col_start}
           ${col_end && 'col-end-'+col_end}
@@ -106,14 +97,28 @@ const Container: React.FC<ComponetProps> = (
   )
 }
 
-const Block: React.FC<BlockProps> = ({ children, type }) => {
+const Block: React.FC<BlockProps> = ( 
+  { 
+  children, 
+  type,
+  col_start,
+  col_end,
+  row_start,
+  row_end,
+  style
+}: BlockProps) => {
       
       return (
         <>
-          <Container type={type}>
-            {
-              children
-            }
+          <Container 
+            style={style} 
+            col_end={col_end} 
+            col_start={col_start} 
+            row_start={row_start}
+            row_end={row_end}  
+            type={type}
+            >
+            {children}
           </Container>
         </> );
 }
