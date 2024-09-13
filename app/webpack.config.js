@@ -1,17 +1,19 @@
 const path = require('path');
 
 module.exports = {
-  entry: './app/src/app.jsx',  // Punto de entrada de tu aplicación
+  entry:{
+    app: './app/src/app.jsx'
+  },
   output: {
-    path: path.resolve(__dirname, 'dist'),  // Directorio de salida
-    filename: 'bundle.js'  // Nombre del archivo generado por Webpack
+    path: path.resolve(__dirname, 'dist'),  
+    filename: '[name].bundle.js' 
   },
   mode: 'development',  // Modo de desarrollo
   module: {
     rules: [
       {
         test: /\.css$/,  // Para archivos CSS
-        use: ['style-loader', 'css-loader'],  // Cargadores que procesan CSS
+        use: ['style-loader', 'css-loader', 'postcss-loader'],  // Cargadores que procesan CSS
       },
       {
         test: /\.(js|jsx)$/,  // Procesar archivos JS y JSX
@@ -31,7 +33,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx']  // Resolver archivos con estas extensiones
+    extensions: ['.js', '.jsx', '.tsx', '.ts']
   },
   devServer: {
     static: {

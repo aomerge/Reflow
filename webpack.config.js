@@ -13,8 +13,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,  // Para archivos CSS
-        use: ['style-loader', 'css-loader'],  // Cargadores que procesan CSS
+        test: /\.css$/,  
+        use: ['style-loader', 'css-loader', 'postcss-loader'],  
       },
       {
         test: /\.(js|jsx)$/,
