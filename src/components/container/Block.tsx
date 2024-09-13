@@ -28,7 +28,7 @@ interface ComponetProps {
 
 // Component
 
-const BlockCompoent: React.FC<ComponetProps> = (
+const Container: React.FC<ComponetProps> = (
   { 
     children, 
     type,
@@ -38,83 +38,83 @@ const BlockCompoent: React.FC<ComponetProps> = (
     row_end,
     style
   }: ComponetProps) => {
-  return (
-    <div style={style} className={
-      `  
-      ${col_start && 'col-start-'+col_start}
-      ${col_end && 'col-end-'+col_end}
-      ${row_start && 'row-start-'+row_start}
-      ${row_end && 'row-end-'+row_end}
-      `
-     }>
+    const ClassContainer = `  
+          ${col_start && 'col-start-'+col_start}
+          ${col_end && 'col-end-'+col_end}
+          ${row_start && 'row-start-'+row_start}
+          ${row_end && 'row-end-'+row_end}
+          `;
+  return (    
+    <>
       {
-        children
+        type === undefined &&
+        <div style={style} className={ClassContainer}>
+          {
+            children
+          }
+        </div>
       }
-    </div>
+      {
+        type === 'Block' &&
+        <div style={style} className={ClassContainer}>
+          {
+            children
+          }
+        </div>
+      }
+      {
+        type === 'Section' &&
+        <section style={style} className={ClassContainer}>
+          {
+            children
+          }
+        </section>
+      }
+      {
+        type === 'Article' &&
+        <article style={style} className={ClassContainer}>
+          {
+            children
+          }
+        </article>
+      }            
+      {
+        type === 'Aside' &&
+        <aside style={style} className={ClassContainer}>
+          {
+            children
+          }
+        </aside>
+      }
+      {
+        type === 'Footer' &&
+        <footer style={style} className={ClassContainer}>
+          {
+            children
+          }
+        </footer>
+      }      
+      {
+        type === 'Main' &&
+        <main style={style} className={ClassContainer}>
+          {
+            children
+          }
+        </main>
+      }            
+    </>    
   )
 }
-
-const SectionCompoent: React.FC<ComponetProps> = ({children}) => {
-  return (
-    <section className="bg-gray-200 p-4">
-      {
-        children
-      }
-    </section>
-  )
-}
-
-const ArticleCompoent: React.FC<ComponetProps> = ({children}) => {
-  return (
-    <article className="bg-gray-200 p-4">
-      {
-        children
-      }
-    </article>
-  )
-}
-
 
 const Block: React.FC<BlockProps> = ({ children, type }) => {
       
       return (
         <>
-          {
-            type === 'Block' && ( 
-            <BlockCompoent>
-              {
-                children
-              }               
-            </BlockCompoent>  )          
-          }
-          {
-            type === 'Section' && (
-              <SectionCompoent >
-                {
-                  children
-                }
-              </SectionCompoent>
-            )
-          }
-          {
-            type === 'Article' && (
-              <ArticleCompoent>
-                {
-                  children
-                }
-              </ArticleCompoent>
-            )
-          }
-          {
-            !type && (
-              <BlockCompoent>
-                {
-                  children
-                }
-              </BlockCompoent>
-            )
-          }
-
+          <Container type={type}>
+            {
+              children
+            }
+          </Container>
         </> );
 }
   
