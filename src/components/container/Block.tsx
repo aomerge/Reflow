@@ -7,10 +7,20 @@ import '../../styles/tailwind.css';
 interface BlockProps {
   children: ReactNode;
   type?: string;
+  col_start?: number;
+  col_end?: number;
+  row_start?: number;
+  row_end?: number;
+  style?: React.CSSProperties;
 }
 
-
 interface ComponetProps {
+  type?: string;
+  col_start?: number;
+  col_end?: number;
+  row_start?: number;
+  row_end?: number;
+  style?: React.CSSProperties;
   children: ReactNode;
 }
 
@@ -18,9 +28,25 @@ interface ComponetProps {
 
 // Component
 
-const BlockCompoent: React.FC<ComponetProps> = ({children}) => {
+const BlockCompoent: React.FC<ComponetProps> = (
+  { 
+    children, 
+    type,
+    col_start,
+    col_end,
+    row_start,
+    row_end,
+    style
+  }: ComponetProps) => {
   return (
-    <div className="bg-gray-200 p-4">
+    <div style={style} className={
+      `  
+      ${col_start && 'col-start-'+col_start}
+      ${col_end && 'col-end-'+col_end}
+      ${row_start && 'row-start-'+row_start}
+      ${row_end && 'row-end-'+row_end}
+      `
+     }>
       {
         children
       }
