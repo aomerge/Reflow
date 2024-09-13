@@ -4,15 +4,23 @@ import '../../styles/tailwind.css';
 
 interface GridProps {
     children: ReactNode;
+    item?: string;
+    justify?: string;
     col: number;
     row: number;
+    style?: React.CSSProperties;
   }
   
-const Grid: React.FC<GridProps> = ({ children, col , row }) => {
-    const gridComponent = `grid-cols-${col} grid-rows-${row}`;
+const Grid: React.FC<GridProps> = ({ children, col , row, item, justify, style }) => {
+    const gridComponent = `
+                        ${col && 'grid-cols-'+col}
+                        ${row && 'grid-row-'+row}
+                        ${item && 'grid-item-'+item}
+                        ${justify && 'justify-'+justify}
+                        `;
         
     return (
-        <div className={`grid ${gridComponent}`}>
+        <div style={style} className={` grid ${gridComponent}`}>
             {
                children
             }
