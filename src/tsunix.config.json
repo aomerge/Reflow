@@ -1,0 +1,18 @@
+{
+    "color": {
+        "primary": "#ff0000",
+        "secondary": "#00ff00",
+        "tertiary": "#0000ff",
+        "background": "#ffffff"
+    },
+    "font": {
+        "family": "Arial",
+        "size": "16px"
+    },
+    "border": {
+        "radius": "5px",
+        "width": "1px",
+        "style": "solid",
+        "color": "#000000"
+    }
+}

@@ -13,6 +13,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,  // Para archivos CSS
+        use: ['style-loader', 'css-loader'],  // Cargadores que procesan CSS
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader'

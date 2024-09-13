@@ -10,6 +10,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,  // Para archivos CSS
+        use: ['style-loader', 'css-loader'],  // Cargadores que procesan CSS
+      },
+      {
         test: /\.(js|jsx)$/,  // Procesar archivos JS y JSX
         exclude: /node_modules/,
         use: {
@@ -17,7 +21,12 @@ module.exports = {
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react']  // Presets de Babel para React
           }
-        }
+        },
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: 'ts-loader'
       }
     ]
   },
@@ -30,7 +39,7 @@ module.exports = {
     },
     compress: true,
     port: 8080,  // Puerto en el que se ejecutará el servidor
-    open: true  // Abrir el navegador automáticamente
+    // open: true  // Abrir el navegador automáticamente
   }
 };
 
