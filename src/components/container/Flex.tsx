@@ -13,10 +13,20 @@ interface FlexProps {
 
   }
   
-const Flex: React.FC<FlexProps> = ({ children }) => {
-        
+const Flex: React.FC<FlexProps> = ({ children, col, row, justify, item, flex_wrap, direction }) => {
+    const flexComponent = `
+                    ${col && 'grid-cols-'+col}
+                    ${row && 'grid-row-'+row}
+                    ${item && 'grid-item-'+item}
+                    ${justify && 'justify-'+justify}
+                    ${flex_wrap && 'flex-wrap-'+flex_wrap}
+                    ${direction && 'flex-'+direction}
+                `;
     return (
-        <div className="flex flex-">
+        <div
+             
+            className={`flex ${flexComponent} `}
+        >
             {
                children
             }
