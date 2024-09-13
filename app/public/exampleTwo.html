@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimal Background Color with Maximum Contrast</title>
+</head>
+<body>
+    <h1>Predicción de color de fondo con mayor contraste</h1>
+    
+    <label for="primaryColor">Color primario (texto):</label>
+    <input type="color" id="primaryColor" value="#6f98b7">
+    <br><br>
+
+    <button onclick="findBestBackground()">Predecir mejor color de fondo</button>
+
+    <h2 id="result">Color óptimo para el fondo:</h2>
+
+    <script>
+        function hexToRgb(hex) {
+            let bigint = parseInt(hex.slice(1), 16);
+            let r = (bigint >> 16) & 255;
+            let g = (bigint >> 8) & 255;
+            let b = bigint & 255;
+            return [r, g, b];
+        }
+
+        function luminance(r, g, b) {
+            const a = [r, g, b].map(function (v) {
+                v /= 255;
+                return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+            });
+            return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
+        }
+
+        function contrastRatio(l1, l2) {
+            return (l1 + 0.05) / (l2 + 0.05);
+        }
+
+        // Función para convertir RGB a hex
+        function rgbToHex(r, g, b) {
+            return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        }
+
+        // Función para ajustar el brillo de un color
+        function adjustBrightness(rgb, factor) {
+            return rgb.map(value => Math.min(Math.max(0, value * factor), 255));
+        }
+
+        // Función para encontrar el mejor color de fondo con mayor contraste
+        function findBestBackground() {
+            let primaryColor = document.getElementById("primaryColor").value;
+
+            // Convertir el color primario a RGB
+            let [r1, g1, b1] = hexToRgb(primaryColor);
+            let luminance1 = luminance(r1, g1, b1);
+
+            let bestContrast = 0;
+            let bestBackground = '';
+
+            // Generar colores oscuros y claros ajustando brillo
+            for (let factor = 0.1; factor <= 2; factor += 0.1) {
+                // Ajustar el brillo para crear variaciones más claras y oscuras
+                let darker = adjustBrightness([r1, g1, b1], factor);
+                let lighter = adjustBrightness([255 - r1, 255 - g1, 255 - b1], factor);
+
+                // Calcular el contraste de los colores ajustados
+                let luminanceDarker = luminance(darker[0], darker[1], darker[2]);
+                let luminanceLighter = luminance(lighter[0], lighter[1], lighter[2]);
+
+                let contrastDarker = contrastRatio(luminance1, luminanceDarker);
+                let contrastLighter = contrastRatio(luminance1, luminanceLighter);
+
+                // Guardar el color que tenga el mayor contraste
+                if (contrastDarker > bestContrast) {
+                    bestContrast = contrastDarker;
+                    bestBackground = rgbToHex(darker[0], darker[1], darker[2]);
+                }
+
+                if (contrastLighter > bestContrast) {
+                    bestContrast = contrastLighter;
+                    bestBackground = rgbToHex(lighter[0], lighter[1], lighter[2]);
+                }
+
+                // Si encontramos un contraste mayor a 13, podemos detenernos
+                if (bestContrast >= 13) break;
+            }
+
+            if (bestBackground) {
+                document.getElementById("result").innerHTML = `Mejor color de fondo: <span style="background-color:${bestBackground};">${bestBackground}</span> con contraste de ${bestContrast.toFixed(2)}`;
+            } else {
+                document.getElementById("result").innerText = "No se pudo encontrar un color de fondo con suficiente contraste.";
+            }
+        }
+    </script>
+</body>
+</html>
