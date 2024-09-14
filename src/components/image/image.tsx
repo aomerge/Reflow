@@ -11,7 +11,7 @@ interface ImageProps {
     style?: React.CSSProperties;    
   }
 
-const Block: React.FC<ImageProps> = ( 
+const Images: React.FC<ImageProps> = ( 
     {     
     template,
     height,
