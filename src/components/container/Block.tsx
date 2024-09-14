@@ -12,6 +12,7 @@ interface BlockProps {
   row_start?: number;
   row_end?: number;
   style?: React.CSSProperties;
+  template?: string;
 }
 
 
