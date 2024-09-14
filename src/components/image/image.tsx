@@ -20,6 +20,10 @@ const Block: React.FC<ImageProps> = (
     alt,
     style        
   }: ImageProps) => {
+        const ClassContainer = `          
+            ${height && 'h-'+height}
+            ${width && 'w-'+width}
+        `;
         
         return (
             <div>

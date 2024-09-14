@@ -2,7 +2,18 @@ import React, { Children, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import '../../styles/tailwind.css';
 
-const Block: React.FC<BlockProps> = ( 
+interface NavigatorProps {
+  children: ReactNode;
+  type?: string;
+  col_start?: number;
+  col_end?: number;
+  row_start?: number;
+  row_end?: number;
+  style?: React.CSSProperties;
+  template?: string;
+}
+
+const Navigation: React.FC<NavigatorProps> = ( 
     { 
     children, 
     type,
@@ -11,21 +22,16 @@ const Block: React.FC<BlockProps> = (
     row_start,
     row_end,
     style
-  }: BlockProps) => {
+  }: NavigatorProps) => {
         
         return (
           <>
-            <Container 
-              style={style} 
-              col_end={col_end} 
-              col_start={col_start} 
-              row_start={row_start}
-              row_end={row_end}  
-              type={type}
-              >
-              {children}
-            </Container>
+            <nav>
+                {
+                    children
+                }
+            </nav>            
           </> );
   }
     
-  export default Block;
+  export default Navigation;
