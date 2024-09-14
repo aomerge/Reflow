@@ -21,13 +21,13 @@ const Block: React.FC<ImageProps> = (
     style        
   }: ImageProps) => {
         const ClassContainer = `          
-            ${height && 'h-'+height}
-            ${width && 'w-'+width}
+            ${height && 'h-['+height+']'}
+            ${width && 'w-['+width+']'}
         `;
-        
+
         return (
-            <div>
-                <img src="" alt="" />
+            <div style={style} className={`${ClassContainer}`}>
+                <img  src={src} alt={alt} />
             </div>
         );             
           
