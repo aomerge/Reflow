@@ -1,6 +1,5 @@
 import React, { Children, ReactNode, createContext, useState, ReactElement } from 'react';
 import ReactDOM from 'react-dom';
-import '../../styles/tailwind.css';
 import useFetch from '../../hooks/fetch/useFetch';
 
 interface FetchProps<T> { 
