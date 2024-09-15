@@ -1,21 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-interface FetchProps {     
-    setComponent: React.FC<any>;
+interface FetchProps {  
+    template?: string;  
+    value: string; 
+    onValueChange: React.Dispatch<React.SetStateAction<any>>;
     type?: string; 
   }
 
 const Input : React.FC<FetchProps>  = (
     {
-        setComponent,
+        template,
+        value,
+        onValueChange,
         type
     }
 ) => {
 
     return (
         <div>
-            <input type={type} />
+            <input 
+                value={value}
+                type={type} 
+                onChange={(event) => onValueChange(event.target.value)} 
+            />
         </div>
     )
 

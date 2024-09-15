@@ -19,17 +19,21 @@ interface Post {
 
 
 const ChildComponent: React.FC<ChildProps> = ({ data, loading, error }) => {
+  const [ text, setText ] = useState<string>("");
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!data) return <p>No hay datos disponibles</p>
-
+  
   return (
     <div>
+      <h2>
+        {text}
+      </h2>
       <h1>{data.title}</h1>
       <span>{data.userId}</span>
       <p>{data.body}</p>
-      <Input setComponent={Input} type="" />
+      <Input value={text} onValueChange={setText} type="Text" />
     </div>
   );
 };
