@@ -5,7 +5,7 @@ import '../../styles/tailwind.css';
 
 interface FetchProps {  
     template?: string;  
-    value: string | number; 
+    value?: string | number ; 
     eventKey?: string;
     onValueChange: React.Dispatch<React.SetStateAction<any>>;
     type?: string; 
