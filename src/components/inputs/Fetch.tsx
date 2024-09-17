@@ -31,8 +31,7 @@ export const useFetchData = <T,>(): FetchContextType<T> => {
 
 const FetchContext = createContext<FetchContextType<any> | undefined>(undefined);
 
-const Fetch = <T,>({ url, children, option }: FetchProps<T>): React.JSX.Element => {
-    const [submit, setSubmit] = useState<boolean>(false);
+const Fetch = <T,>({ url, children, option }: FetchProps<T>): React.JSX.Element => {    
 
     if (!option) {
         option = {
@@ -46,6 +45,7 @@ const Fetch = <T,>({ url, children, option }: FetchProps<T>): React.JSX.Element 
 
     const { data, loading, error, reFresh } = useFetch<T>(url, option);
     const [value, setValue] = useState<T | null>(null);        
+    console.log("data",data);
     
     return (
       <FetchContext.Provider value={{ data, loading, error, reFresh }}>
