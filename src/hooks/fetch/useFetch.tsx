@@ -4,6 +4,7 @@ interface FetchState<T> {
   data: T | null;
   loading: boolean;
   error: string | null;
+  reFresh: () => void;
 }
 
 type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
@@ -16,59 +17,66 @@ interface FetchOptions {
 
 const useFetch = <T,>(
   url: string,
-  options?: FetchOptions
+  options?: FetchOptions,  
 ): FetchState<T> => {
 
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  const fetchData = async () => {
 
-    const fetchData = async () => {
+    setLoading(true); 
+    try {
 
-      setLoading(true); 
-      try {
+      const response = await fetch(url, {
+        method: options?.method || 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(options?.headers || {}),
+        },
+        body: options?.body ? JSON.stringify(options.body) : undefined,
+      });
 
-        const response = await fetch(url, {
-          method: options?.method || 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            ...(options?.headers || {}),
-          },
-          body: options?.body ? JSON.stringify(options.body) : undefined,
-        });
-
-        if (!response.ok) {
-          throw new Error(`Error HTTP! estado: ${response.status}`);
-        }
-
-        const contentType = response.headers.get('content-type');
-        let result: T;
-
-        if (contentType && contentType.indexOf('application/json') !== -1) {
-          result = await response.json();
-        } else {
-          result = (await response.text()) as any;
-        }
-
-        setData(result);
-
-      } catch (error) {
-
-        error instanceof Error
-          ? setError(error.message)
-          : setError(String(error));
-          
-      } finally {
-        setLoading(false);
+      if (!response.ok) {
+        throw new Error(`Error HTTP! estado: ${response.status}`);
       }
-    };
 
-    fetchData();
+      const contentType = response.headers.get('content-type');
+      let result: T;
+
+      if (contentType && contentType.indexOf('application/json') !== -1) {
+        result = await response.json();
+      } else {
+        result = (await response.text()) as any;
+      }
+
+      setData(result);
+
+    } catch (error) {
+
+      error instanceof Error
+        ? setError(error.message)
+        : setError(String(error));
+        
+    } finally {
+      setLoading(false);
+    }
+  };    
+  
+  useEffect(() => {    
+
+    if (options?.method === 'GET') {
+      fetchData();
+    } else{
+        setLoading(false);    
+    }
+
+
   }, [url, JSON.stringify(options)]);
 
-  return { data, loading, error };
+
+  return { data, loading, error, reFresh: fetchData };
 };
 
 export default useFetch;
