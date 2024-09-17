@@ -1,11 +1,11 @@
-import React, { Children, ReactNode, createContext, useState, ReactElement } from 'react';
+import React, { Children, ReactNode, useContext,createContext, useState, ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 import useFetch from '../../hooks/fetch/useFetch';
 
 interface FetchProps<T> { 
     children: ReactElement;
-    option: FetchOptions;
-    url: string;    
+    option?: FetchOptions;
+    url: string;        
   }
 
 interface FetchOptions {
@@ -14,10 +14,44 @@ interface FetchOptions {
     body?: any;
 }
 
-const Fetch = <T extends unknown>({ url, children, option }: FetchProps<T>): React.JSX.Element => {
-    const { data, loading, error } = useFetch<T>(url, option);
-  
-    return React.cloneElement(children, { data, loading, error });
+interface FetchContextType<T> {
+    data: T | null;
+    loading: boolean;
+    error: string | null;
+    reFresh: () => void;    
+  }
+
+export const useFetchData = <T,>(): FetchContextType<T> => {
+    const context = useContext(FetchContext);
+    if (context === undefined) {
+      throw new Error('useFetchData must be used within a FetchProvider');
+    }
+    return context;
+};
+
+const FetchContext = createContext<FetchContextType<any> | undefined>(undefined);
+
+const Fetch = <T,>({ url, children, option }: FetchProps<T>): React.JSX.Element => {
+    const [submit, setSubmit] = useState<boolean>(false);
+
+    if (!option) {
+        option = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'GET',
+            body: null
+        };
+    }    
+
+    const { data, loading, error, reFresh } = useFetch<T>(url, option);
+    const [value, setValue] = useState<T | null>(null);        
+    
+    return (
+      <FetchContext.Provider value={{ data, loading, error, reFresh }}>
+        {React.cloneElement(children, { data, loading, error })}
+      </FetchContext.Provider>
+    );    
   };
 
 export default Fetch;
