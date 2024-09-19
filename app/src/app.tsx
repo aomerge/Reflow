@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext, ReactNode } from 'react';
+import React, { useState, createContext, useContext, ReactNode, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Fetch, {useFetchData} from '../../src/components/inputs/Fetch';
 import Input from '../../src/components/inputs/Inputs';
@@ -21,15 +21,14 @@ interface IPost{
 }
 
 
-const ElementTestT = ({ data, loading, error, handleClick , id}: {id:number|String, data: any, loading:any, error: any, handleClick?: any})=>{  
-
+const ElementTestT = ({ setId, data }: any)=>{   
   return (
     <>
     {
       data.results.map((item: any, index: number) => {
       
         return (
-          <div onClick={handleClick} style={{borderRadius:"26px"}}  key={index}>
+        <div onClick={()=>setId(index+1)} style={{borderRadius:"26px"}}  key={index}>
           <h1>{item.name}</h1>
           <img src={item.image} alt={item.name} />
         </div>    
@@ -40,26 +39,39 @@ const ElementTestT = ({ data, loading, error, handleClick , id}: {id:number|Stri
   )
 }
 
-const NewElementT = ({id, rollBack}:{id?:any, rollBack?:any})=>{
+const NewElementT = ({Id ,rollBack}: any) => {      
   return (
-    <Block>
-      <h1>number: {id}</h1>
-      <button onClick={rollBack}>Back</button>
-    </Block>
+    <div>
+      <Fetch url={`https://rickandmortyapi.com/api/character/${Id}`}>
+        <Block>
+          <h1>number: {Id}</h1>                   
+          <button onClick={rollBack}>Back</button>
+        </Block>
+      </Fetch>    
+    </div>    
   );
 };
 
 const ChildComponent: React.FC<ChildProps> = ({ text, setText }) => {
+  const [Id, setId] = useState<number | null>(null);
   const { data, loading, error } = useFetchData<Post>();     
+
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!data) return <p>No hay datos disponibles</p>  
   
   return (
     <Block type='main'>  
-        <Block type='section' newElement={<NewElementT id={text} />}>
-          <ElementTestT id={text} data={data} loading={loading} error={error} />          
-        </Block>            
+      <Block
+        type='section'
+        newElement={
+          Id !== null ? (
+            <NewElementT Id={Id} setId={setId} rollBack={() => setId(null)} />
+          ) : undefined
+        }
+      >
+        <ElementTestT setId={setId} data={data} />
+      </Block>           
     </Block>
   );
 };
@@ -67,17 +79,13 @@ const ChildComponent: React.FC<ChildProps> = ({ text, setText }) => {
 const App = () => {  
   const [data, setData] = useState<Post | null>(null);
   const [ text, setText ] = useState<number>(0);
-  
-
 
   return (
     <Fetch<Post>  url={`${
       text === 0 ? 'https://rickandmortyapi.com/api/character' : `https://rickandmortyapi.com/api/character/${text}`
     }`} >
       <div style={{margin:"150px"}}>        
-        <ChildComponent text={text} setText={setText} />
-        <Input  value={text} onValueChange={setText} type="number"  />   
-        <Submit Text="Send" style={{backgroundColor: 'blue', color: 'white'}} />
+        <ChildComponent text={text} setText={setText} />        
       </div>
     </Fetch>
   );

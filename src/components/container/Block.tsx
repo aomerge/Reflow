@@ -6,36 +6,26 @@ import CSSTransition from '../trancition/CssTrancition';
 type ElementType = keyof JSX.IntrinsicElements;
 
 // Interface
-interface ContainerProps<T extends ElementType> extends HTMLAttributes<void>{
-  col_end?: number,
-  col_start?: number,
-  row_start?: number, 
-  row_end?: number, 
-  children: React.ReactNode;
-  type?: T;
-  style?: React.CSSProperties;
-  newElement?: React.ReactElement
-}
 
-interface BlockProps extends React.HTMLAttributes<HTMLElement> {   
+interface BlockProps {
   children: ReactNode;
-  type?: string;
-  col_start?: number;
-  col_end?: number;
-  row_start?: number;
-  row_end?: number;
+  newElement?: ReactElement<any>;
+  type?: keyof JSX.IntrinsicElements;
   style?: React.CSSProperties;
-  template?: string;     
-
+  className?: string;
+  // Añadimos las props adicionales que se pasarán a los hijos
+  [key: string]: any;
 }
 
 interface BlockContextType {
-  outlet:  ReactNode;
+  outlet: ReactNode;
   setOutlet: any;
+  Id: number | null;
+  setId: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 // Component
-export const BlockContext = createContext<BlockContextType | undefined>({ outlet: null, setOutlet: () => {} });
+export const BlockContext = createContext<BlockContextType | undefined>({ outlet: null, setOutlet: () => {}, Id: null, setId: () => {} });
 
 export const useBlockContext = () => {
   const context = useContext(BlockContext);
@@ -45,7 +35,9 @@ export const useBlockContext = () => {
   return context;
 };
 
-const Block =<T extends ElementType = 'div'> ({   
+let id = 0;
+
+const Block =<T extends ElementType = 'div'> ({     
   newElement,
   col_end,
   col_start,
@@ -54,53 +46,40 @@ const Block =<T extends ElementType = 'div'> ({
   children, 
   type, 
   style, 
-  ...props }: ContainerProps<T>) => {
+  ...props }: BlockProps) => {
 
-    const [outlet, setOutlet] = useState<any>(children);       
-  
-    const handleClick = () => {
-      newElement && setOutlet?
-        setOutlet(React.createElement(newElement.type, { id: 1, rollBack }))        
-      : (console.error('newElement or setOutlet is not available'));
-    };
-
-    const rollBack = () => {
-      setOutlet(children);
-    };      
+    const [outlet, setOutlet] = useState<any>(children);    
+    const [Id, setId] = useState<number | null>(id);         
 
     const ClassContainer = `  
           ${col_start && 'col-start-'+col_start}
           ${col_end && 'col-end-'+col_end}
           ${row_start && 'row-start-'+row_start}
           ${row_end && 'row-end-'+row_end}
-
           `;
   
     const Element = getElementByType(type) as React.ElementType;    
 
   return (
-    <BlockContext.Provider value={{ outlet, setOutlet }}>   
+    <BlockContext.Provider value={{ outlet, setOutlet, Id ,setId }}>   
       <CSSTransition
-        in={!!outlet}
-        timeout={500}
+        in={outlet}
+        timeout={50000}
         classNames="fade"
-        unmountOnExit
+        unmountOnExit={true}
       >
 
-        <Element style={style} className={ClassContainer} {...props}>
-          {outlet ? (
-            <>
-              {Children.map(outlet, (child) => {
-                if (React.isValidElement(child)) {
-                  return React.cloneElement(child as ReactElement<any>, { handleClick, rollBack });
-                }
-                return outlet;
-              })}
-            </>
-          ) : (        
-            { outlet }
-          )}
-        </Element>
+          <Element style={style} className={ClassContainer} {...props}>
+              {newElement
+                ? React.isValidElement(newElement)
+                  ? React.cloneElement(newElement, { ...props })
+                  : newElement
+                : React.Children.map(children, (child) =>
+                    React.isValidElement(child)
+                      ? React.cloneElement(child, { ...props })
+                      : child
+                  )}
+          </Element>
         </CSSTransition>          
     </BlockContext.Provider>
   );
