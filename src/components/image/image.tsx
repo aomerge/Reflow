@@ -26,7 +26,7 @@ const Images: React.FC<ImageProps> = (
         `;
 
         return (
-            <div  style={style} className={`${ClassContainer}`}>
+            <div  style={style} className={`${ClassContainer} rounded-sm`}>
                 <img  src={src} alt={alt} />
             </div>
         );             
