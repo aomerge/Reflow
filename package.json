@@ -1,13 +1,13 @@
 {
   "name": "unix-ui",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
     "build:css": "tailwindcss build src/styles/tailwind.css -o dist/tailwind.css",
     "start:build": "webpack --config app/webpack.config.js --mode development",
-    "start": "webpack-dev-server --config app/webpack.config.js --mode development"
+    "start": "cd app/ && node ../src/utils/build-config.js && cd .. && webpack-dev-server --config ./app/webpack.config.js --mode development "
   },
   "author": "",
   "license": "ISC",
