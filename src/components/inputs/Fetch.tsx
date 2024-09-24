@@ -43,8 +43,7 @@ const Fetch = <T,>({ url, children, option }: FetchProps<T>): React.JSX.Element 
         };
     }    
 
-    const { data, loading, error, reFresh } = useFetch<T>(url, option); 
-    console.log("data",data);            
+    const { data, loading, error, reFresh } = useFetch<T>(url, option);               
     
     return (
       <FetchContext.Provider value={{ data, loading, error, reFresh }}>
