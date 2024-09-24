@@ -2,6 +2,8 @@ import React, { createContext, useContext, HTMLAttributes, useState, Children, R
 import ReactDOM from 'react-dom';
 import '../../styles/tailwind.css';
 import CSSTransition from '../trancition/CssTrancition';
+import { getConfig } from '../../utils/config';
+
 
 type ElementType = keyof JSX.IntrinsicElements;
 
@@ -46,6 +48,7 @@ const Block =<T extends ElementType = 'div'> ({
   children, 
   type, 
   style, 
+  className,
   ...props }: BlockProps) => {
 
     const [outlet, setOutlet] = useState<any>(children);    
@@ -59,6 +62,7 @@ const Block =<T extends ElementType = 'div'> ({
           `;
   
     const Element = getElementByType(type) as React.ElementType;    
+    const Secondary = getConfig().color.primary.toString();
 
   return (
     <BlockContext.Provider value={{ outlet, setOutlet, Id ,setId }}>   
@@ -69,7 +73,7 @@ const Block =<T extends ElementType = 'div'> ({
         unmountOnExit={true}
       >
 
-          <Element style={style} className={ClassContainer} {...props}>
+          <Element style={style} className={` bg-[${Secondary}] ${className}`} {...props}>
               {newElement
                 ? React.isValidElement(newElement)
                   ? React.cloneElement(newElement, { ...props })
