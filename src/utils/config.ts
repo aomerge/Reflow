@@ -1,19 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+// src/utils/config.ts
 
-const configFilePath = path.resolve(process.cwd(), 'tsunix.config.json');
+import userConfig from './config.json';
 
-
-function readConfig() {
-  try {
-    const configFile = fs.readFileSync(configFilePath, 'utf-8');
-    const config = JSON.parse(configFile);
-    console.log('Configuración cargada:', config);
-    return config;
-  } catch (error) {
-    console.error('Error al leer el archivo de configuración:', error);
-    return null;
-  }
+export function getConfig() {
+  return userConfig;
 }
-
-const config = readConfig();

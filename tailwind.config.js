@@ -5,7 +5,7 @@ module.exports = {
         './public/index.html',          // Si usas un HTML en public
       ],
     },
-    darkMode: false, // o 'media' o 'class'
+    darkMode: false,
     theme: {
       extend: {},
     },
