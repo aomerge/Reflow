@@ -2,21 +2,16 @@ import React, { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import '../../styles/tailwind.css';
 
-interface FlexProps {
+interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
     children: ReactNode;
     direction?: string;
     justify?: string;
-    item?: string;
-    col?: boolean;
-    row?: boolean;
+    item?: string;    
     flex_wrap?: string;
-
   }
   
-const Flex: React.FC<FlexProps> = ({ children, col, row, justify, item, flex_wrap, direction }) => {
-    const flexComponent = `
-                    ${col && 'grid-cols-'+col}
-                    ${row && 'grid-row-'+row}
+const Flex = ({ children, justify, item, flex_wrap, direction, ...props }: FlexProps) => {
+    const flexComponent = `                    
                     ${item && 'grid-item-'+item}
                     ${justify && 'justify-'+justify}
                     ${flex_wrap && 'flex-wrap-'+flex_wrap}
@@ -24,7 +19,7 @@ const Flex: React.FC<FlexProps> = ({ children, col, row, justify, item, flex_wra
                 `;
     return (
         <div
-             
+             {...props}
             className={`flex ${flexComponent} `}
         >
             {
