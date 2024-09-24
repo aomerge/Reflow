@@ -1,19 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../../styles/tailwind.css';
+import { getConfig } from '../../utils/config';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
-  style?: React.CSSProperties;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, style }) => {
-    
-    return (
-        <button style={style} className="bg-slate-500 text-white py-2 px-4 m-2  rounded-sm hover:bg-blue-700">
-            {label}
-        </button>
-        );
-    }
+const Button = ({ label, className, ...props }: ButtonProps) => {
+    console.log(getConfig().color.primary.toString());
+    const Primary = getConfig().color.primary.toString();
+  return (
+    <button className={`px-4 py-1 bg-[${Primary}] text-white rounded-sm ${className}`} {...props}>
+      {label}
+    </button>
+  );
+};
 
 export default Button;
