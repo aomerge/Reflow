@@ -1,8 +1,10 @@
 import React, { useState, createContext, useContext, ReactNode, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import Button from '../../src/components/button/button.v1';
 import Fetch, {useFetchData} from '../../src/components/inputs/Fetch';
 import Input from '../../src/components/inputs/Inputs';
 import Submit from '../../src/components/inputs/Submit';
+import Grid from '../../src/components/container/Grid';
 import Block, {BlockContext, useBlockContext} from '../../src/components/container/Block';
 
 
@@ -23,31 +25,44 @@ interface IPost{
 
 const ElementTestT = ({ setId, data }: any)=>{   
   return (
-    <>
+    <Grid col={5} row={0} >
     {
       data.results.map((item: any, index: number) => {
       
         return (
-        <div onClick={()=>setId(index+1)} style={{borderRadius:"26px"}}  key={index}>
+        <Block onClick={()=>setId(index+1)} style={{borderRadius:"26px"}}  key={index}>
           <h1>{item.name}</h1>
           <img src={item.image} alt={item.name} />
-        </div>    
+        </Block>    
         ) 
       })
     }
-    </>
+    </Grid>
   )
 }
 
-const NewElementT = ({Id ,rollBack}: any) => {      
+const NewElement = () => {
+  const { data, loading, error } = useFetchData<any>();  
   return (
     <div>
-      <Fetch url={`https://rickandmortyapi.com/api/character/${Id}`}>
+      <h1>{data?.name}</h1>
+      <img src={data?.image} alt={data?.name} />
+    </div>
+  );
+}
+
+const NewElementT = ({Id ,rollBack}: any) => {    
+  const { data, loading, error } = useFetchData<any>();    
+  return (
+    <div>
         <Block>
-          <h1>number: {Id}</h1>                   
-          <button onClick={rollBack}>Back</button>
+          <Fetch url={`https://rickandmortyapi.com/api/character/${Id}`}>
+            <NewElement  />
+          </Fetch>
+          <Block >
+            <Button className='mt-2' onClick={rollBack} label='Volver' />
+          </Block>
         </Block>
-      </Fetch>    
     </div>    
   );
 };
@@ -84,7 +99,7 @@ const App = () => {
     <Fetch<Post>  url={`${
       text === 0 ? 'https://rickandmortyapi.com/api/character' : `https://rickandmortyapi.com/api/character/${text}`
     }`} >
-      <div style={{margin:"150px"}}>        
+      <div style={{padding:"10px 20px"}}>        
         <ChildComponent text={text} setText={setText} />        
       </div>
     </Fetch>
