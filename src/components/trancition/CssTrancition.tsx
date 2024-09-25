@@ -13,6 +13,7 @@ import React, {
     classNames: string;
     unmountOnExit?: boolean;
     children: React.ReactElement;
+    none?: boolean;
   }
   
   const CSSTransition: React.FC<CustomCSSTransitionProps> = ({
@@ -20,6 +21,7 @@ import React, {
     timeout,
     classNames,
     unmountOnExit = false,
+    none,
     children,
   }) => {
     const [shouldRender, setShouldRender] = useState(inProp);
@@ -52,7 +54,7 @@ import React, {
   }
 
   return React.cloneElement(children, {
-    className: `${children.props.className || ''} ${animationClass}`.trim(),
+    className: `${children.props.className || ''} ${none && animationClass}`.trim(),
   });
 }  
   
