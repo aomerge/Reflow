@@ -1,4 +1,4 @@
-// build-config.js
+// src/utils/build-config.js
 
 const path = require('path');
 const fs = require('fs');
