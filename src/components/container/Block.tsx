@@ -1,5 +1,5 @@
 import React, { createContext, useContext, HTMLAttributes, useState, Children, ReactElement, ReactNode, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import '../../styles/styles.css';
 import '../../styles/tailwind.css';
 import CSSTransition from '../trancition/CssTrancition';
 import { getConfig } from '../../utils/config';
@@ -15,8 +15,12 @@ interface BlockProps {
   type?: keyof JSX.IntrinsicElements;
   style?: React.CSSProperties;
   className?: string;
-  // Añadimos las props adicionales que se pasarán a los hijos
   [key: string]: any;
+  col_start?: number;
+  col_end?: number;
+  row_start?: number;
+  row_end?: number;
+  animationEffect?: boolean;
 }
 
 interface BlockContextType {
@@ -49,6 +53,7 @@ const Block =<T extends ElementType = 'div'> ({
   type, 
   style, 
   className,
+  animationEffect = false,
   ...props }: BlockProps) => {
 
     const [outlet, setOutlet] = useState<any>(children);    
@@ -67,13 +72,14 @@ const Block =<T extends ElementType = 'div'> ({
   return (
     <BlockContext.Provider value={{ outlet, setOutlet, Id ,setId }}>   
       <CSSTransition
-        in={outlet}
+        none={animationEffect}
+        in={true}         
         timeout={50000}
         classNames="fade"
-        unmountOnExit={true}
+        unmountOnExit={false}
       >
 
-          <Element style={style} className={` bg-[${Secondary}] ${className}`} {...props}>
+          <Element style={style} className={` bg-secondary text-primary ${className}`} {...props}>
               {newElement
                 ? React.isValidElement(newElement)
                   ? React.cloneElement(newElement, { ...props })
@@ -84,7 +90,7 @@ const Block =<T extends ElementType = 'div'> ({
                       : child
                   )}
           </Element>
-        </CSSTransition>          
+      </CSSTransition>          
     </BlockContext.Provider>
   );
 }
