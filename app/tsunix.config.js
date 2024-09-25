@@ -5,9 +5,12 @@ module.exports = {
         input: path.resolve(__dirname, 'src/svg'),        
     },
     color : {
-        primary: '#6f98b7',
-        secondary: '#00ff00',
+        primary: '#F2FEE2',
+        secondary: '#000F0F',
         tertiary: '#0000ff'        
+    },
+    template: {
+        input: path.resolve(__dirname, 'src/template'),    
     }
     
 };
