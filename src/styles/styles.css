@@ -1,0 +1,31 @@
+/* src/styles/colors.css */
+:root {
+    --primary: $primary;
+    --secondary: $secondary;
+    --tertiary: $tertiary;
+  }
+  
+.bg-primary {
+   background-color: var(--primary);
+}
+  
+.bg-secondary {
+   background-color: var(--secondary);
+}
+
+.bg-tertiary {
+   background-color: var(--tertiary);
+}
+  
+.text-primary {
+   color: var(--primary);
+}
+  
+.text-secondary {
+   color: var(--secondary);
+}
+
+.text-tertiary {
+   color: var(--tertiary);
+}
+  
