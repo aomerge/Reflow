@@ -79,7 +79,7 @@ const Block =<T extends ElementType = 'div'> ({
         unmountOnExit={false}
       >
 
-          <Element style={style} className={` bg-secondary text-primary ${className}`} {...props}>
+          <Element style={style} className={` bg-black text-white ${className}`} {...props}>
               {newElement
                 ? React.isValidElement(newElement)
                   ? React.cloneElement(newElement, { ...props })
