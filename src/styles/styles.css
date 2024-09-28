@@ -3,6 +3,10 @@
     --primary: $primary;
     --secondary: $secondary;
     --tertiary: $tertiary;
+    --quaternary: $quaternary;
+    --quinary: $quinary;
+    --black: $black;
+    --white: $white;
   }
   
 .bg-primary {
@@ -15,6 +19,23 @@
 
 .bg-tertiary {
    background-color: var(--tertiary);
+}
+
+.bg-quaternary {
+   background-color: var(--quaternary);
+}
+
+.bg-quinary {
+   background-color: var(--quinary);
+}
+
+.bg-black {
+   background-color: var(--black);
+}
+
+
+.bg-white {
+   background-color: var(--white);
 }
   
 .text-primary {
@@ -29,3 +50,18 @@
    color: var(--tertiary);
 }
   
+.text-quaternary {
+   color: var(--quaternary);
+}
+
+.text-quinary {
+   color: var(--quinary);
+}
+
+.text-black {
+   color: var(--black);
+}
+
+.text-white {
+   color: var(--white);
+}
