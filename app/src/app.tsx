@@ -24,20 +24,28 @@ interface IPost{
   image: string;
 }
 
+const Child = ({text, setText}: ChildProps) => {
+  return (
+    <Block type='section' className='mb-5 mr-10'>          
+      <Text label="Fetch Data" type="h1" />
+    </Block>
+  );
+}
+
 const App = () => {  
   const [data, setData] = useState<Post | null>(null);
   const [ text, setText ] = useState<number>(0);
 
   return (
-    <Block type='section' style={{padding:"10px 20px"}}>        
+    <Block className=' h-screen' type='section'>        
         <Navigation template='basic' >
-          <Button  type="button" label="Click Me" />
-          <Button  type="button" label="Click Me" />
-          <Button  type="button" label="Click Me" />
+          <Button  type="button" label="home" />
+          <Button  type="button" label="project" />
+          <Button  type="button" label="About" />
         </Navigation>
-        <div>          
+        <Block type='section' className='mb-5 mr-10'>          
           <Text label="Fetch Data" type="h1" />
-        </div>
+        </Block>
     </Block>
   );
 };
