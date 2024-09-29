@@ -5,7 +5,7 @@ import {INavigatorProps} from '../navigator/INavigation';
 
 const themesConfig = {
   basic:{
-    component: <nav>
+  component: <nav>
       <Button label="Home" />
       <Button label="Projects" />
       <Button label="About" />

@@ -1,10 +1,6 @@
 import React, { useState, createContext, useContext, ReactNode, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Button from '../../src/components/button/button.v1';
-import Fetch, {useFetchData} from '../../src/components/inputs/Fetch';
-import Input from '../../src/components/inputs/Inputs';
-import Submit from '../../src/components/inputs/Submit';
-import Grid from '../../src/components/container/Grid';
 import Text from '../../src/components/text/Text';
 import Block, {BlockContext, useBlockContext} from '../../src/components/container/Block';
 import Navigation from '../../src/components/navigator/Navigation';
@@ -24,10 +20,14 @@ interface IPost{
   image: string;
 }
 
-const Child = ({text, setText}: ChildProps) => {
+const SubElement = ({children, ...props}: any)=>{
   return (
-    <Block type='section' className='mb-5 mr-10'>          
-      <Text label="Fetch Data" type="h1" />
+    <Block style={{background:"transparent", color: "default", gap:"5px", display:"flex"}}>          
+      {
+        React.Children.map(children, (child: any) => {
+          return React.cloneElement(child, { ...props });
+        })
+      } 
     </Block>
   );
 }
@@ -37,12 +37,17 @@ const App = () => {
   const [ text, setText ] = useState<number>(0);
 
   return (
-    <Block className=' h-screen' type='section'>        
-        <Navigation template='basic' >
-          <Button  type="button" label="home" />
-          <Button  type="button" label="project" />
-          <Button  type="button" label="About" />
+    <Block className=' h-screen ' style={{padding:"5px 20px"}} type='section'>              
+        <Navigation>
+          <Text label="Logo" type="h2" />
+          <SubElement >
+            <Button element={<p>hola</p>}  label="Products" />
+            <Button element={<p>hola1</p>}label="services" />
+            <Button label="Pricing" />
+          </SubElement>  
+          <Button element={<p>hola</p>} label="Loging" />      
         </Navigation>
+
         <Block type='section' className='mb-5 mr-10'>          
           <Text label="Fetch Data" type="h1" />
         </Block>

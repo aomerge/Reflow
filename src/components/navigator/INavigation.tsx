@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import themesConfig from "../templates/themesConfig";
 
 
@@ -11,4 +11,5 @@ export interface INavigatorProps extends React.HTMLAttributes<HTMLElement> {
     style?: React.CSSProperties;
     template?: keyof typeof themesConfig;
     Url?: string;
+    onSubElement?: React.ReactElement
   }
