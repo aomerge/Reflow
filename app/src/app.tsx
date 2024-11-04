@@ -5,6 +5,7 @@ import Text from '../../src/components/text/Text';
 import Block, {BlockContext, useBlockContext} from '../../src/components/container/Block';
 import Navigation from '../../src/components/navigator/Navigation';
 import Scroll from '../../src/components/container/Scroll';
+import SkeletonLoader from '../../src/components/loaders/loader';
 
 
 interface ChildProps {  
@@ -63,9 +64,19 @@ const App = () => {
           <div data-scroll-index={3} style={{background:"green", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
           <div data-scroll-index={3} style={{background:"blue", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
         </Scroll>
+        <ProfileSkeleton />
     </Block>
   );
 };
+const ProfileSkeleton = () => (
+  <SkeletonLoader width="600" height="160" viewBox="0 0 600 160">
+    <circle cx="60" cy="60" r="50" />
+    <rect x="130" y="15" rx="4" ry="4" width="250" height="13" />
+    <rect x="130" y="35" rx="4" ry="4" width="200" height="13" />
+    <rect x="130" y="55" rx="4" ry="4" width="300" height="13" />
+    <rect x="130" y="75" rx="4" ry="4" width="250" height="13" />    
+  </SkeletonLoader>
+);
 
 export default App;
 
