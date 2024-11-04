@@ -4,6 +4,7 @@ import Button from '../../src/components/button/button.v1';
 import Text from '../../src/components/text/Text';
 import Block, {BlockContext, useBlockContext} from '../../src/components/container/Block';
 import Navigation from '../../src/components/navigator/Navigation';
+import Scroll from '../../src/components/container/Scroll';
 
 
 interface ChildProps {  
@@ -48,9 +49,20 @@ const App = () => {
           <Button element={<p>hola</p>} label="Loging" />      
         </Navigation>
 
-        <Block type='section' className='mb-5 mr-10'>          
-          <Text label="Fetch Data" type="h1" />
-        </Block>
+        <Scroll 
+          scrollStep={500}
+          startIndex={0}
+          scrollDirections={['vertical']}
+          className='mt-10'
+          style={{margin:"40px 0px 0px 0px", width:"500px", height:"500px", background:"gray"}}
+        >          
+          <div style={{background:"red", height:"500px", width:"500px", margin:"0px 0px 0px 0"}}>1</div>
+          <div style={{background:"blue", height:"500px", width:"500px", margin:"0px 0px"}}>2</div>
+          <div style={{background:"red", height:"500px", width:"500px", margin:"0px 0px"}}> 3</div>
+          <div style={{background:"blue", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
+          <div data-scroll-index={3} style={{background:"green", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
+          <div data-scroll-index={3} style={{background:"blue", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
+        </Scroll>
     </Block>
   );
 };

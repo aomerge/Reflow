@@ -66,3 +66,39 @@
    color: var(--white);
 }
 
+/* Ocultar barra de desplazamiento en navegadores modernos */
+.scroll-container {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.scroll-container::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+/* Ejemplo de estilos adicionales */
+.scroll-snap-item {   
+   transition: transform 0.3s;
+ }
+ 
+ .scroll-snap-item:hover {   
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ }
+
+
+/* keyframes */
+
+@keyframes fadeIn {
+   from {
+     opacity: 0;
+   }
+   to {
+     opacity: 1;
+   }
+ }
+
+/* Kayframes class */
+.fade-in {
+   animation: fadeIn 0.5s ease-in-out;
+ }
+ 
+
