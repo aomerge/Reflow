@@ -315,3 +315,480 @@
     justify-content: space-between ;
     padding: 10px 30px 40px 30px ;
 }
+.card-img-col-primary:hover {
+    transform: scale(1.05) ;
+}   
+.card-img-col-secondary{
+    display: flex ;
+    flex-direction: column ;    
+    border-radius: 10px ;
+    background-color: var(--secondary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+    width: 300px;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;
+    overflow: hidden ;
+}
+.card-img-col-secondary section{
+    display: flex ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    padding: 10px 30px 40px 30px ;
+}
+.card-img-col-secondary:hover {
+    transform: scale(1.05) ;
+}
+.card-img-col-tertiary{
+    display: flex ;
+    flex-direction: column ;    
+    border-radius: 10px ;
+    background-color: var(--tertiary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+    width: 300px;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;
+    overflow: hidden ;
+}
+.card-img-col-tertiary section{
+    display: flex ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    padding: 10px 30px 40px 30px ;
+}
+.card-img-col-tertiary:hover {
+    transform: scale(1.05) ;
+}
+.card-img-col-quaternary{
+    display: flex ;
+    flex-direction: column ;    
+    border-radius: 10px ;
+    background-color: var(--quaternary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+    width: 300px;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;
+    overflow: hidden ;
+}
+.card-img-col-quaternary section{
+    display: flex ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    padding: 10px 30px 40px 30px ;
+}
+.card-img-col-quaternary:hover {
+    transform: scale(1.05) ;
+}
+.card-img-col-quinary{
+    display: flex ;
+    flex-direction: column ;    
+    border-radius: 10px ;
+    background-color: var(--quinary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+    width: 300px;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;
+    overflow: hidden ;
+}
+.card-img-col-quinary section{
+    display: flex ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    padding: 10px 30px 40px 30px ;
+}
+.card-img-col-quinary:hover {
+    transform: scale(1.05) ;
+}
+.card-img-col-black{
+    display: flex ;
+    flex-direction: column ;    
+    border-radius: 10px ;
+    background-color: var(--black) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+    width: 300px;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;
+    overflow: hidden ;
+}
+.card-img-col-black section{
+    display: flex ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    padding: 10px 30px 40px 30px ;
+}
+.card-img-col-black:hover {
+    transform: scale(1.05) ;
+}
+.card-img-col-white{
+    display: flex ;
+    flex-direction: column ;    
+    border-radius: 10px ;
+    background-color: var(--white) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+    width: 300px;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;
+    overflow: hidden ;
+}
+.card-img-col-white section{
+    display: flex ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    padding: 10px 30px 40px 30px ;
+}
+.card-img-col-white:hover {
+    transform: scale(1.05) ;
+}
+
+/*Custom- element*/
+.card-custom-row-primary{
+    display: flex ;
+    flex-direction: row ;
+    gap: 40px ;
+    border-radius: 10px ;
+    background-color: var(--primary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;    
+    width: 100%;
+    height: 300px ;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;    
+}
+.card-custom-row-secondary{
+    display: flex ;
+    flex-direction: row ;
+    gap: 40px ;
+    border-radius: 10px ;
+    background-color: var(--secondary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;    
+    width: 100%;
+    height: 300px ;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;    
+}
+.card-custom-row-tertiary{
+    display: flex ;
+    flex-direction: row ;
+    gap: 40px ;
+    border-radius: 10px ;
+    background-color: var(--tertiary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;    
+    width: 100%;
+    height: 300px ;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;    
+}
+.card-custom-row-quaternary{
+    display: flex ;
+    flex-direction: row ;
+    gap: 40px ;
+    border-radius: 10px ;
+    background-color: var(--quaternary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;    
+    width: 100%;
+    height: 300px ;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;    
+}
+.card-custom-row-quinary{
+    display: flex ;
+    flex-direction: row ;
+    gap: 40px ;
+    border-radius: 10px ;
+    background-color: var(--quinary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;    
+    width: 100%;
+    height: 300px ;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;    
+}
+.card-custom-row-black{
+    display: flex ;
+    flex-direction: row ;
+    gap: 40px ;
+    border-radius: 10px ;
+    background-color: var(--black) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;    
+    width: 100%;
+    height: 300px ;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;
+    
+}
+.card-custom-row-white{
+    display: flex ;
+    flex-direction: row ;
+    gap: 40px ;
+    border-radius: 10px ;
+    background-color: var(--white) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;    
+    width: 100%;
+    height: 300px ;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;    
+}
+
+/* Definición de la animación */
+@keyframes hero-gradient-animation {
+    0% {
+        --x-0: 90%;
+        --x-1: 0%;
+        --y-0: 0%;
+        --y-1: 93%;        
+        --s-start-0: -17%;            
+        --s-start-1: -10%;
+        --s-end-0: 50%;    
+        --s-end-1: 40%;
+        --c-0: var(--quinary);
+        --c-1: var(--quinary);                
+    }    
+    25% {
+        --x-0: 97%;
+        --x-1: 2%;
+        --y-0: 84%;
+        --y-1: 0%;                                            
+    }
+    50%{
+        --x-0: 0%;
+        --x-1: 90%;
+        --y-0: 93%;
+        --y-1: 0%;
+    }
+    75% {
+        --x-0: 0%;
+        --x-1: 90%;
+        --y-0: 0%;
+        --y-1: 93%;                            
+    }
+    100%{
+        --x-0: 90%;
+        --x-1: 0%;
+        --y-0: 0%;
+        --y-1: 93%;    
+        --s-start-0: -17%;            
+        --s-start-1: -10%;
+        --s-end-0: 50%;    
+        --s-end-1: 40%;
+        --c-0: var(--quinary);
+        --c-1: var(--quinary);       
+    }
+}
+
+/* Clase actualizada con degradado animado utilizando variables */
+.card-custom-row-gradient-two {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    border-radius: 10px;
+    background-color: var(--dark);
+    background-image:
+        radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0),
+        transparent var(--s-end-0)),
+        radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1),
+        transparent var(--s-end-1));
+    animation: hero-gradient-animation 10s ease-out infinite;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 300px;    
+}
+
+.card-custom-row-gradient{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 300px;
+    background-color: var(--black);
+    background-image: 
+     radial-gradient(circle at 0% 99%, var(--quinary) 0%, 
+     transparent 40%),
+     radial-gradient(circle at 50% 0%, var(--quaternary) -90%, 
+     transparent 85%),      
+     radial-gradient(circle at 99% 80%, var(--quinary) 0%, 
+     transparent 40%);
+    background-blend-mode: normal, normal, normal, normal;
+    filter:url("./grain.svg");
+}
+
+@property --c-0 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(266.99999999999983, 1%, 12%, 1)
+}
+
+@property --y-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 80%
+}
+
+@property --x-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 85%
+}
+
+@property --s-start-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 9%
+}
+
+@property --s-end-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 55%
+}
+
+@property --y-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 24%
+}
+
+@property --x-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 60%
+}
+
+@property --s-start-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 5%
+}
+
+@property --s-end-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 72%
+}
+
+@property --c-1 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(335.9999999999997, 2%, 22%, 1)
+}
+
+@property --x-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 13%
+}
+
+@property --s-start-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 5%
+}
+
+@property --s-end-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 52%
+}
+
+@property --c-2 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(53.999999999999886, 0%, 0%, 0.49)
+}
+
+@property --y-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 82%
+}
+
+@property --x-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 24%
+}
+
+@property --c-3 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(299, 4%, 36%, 1)
+}
+
+@property --s-start-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 13%
+}
+
+@property --s-end-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 68%
+}
+
+@property --y-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 7%
+}
+
+/*Glass*/
+.card-glass{
+    display: flex ;
+    flex-direction: column ;
+    justify-content: space-between ;
+    border-radius: 10px ;
+    background-color: var(--primary) ; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+    padding: 20px ;
+    margin: 20px ;
+    width: 300px ;
+    height: 300px ;
+    transition: transform 0.3s ;    border-radius: 10px ;
+    background-color: rgba(255, 255, 255, 0.105);
+    backdrop-filter: blur(50px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-img-col-glass{
+    display: flex ;
+    flex-direction: column ;    
+    border-radius: 10px ;
+    background-color: var(--primary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+    width: 300px;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;
+    overflow: hidden ;
+    background-color: rgba(255, 255, 255, 0.105);
+    backdrop-filter: blur(50px);
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+       
+}
+
+.card-img-row-glass{
+    display: flex ;
+    flex-direction: row ;
+    gap: 40px ;
+    border-radius: 10px ;
+    background-color: var(--primary) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;    
+    width: 100%;
+    height: 300px ;
+    transition: transform 0.3s ;    
+    border-radius: 10px ;    
+    background-color: rgba(255, 255, 255, 0.105);
+    backdrop-filter: blur(50px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-custom-row-glass{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.105);
+    backdrop-filter: blur(50px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
