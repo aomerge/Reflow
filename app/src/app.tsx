@@ -6,6 +6,7 @@ import Block, {BlockContext, useBlockContext} from '../../src/components/contain
 import Navigation from '../../src/components/navigator/Navigation';
 import Scroll from '../../src/components/container/Scroll';
 import SkeletonLoader from '../../src/components/loaders/loader';
+import Card from '../../src/components/card/card';
 
 
 interface ChildProps {  
@@ -41,7 +42,7 @@ const App = () => {
   return (
     <Block className=' h-screen ' style={{padding:"5px 20px"}} type='section'>              
         <Navigation>
-          <Text label="Logo" type="h2" />
+          <Text label="Logo" type="h1" />
           <SubElement >
             <Button element={<p>hola</p>}  label="Products" />
             <Button element={<p>hola1</p>}label="services" />
@@ -49,6 +50,9 @@ const App = () => {
           </SubElement>  
           <Button element={<p>hola</p>} label="Loging" />      
         </Navigation>
+
+        <Card title="Card Title" content="Card Content" />
+        <Card title="Card Title" content="Card Content" template="img-row-primary" img="https://via.placeholder.com/150" />
 
         <Scroll 
           scrollStep={500}
@@ -65,7 +69,7 @@ const App = () => {
           <div data-scroll-index={3} style={{background:"blue", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
         </Scroll>
         <ProfileSkeleton />
-    </Block>
+          </Block>
   );
 };
 const ProfileSkeleton = () => (
