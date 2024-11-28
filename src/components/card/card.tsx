@@ -12,8 +12,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, content, template, ...props}) => {    
-    const [action, direction , color ] = template ? template.split('-') : [null, null, null];
-    console.log(action, direction, color);
+    const [action, direction , color ] = template ? template.split('-') : [null, null, null];    
     return (        
         <div style={props.Style} className={`${template ? `card${"-" + template}` : "card"} ${props.className}`}>            
             {action === 'custom' && props.children}                   
