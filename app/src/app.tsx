@@ -7,6 +7,13 @@ import Navigation from '../../src/components/navigator/Navigation';
 import Scroll from '../../src/components/container/Scroll';
 import SkeletonLoader from '../../src/components/loaders/loader';
 import Card from '../../src/components/card/card';
+import SubNavigator from '../../src/components/navigator/SubNavigator';
+import Breadcrumb from '../../src/components/breadcrumb/breadcrumb';
+import {useStorage} from '../../src/hooks/localhost/storage';
+import { useCookies } from '../../src/hooks/localhost/cookies';
+import { useSession } from '../../src/hooks/localhost/session';
+import { useCache } from '../../src/hooks/localhost/cache';
+import { Icon } from '../../src/components/svg/icon';
 
 
 interface ChildProps {  
@@ -23,15 +30,14 @@ interface IPost{
   image: string;
 }
 
-const SubElement = ({children, ...props}: any)=>{
+const SubElement = ({...props})=>{
+  console.log("hola");
   return (
-    <Block style={{background:"transparent", color: "default", gap:"5px", display:"flex"}}>          
-      {
-        React.Children.map(children, (child: any) => {
-          return React.cloneElement(child, { ...props });
-        })
-      } 
-    </Block>
+    <SubNavigator >
+      <Button label="Products" />
+      <Button label="services" />
+      <Button label="Pricing" />
+    </SubNavigator>
   );
 }
 
@@ -39,22 +45,60 @@ const App = () => {
   const [data, setData] = useState<Post | null>(null);
   const [ text, setText ] = useState<number>(0);
 
+  const { value, performAction } = useStorage<string>('mykey');  
+
+  const { cookies,setCookie, getCookie, deleteCookie} = useCookies();
+  const { setItem, getItem, sessionData, deleteItem } = useSession();
+  const { create: createImageCache } = useCache();
+
+  setCookie('user', 'John Doe', 1, {
+    secure: false,
+    httpOnly: false,
+    sameSite: 'strict',
+  });   
+
+  useEffect(() => {
+    const storeImage = async () => {
+        const response = await fetch('');
+        if (response.ok) {
+            await createImageCache('/images/sample', response);
+        }
+        console.log("hola", response);
+    };
+    storeImage();
+  }, []);
+
+  const guardarNombre = () => {
+    setItem('nombreUsuario', 'Jane Doe');
+  };
+  //deleteItem('sessionUser');
+
+  //deleteCookie('user');
+    
+  //getCookie('user');
+
+  //performAction('search');
+  //console.log("hola", cookies);
+  //console.log("hola", value);  
+
   return (
     <Block className=' h-screen ' style={{padding:"5px 20px"}} type='section'>              
-        <Navigation>
-          <Text label="Logo" type="h1" />
-          <SubElement >
-            <Button element={<p>hola</p>}  label="Products" />
-            <Button element={<p>hola1</p>}label="services" />
-            <Button label="Pricing" />
-          </SubElement>  
+        <Navigation template='black'>
+          <Block>
+            <img src="https://media.flaticon.com/dist/min/img/logos/flaticon-color-negative.svg" title="Logo de Flaticon" width="147" height="22" className="block" alt="Flaticon logo"></img>
+          </Block>
+          <Block className='trasnparent'>
+            {/* <Button element={<SubElement />}  label="Home" template='trasparent-down'/>           */}
+            <Button element={<p>hola</p>} label="Loging" />      
+          </Block>
+          {/* <Button element={<SubElement />}  label="Home" template='trasparent-down'/>           */}
           <Button element={<p>hola</p>} label="Loging" />      
         </Navigation>
+        {/* <Button label="Click me" onClick={()=>setText(text + 1)} template='black' /> */}
+        <Icon icon="hogar" color='white' />         
+        
 
-        <Card title="Card Title" content="Card Content" />
-        <Card title="Card Title" content="Card Content" template="img-row-primary" img="https://via.placeholder.com/150" />
-
-        <Scroll 
+        {/* <Scroll 
           scrollStep={500}
           startIndex={0}
           scrollDirections={['vertical']}
@@ -68,8 +112,8 @@ const App = () => {
           <div data-scroll-index={3} style={{background:"green", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
           <div data-scroll-index={3} style={{background:"blue", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
         </Scroll>
-        <ProfileSkeleton />
-          </Block>
+        <ProfileSkeleton /> */}
+        </Block>
   );
 };
 const ProfileSkeleton = () => (

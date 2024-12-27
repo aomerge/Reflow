@@ -2,7 +2,8 @@ const path = require('path');
 
 module.exports = {
   entry:{
-    app: './app/src/app.tsx'
+    app: './app/src/app.tsx',
+    grid: './app/src/pages/components/grid/AppGrid.tsx',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),  
@@ -12,12 +13,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|svg)$/,
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.(png)$/,
         type: 'asset/resource'
       },
       {
         test: /\.css$/,  // Para archivos CSS
         use: ['style-loader', 'css-loader', 'postcss-loader'],  
+        exclude: /node_modules/,
       },
       {
         test: /\.(js|jsx)$/,  
