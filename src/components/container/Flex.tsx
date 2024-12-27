@@ -1,32 +1,29 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import ReactDOM from 'react-dom';
 import '../../styles/tailwind.css';
+import { FlexProps, OptionTemplate } from './interfaces/IContainer';
 
-interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
-    children: ReactNode;
-    direction?: string;
-    justify?: string;
-    item?: string;    
-    flex_wrap?: string;
-  }
-  
-const Flex = ({ children, justify, item, flex_wrap, direction, ...props }: FlexProps) => {
-    const flexComponent = `                    
-                    ${item && 'grid-item-'+item}
-                    ${justify && 'justify-'+justify}
-                    ${flex_wrap && 'flex-wrap-'+flex_wrap}
-                    ${direction && 'flex-'+direction}
-                `;
+/**
+ * Flex component to create a flexible container with various layout options.
+ *
+ * @param props - The properties for the Flex component.
+ * @returns {JSX.Element} The rendered Flex container.
+ */
+const Flex = ({ children, template, width ,...props }: FlexProps): JSX.Element => {    
+    if (template && !Object.values<OptionTemplate>(OptionTemplate).includes(template)) {
+        throw new Error(`Template "${template}" is not a valid option.`);
+    }
+
     return (
         <div
-             {...props}
-            className={`flex ${flexComponent} `}
+            style={{ width: width ? `${width}%` : 'auto' }}         
+            id='flex'
+            {...props}
+            className={`flex ${template ? `flex-${template}` : ''}`}
         >
-            {
-               children
-            }
+            {children}
         </div>
     );
-}
-    
+};
+
 export default Flex;

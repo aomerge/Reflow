@@ -1,25 +1,14 @@
 import React, { ReactNode } from 'react';
 import '../../styles/tailwind.css';
-
-interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
-    children?: ReactNode;
-    item?: string;
-    justify?: string;
-    col: number;
-    row: number;    
-  }
+import '../../styles/styles.css';
+import './container.css';
+import { GridProps } from './interfaces/IContainer';
   
-const Grid = ({ children, col , row, item, justify, style, className,...props }: GridProps) => {
-    console.log(col);
-    const gridComponent = `
-                        ${col && `grid-cols-${col.toString()}`}
-                        ${row && 'grid-row-'+row}
-                        ${item && 'grid-item-'+item}
-                        ${justify && 'justify-'+justify}
-                        `;
+const Grid = ({ children, template ,col , row, item, className,...props }: GridProps) => {
+    console.log('GridProps', template);
         
     return (
-        <div style={style} className={` grid grid-cols-${col.toString()} ${className}`} {...props}>
+        <div id='grid' className={`grid-cols-${col} grid-row-${row} ${className} ${template ? `grid-${template}` : 'grid'}`} {...props}>
             {
                children
             }
