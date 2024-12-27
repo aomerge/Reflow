@@ -1,19 +1,21 @@
-import React, { createContext, useContext, useState, ReactElement, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,  
+  PropsWithChildren,
+  memo,
+  useMemo
+} from 'react';
+
 import '../../styles/styles.css'; // vars of tailwind
 import '../../styles/tailwind.css';
 import CSSTransition from '../trancition/CssTrancition';
 import { getConfig } from '../../utils/config';
 import { ElementType, BlockProps, BlockContextType } from "./interfaces/IContainer";
 
-
-
-// Create context with default values
-export const BlockContext = createContext<BlockContextType | undefined>({
-  outlet: null,
-  setOutlet: () => {},
-  Id: null,
-  setId: () => {},
-});
+// Create context with undefined as the default value
+export const BlockContext = createContext<BlockContextType | undefined>(undefined);
 
 // Custom hook to use Block context
 export const useBlockContext = () => {
@@ -24,61 +26,68 @@ export const useBlockContext = () => {
   return context;
 };
 
-let id = 0;
+let globalId = 0;
 
 // Block component
-const Block = <T extends ElementType = 'div'>({
+const Block = memo(<T extends ElementType = 'div'>({
   newElement,
-  col_end,
   col_start,
+  col_end,
   row_start,
   row_end,
   children,
-  type = 'div',
+  type = 'div' as T,
   style,
-  className,
+  className = '',
   animationEffect = false,
   ...props
-}: BlockProps) => {
+}: PropsWithChildren<BlockProps<T>>) => {
   const [outlet, setOutlet] = useState<ReactNode>(children);
-  const [Id, setId] = useState<number | null>(id);
+  const [id, setId] = useState<number | null>(() => globalId++);
 
-  const classContainer = `
-    ${col_start ? 'col-start-' + col_start : ''}
-    ${col_end ? 'col-end-' + col_end : ''}
-    ${row_start ? 'row-start-' + row_start : ''}
-    ${row_end ? 'row-end-' + row_end : ''}
-  `;
+  // Use template literals more effectively for class concatenation
+  const classContainer = [
+    col_start && `col-start-${col_start}`,
+    col_end && `col-end-${col_end}`,
+    row_start && `row-start-${row_start}`,
+    row_end && `row-end-${row_end}`,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-  const Element = getElementByType(type) as React.ElementType;
+  // Get element type dynamically
+  const Element = useMemo(() => getElementByType(type), [type]);
+  const renderedChildren = useMemo(
+    () =>
+      newElement
+        ? React.isValidElement(newElement)
+          ? React.cloneElement(newElement, { ...props })
+          : newElement
+        : React.Children.map(children, (child) =>
+            React.isValidElement(child) ? React.cloneElement(child, { ...props }) : child
+          ),
+    [newElement, children, props]
+  );
 
   return (
-    <BlockContext.Provider value={{ outlet, setOutlet, Id, setId }}>
+    <BlockContext.Provider value={{ outlet, setOutlet, id, setId }}>
       <CSSTransition
-        none={animationEffect}
-        in={true}
+        in={animationEffect}
         timeout={50000}
         classNames="fade"
         unmountOnExit={false}
       >
-        <Element id="Block" style={style} className={` text-white ${className}`} {...props}>
-          {newElement
-            ? React.isValidElement(newElement)
-              ? React.cloneElement(newElement, { ...props })
-              : newElement
-            : React.Children.map(children, (child) =>
-                React.isValidElement(child)
-                  ? React.cloneElement(child, { ...props })
-                  : child
-              )}
+        <Element id={`Block-${id}`} style={style} className={`text-white ${classContainer}`} {...(props as any)}>
+          {renderedChildren}
         </Element>
       </CSSTransition>
-    </BlockContext.Provider>
+  </BlockContext.Provider>
   );
-};
+});
 
 // Helper function to get element by type
-function getElementByType<T extends ElementType>(type?: T): T {
+function getElementByType<T extends ElementType>(type: T): React.ElementType {
   const elements: Record<string, ElementType> = {
     block: 'div',
     section: 'section',
@@ -87,7 +96,7 @@ function getElementByType<T extends ElementType>(type?: T): T {
     footer: 'footer',
     main: 'main',
   };
-  return (elements[type as string] || 'div') as T;
+  return elements[type as string] || 'div';
 }
-  
+
 export default Block;
