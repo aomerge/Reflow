@@ -1,13 +1,18 @@
 import React from 'react';
+import {TextProps, ElementType} from './interfaces/IText';
 import '../../styles/tailwind.css';
 
-type ElementType = keyof JSX.IntrinsicElements;
 
-interface TextProps {
-  label: string;
-  type: ElementType;
-}
 
+/**
+ * Text component that renders different HTML elements based on the provided type.
+ *
+ * @param {TextProps} props - The properties for the Text component.
+ * @param {string} props.label - The text content to be displayed.
+ * @param {ElementType} props.type - The type of HTML element to render (e.g., 'h1', 'h2', 'h3', 'span', 'p').
+ *
+ * @returns {JSX.Element} The rendered HTML element with the appropriate styles.
+ */
 const Text: React.FC<TextProps> = ({ label, type }) => {
 
   const getElementClassName = (type: ElementType): string => {
