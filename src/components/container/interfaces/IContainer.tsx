@@ -21,43 +21,24 @@ export type ElementType = keyof JSX.IntrinsicElements;
  * @property {boolean} [animationEffect] - Optional flag to enable or disable animation effects.
  * @property {any} [key: string] - Additional properties that can be added dynamically.
  */
-export interface BlockProps {
-  children: ReactNode;
-  newElement?: ReactElement<any>;
-  type?: ElementType;
-  style?: React.CSSProperties;
-  className?: string;
+export interface BlockProps<T extends ElementType = 'div'> extends React.HTMLAttributes<T> {
+  newElement?: ReactNode;
   col_start?: number;
   col_end?: number;
   row_start?: number;
   row_end?: number;
+  type?: T;
   animationEffect?: boolean;
-  [key: string]: any;
 }
 
 /**
  * Interface representing the context type for a block component.
  */
 export interface BlockContextType {
-    /**
-     * The current outlet node.
-     */
-    outlet: ReactNode;
-
-    /**
-     * Function to set the outlet node.
-     */
-    setOutlet: React.Dispatch<React.SetStateAction<ReactNode>>;
-
-    /**
-     * The current ID, which can be a number or null.
-     */
-    Id: number | null;
-
-    /**
-     * Function to set the ID.
-     */
-    setId: React.Dispatch<React.SetStateAction<number | null>>;
+  outlet: ReactNode;
+  setOutlet: React.Dispatch<React.SetStateAction<ReactNode>>;
+  id: number | null;
+  setId: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 /**
