@@ -10,6 +10,18 @@ interface ListTableProps {
     items: ListItem[];
 }
 
+/**
+ * ListTable component renders a table displaying a list of items.
+ *
+ * @component
+ * @param {ListTableProps} props - The props for the ListTable component.
+ * @param {Array} props.items - The array of items to be displayed in the table.
+ * @param {number} props.items[].id - The unique identifier for each item.
+ * @param {string} props.items[].name - The name of each item.
+ * @param {string} props.items[].value - The value of each item.
+ *
+ * @returns {JSX.Element} A table element displaying the list of items.
+ */
 const ListTable: React.FC<ListTableProps> = ({ items }) => {
     return (
         <table>
