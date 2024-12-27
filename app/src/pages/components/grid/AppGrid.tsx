@@ -40,7 +40,7 @@ const App = () => {
                 </Block>
             </Flex>
         </Block>
-        <Block className='bg-gray-200'>
+        <Block >
             <Block>
                 <Text label='Documentation' type='h2' />
             </Block>
