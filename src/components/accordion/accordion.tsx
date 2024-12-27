@@ -24,3 +24,20 @@ const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
 };
 
 export default Accordion;
+
+// Example usage of Accordion component
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import Accordion from './accordion';
+
+// const App: React.FC = () => {
+//     return (
+//         <div>
+//             <Accordion title="Section 1" content="Content for section 1" />
+//             <Accordion title="Section 2" content="Content for section 2" />
+//             <Accordion title="Section 3" content="Content for section 3" />
+//         </div>
+//     );
+// };
+
+// ReactDOM.render(<App />, document.getElementById('root'));
