@@ -11,7 +11,7 @@ export const Dropdown = dropwn;
 
 const iconosDisponibles = getConfig().svg.output;
 
-const Button: React.FC<ButtonProps> = ({ label, template, icon,...props }) => {
+const Button: React.FC<ButtonProps> = ({ label, template, icon, ...props }) => {
   const [action, direction, color] = template ? template.split('-') : [null, null, null];  
   
   return (
@@ -19,9 +19,11 @@ const Button: React.FC<ButtonProps> = ({ label, template, icon,...props }) => {
       <button
         id='button'
         className={`button ${template ? `button-${template}` : ''} ${props.className}`}
+        aria-label={label}
+        aria-pressed={props['aria-pressed']}
         {...props}
       > 
-        {action === 'icon'  && <Icon icon={`${icon}`} size={15} /> }
+        {action === 'icon'  && <Icon icon={`${icon}`} size={20} aria-hidden="true" /> }
         {action === 'custom' && props.children}
         {action !== 'custom' && label}        
       </button>
