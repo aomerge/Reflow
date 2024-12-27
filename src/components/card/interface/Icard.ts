@@ -6,4 +6,5 @@ export interface CardProps {
     className?: string;
     Style?: React.CSSProperties;
     children?: React.ReactNode;
+    button?: string;
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import './card.css';
 import { CardProps } from './interface/Icard';
+import Button from '../button/button.v1';
+import { ButtonTemplate } from '../button/Interface/Ibutton';
 
 /**
  * Card component that displays content based on the provided template.
@@ -16,10 +18,10 @@ import { CardProps } from './interface/Icard';
  *
  * @returns {JSX.Element} The rendered Card component.
  */
-const Card: React.FC<CardProps> = ({ title, content, template, ...props}) => {    
+const Card: React.FC<CardProps> = ({ button, title, content, template, ...props}) => {    
     const [action, direction , color ] = template ? template.split('-') : [null, null, null];    
     return (        
-        <div id="card" style={props.Style} className={`${template ? `card${"-" + template}` : "card"} ${props.className}`}>            
+        <div id="card" style={props.Style} className={`card ${template ? `card${"-" + template}` : "card"} ${props.className}`}>            
             {action === 'custom' && props.children}                   
             {
             action === 'img' && 
@@ -41,9 +43,11 @@ const Card: React.FC<CardProps> = ({ title, content, template, ...props}) => {
             {
                 action === 'button' && 
                 <>
-                    <h2 className="card-title">{title}</h2>
-                    <p className="card-content">{content}</p>
-                    <button className={`button ${template ? `button-${template}` : ''}`} {...props}>Ver más</button>
+                    <div>
+                        <h2 className="card-title">{title}</h2>
+                        <p className="card-content">{content}</p>
+                    </div>
+                    <Button label={`${button ?button:'Ver mas'}`} icon='arrow-xs-rigth' template={ButtonTemplate.Icon_Affter} />
                 </>
             }
         </div>
