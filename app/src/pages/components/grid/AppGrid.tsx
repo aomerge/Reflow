@@ -13,10 +13,11 @@ import { OptionTemplate as tem} from '../../../../../src/components/container/in
 import { ButtonTemplate as btnTempleate } from '../../../../../src/components/button/Interface/Ibutton';
 
 
+
 const App = () => {  
   return (
     <Grid template='Dashboard-Sidevar-not-footer'>
-        <Block className='bg-gray-200' colSpan={1}>            
+        <Block className='bg-gray-200' >            
             <Flex template={tem.Between} >
                 <Flex width={40} template={tem.Between}>
                     <Block>
@@ -39,11 +40,15 @@ const App = () => {
                 </Block>
             </Flex>
         </Block>
-        <Block className='bg-gray-200' colSpan={3}>
-            <Text label='Slider Var' type='h2' />
-            <Button label='Click me!' />
+        <Block className='bg-gray-200'>
+            <Block>
+                <Text label='Documentation' type='h2' />
+            </Block>
+            <Block>
+                <Text label='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' type='p' />
+            </Block>            
         </Block>
-        <Block className='bg' colSpan={2}>
+        <Block className='bg' >
             <Card className='head' template="custom-row-quinary" >
                 <Block>
                     <Text label='Welcome to the docs' type='h2' />
@@ -58,7 +63,7 @@ const App = () => {
             <Block className='sectionTwo'>
                 <Text label='User Guides' type='h2' />
                 <Flex>
-                    <Card title='Example' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button"  />
+                    <Card button='Read of docs' title='Developer Onbording' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button-tertiary"  />
                     <Card title='Example' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button"  />
                     <Card title='Example' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button"  />
                 </Flex>
@@ -74,6 +79,7 @@ export default App;
 
 // Renderiza la aplicación en el DOM
 const rootElement = document.createElement('div');
+const start = performance.now();
 rootElement.id = 'root';
 document.body.appendChild(rootElement);
 if (rootElement) {
@@ -84,3 +90,5 @@ if (rootElement) {
         </React.StrictMode>
     );
 }
+const end = performance.now();
+console.log(`Tiempo de renderizado: ${end - start}ms`);
