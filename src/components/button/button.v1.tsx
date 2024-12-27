@@ -1,28 +1,33 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../../styles/tailwind.css';
+import '../../styles/styles.css';
 import './button.css';
+import { getConfig } from '../../utils/config';
+import { ButtonProps } from './Interface/Ibutton';
+import { Icon } from '../svg/icon';
+import dropwn from './dropdown';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
-  element?: React.ReactElement;
-  template?: string;
-}
+export const Dropdown = dropwn;
 
-const Button: React.FC<ButtonProps> = ({ label, className, template, ...props }) => {
+const iconosDisponibles = getConfig().svg.output;
+
+const Button: React.FC<ButtonProps> = ({ label, template, icon,...props }) => {
   const [action, direction, color] = template ? template.split('-') : [null, null, null];  
-
+  
   return (
     <>
       <button
         id='button'
-        className={`${template ? `button-${template}` : 'button'} ${(className !== null || className !== undefined) ? className: " "}`}
+        className={`button ${template ? `button-${template}` : ''} ${props.className}`}
         {...props}
-      >
-        {action === 'icon' && props.children}
-        {action !== 'icon' && label}
+      > 
+        {action === 'icon'  && <Icon icon={`${icon}`} size={15} /> }
+        {action === 'custom' && props.children}
+        {action !== 'custom' && label}        
       </button>
     </>
   );
 };
 
 export default Button;
+

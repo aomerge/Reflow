@@ -46,6 +46,67 @@
     gap: 8px;
 }
 
+/**/
+.button-icon-affter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 8px;
+}
+
+.button-icon-linked{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+/**/
+.button-trasparent {
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.button-trasparent:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.button-trasparent-down{
+    background-color: transparent;
+    color: var(--primary);    
+    padding: 8px 16px 0px 16px !important;
+}
+
+.button-trasparent-down:hover {    
+    color: var(--white);    
+}
+
+.button-trasparent-down::before {
+    content: " ";
+    color: var(--white);
+    background-color: var(--primary);
+    height: 2px;
+    width: 100%;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;    
+    opacity: 0;            
+}
+
+.button-trasparent-down:hover::before {       
+    animation: ScaleFrame 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.button-trasparent-down:focus::before {
+    opacity: 1;     
+    background-color: var(--secondary);       
+}
+
 .button-left {
     flex-direction: row-reverse;
 }
@@ -155,5 +216,154 @@
     color: var(--black);
 }
 
+/* dropdown */
+.relative{    
+    cursor: pointer;
+}
+.dropdown {    
+    padding: 4px 16px;
+    text-align: center;
+    font-size: 14px;    
+    position: relative;
+    overflow: hidden;    
+    border-radius: 4px;
+    flex-direction: row-reverse;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;  
+    height: 100%;
+    color: rgba(255, 255, 255, 0.63);
+}
+#dropdown:active::before {
+    content: "";
+    position: absolute;
+    margin: 0 0.5rem;
+    font-weight: normal;
+    background-color: var(--black);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    filter: blur(10px);
+    animation: clickAnimation 1s forwards;
+    opacity: 0.3;
+}
+.dropdown p {
+    margin: 0;
+    padding: 0;
+    top: 5px;
+    color: var(--white);
+}
+
+.dropdown + * {    
+    background: rgba(var(--primary), 0.63);
+}
+
+.dropdown-menu {  
+    border-radius: 8px;  
+    padding: 2% 20px;
+    margin: 5% 0;
+    position: absolute;
+    display: flex;
+    background-color: var(--black);       
+    right: 0;    
+    min-width: 190px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-menu div{
+    margin-top: 6px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;    
+}
+.dropdown-menu div > * {
+    margin-bottom: 10px;
+    text-align: left !important;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+}
+
+.dropdown:hover {
+    background: rgba(41, 38, 38, 0.63) ;
+}
+
+
+/* Animaciones */
+
+@keyframes ScaleFrame {    
+    0% {
+        scale: 0;   
+        opacity: 1;             
+    }    
+    100% {
+        scale: 1;   
+        opacity: 1;          
+    }
+}
+
+.fade-in {
+    animation: ScaleFrame 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.fadeInDown{
+    animation: fadeInDown 1s ease-in-out;
+}
+.fadeInTop{
+    animation: fadeInTop 1s ease-in-out;
+}
+@keyframes fadeInTop {
+    0% {
+        top: auto;
+        opacity: 1;
+        width: 50px;
+        height: 50px;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(5);
+    }
+    100% {
+        top: 0;
+        right: 0;
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInDown {
+    0% {
+        top: 0;
+        opacity: .0; 
+        width: 50px;
+        height: 50px;                   
+    }
+    50% {        
+        opacity: 0;  
+        transform: translateY(-5);                   
+    }
+    100% {
+        top: auto;
+        right: 0;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 
