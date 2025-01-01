@@ -94,8 +94,7 @@ const App = () => {
           {/* <Button element={<SubElement />}  label="Home" template='trasparent-down'/>           */}
           <Button element={<p>hola</p>} label="Loging" />      
         </Navigation>
-        {/* <Button label="Click me" onClick={()=>setText(text + 1)} template='black' /> */}
-        <Icon icon="hogar" color='white' />         
+        {/* <Button label="Click me" onClick={()=>setText(text + 1)} template='black' /> */}             
         
 
         {/* <Scroll 

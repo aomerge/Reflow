@@ -1,14 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
 import '../style.css';
 import Block from '../../../../../src/components/container/Block';
 import Grid from '../../../../../src/components/container/Grid';
-import Button, {Dropdown} from '../../../../../src/components/button/button.v1';
+import Button from '../../../../../src/components/button/button.v1';
+import { Dropdown } from '../../../../../src/components/button/button.v1';
 import Text from '../../../../../src/components/text/Text';
 import Card from '../../../../../src/components/card/card';
 import Flex from '../../../../../src/components/container/Flex';
 import Image from '../../../../../src/components/image/thumbnail';
 import List from '../../../../../src/components/list/list';
+
 import { OptionTemplate as tem} from '../../../../../src/components/container/interfaces/IContainer';
 import { ButtonTemplate as btnTempleate } from '../../../../../src/components/button/Interface/Ibutton';
 
@@ -63,7 +65,7 @@ const App = () => {
             <Block className='sectionTwo'>
                 <Text label='User Guides' type='h2' />
                 <Flex>
-                    <Card button='Read of docs' title='Developer Onbording' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button-tertiary"  />
+                    <Card button='Read of docs' title='Developer Onbording' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button"  />
                     <Card title='Example' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button"  />
                     <Card title='Example' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button"  />
                 </Flex>
@@ -75,20 +77,18 @@ const App = () => {
 
 export default App;
 
+const Apptwo = () => <h1>Hello, World!</h1>;
 
 
 // Renderiza la aplicación en el DOM
-const rootElement = document.createElement('div');
-const start = performance.now();
-rootElement.id = 'root';
-document.body.appendChild(rootElement);
-if (rootElement) {
-    const root = ReactDOM.createRoot(rootElement);
-    root.render(
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>
-    );
-}
-const end = performance.now();
-console.log(`Tiempo de renderizado: ${end - start}ms`);
+performance.mark('startRender');
+performance.measure('startRenderToNow', 'startRender');
+
+const container = document.getElementById('root');
+const root = createRoot(container!);
+root.render(<App />);
+
+performance.mark('endRender');
+performance.measure('renderTime', 'startRender', 'endRender');
+
+console.log(performance.getEntriesByType('measure'));
