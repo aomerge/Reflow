@@ -5,11 +5,13 @@ import './button.css';
 import { getConfig } from '../../utils/config';
 import { ButtonProps } from './Interface/Ibutton';
 import { Icon } from '../svg/icon';
+import { nanoid } from 'nanoid';
+import { ButtonColor } from './Interface/Ibutton';
 
 const iconosDisponibles = getConfig().svg.output;
 
-const Dropdown: React.FC<ButtonProps> = ({ label, template, icon, ...props }) => {
-    const [action, direction, color] = template ? template.split('-') : [null, null, null];  
+const Dropdown: React.FC<ButtonProps> = ({ label, template, icon, color,...props }) => {
+    const [action, direction] = template ? template.split('-') : [null, null];  
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -50,8 +52,8 @@ const Dropdown: React.FC<ButtonProps> = ({ label, template, icon, ...props }) =>
     return (
         <div className="relative" ref={dropdownRef}>
             <button
-                id="dropdown"
-                className={`dropdown ${template ? `dropdown-${template}` : ''} ${props.className}`}
+                id={`dropdown-${nanoid(6)}`}
+                className={`${color ? color : ButtonColor.Primary }  dropdown ${template ? `dropdown-${template}` : ''} ${props.className}`}
                 onClick={toggleDropdown}
                 {...props}
             >

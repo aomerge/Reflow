@@ -26,18 +26,6 @@
     opacity: 0.3;
 }
 
-@keyframes clickAnimation {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        width: 0%;
-        height: 0%;
-        opacity: 0;
-        left: 40%;
-    }
-}
-
 /* Estilos adicionales basados en la plantilla */
 .button-icon {
     display: flex;
@@ -115,61 +103,6 @@
     flex-direction: row;
 }
 
-.button-primary {
-    background-color: var(--primary);
-    color: var(--white);
-}
-
-.button-secondary {
-    background-color: var(--secondary);
-    color: var(--white);
-}
-
-.button-tertiary {
-    background-color: var(--tertiary);
-    color: var(--white);
-}
-
-.button-quaternary {
-    background-color: var(--quaternary);
-    color: var(--white);
-}
-
-.button-quinary {
-    background-color: var(--quinary);
-    color: var(--white);
-}
-
-.button-danger {
-    background-color: red;
-    color: var(--white);
-}
-
-.button-warning {
-    background-color: #ff6607;
-    color: var(--white);
-}
-
-.button-success {
-    background-color: #28a745;
-    color: var(--white);
-}
-
-.button-info {
-    background-color: var(--info);
-    color: var(--white);
-}
-
-.button-light {
-    background-color: var(--light);
-    color: var(--black);
-}
-
-.button-black {
-    background-color: var(--black);
-    color: var(--white);
-    border: var(--white) 1px solid;
-}
 
 .button-link {
     background-color: transparent;    
@@ -220,6 +153,7 @@
 .relative{    
     cursor: pointer;
 }
+
 .dropdown {    
     padding: 4px 16px;
     text-align: center;
@@ -272,6 +206,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
+
 .dropdown-menu div{
     margin-top: 6px;
     display: flex;
@@ -280,6 +215,7 @@
     flex-direction: column;
     width: 100%;    
 }
+
 .dropdown-menu div > * {
     margin-bottom: 10px;
     text-align: left !important;
@@ -294,6 +230,21 @@
 
 
 /* Animaciones */
+.fade-in {
+    animation: ScaleFrame 2s ease-in-out;
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.fadeInDown{
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.fadeInTop{
+    animation: fadeInTop 1s ease-in-out;
+}
 
 @keyframes ScaleFrame {    
     0% {
@@ -306,29 +257,7 @@
     }
 }
 
-.fade-in {
-    animation: ScaleFrame 2s ease-in-out;
-}
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.fade-in {
-    animation: fadeIn 2s ease-in-out;
-}
-
-.fadeInDown{
-    animation: fadeInDown 1s ease-in-out;
-}
-.fadeInTop{
-    animation: fadeInTop 1s ease-in-out;
-}
 @keyframes fadeInTop {
     0% {
         top: auto;
@@ -347,6 +276,7 @@
         transform: translateY(0);
     }
 }
+
 @keyframes fadeInDown {
     0% {
         top: 0;
@@ -366,4 +296,24 @@
     }
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        width: 0%;
+        height: 0%;
+        opacity: 0;
+        left: 40%;
+    }
+}
 
