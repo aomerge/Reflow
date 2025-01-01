@@ -1,7 +1,3 @@
-#card{
-    
-}
-
 .card {
     display: flex ;
     flex-direction: column ;
@@ -13,109 +9,24 @@
     height: 300px ;
     transition: transform 0.3s ;    border-radius: 10px ;
 }
+
 .card-img-top {
     width: 100% ;
     height: 200px ;    
 }
+
 .card-title {
     font-size: 1.5rem ;
     font-weight: bold ;
     color: var(--white) ;
 }
+
 .card-text {
     font-size: 1rem ;
     color: var(--white) ;
 }
 
 /**/
-.card-secondary{
-    display: flex ;
-    flex-direction: column ;
-    justify-content: space-between ;
-    border-radius: 10px ;
-    background-color: var(--secondary) ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-    padding: 20px ;
-    margin: 20px ;
-    width: 300px ;
-    height: 300px ;
-    transition: transform 0.3s ;    
-    border-radius: 10px ;
-}
-.card-tertiary{
-    display: flex ;
-    flex-direction: column ;
-    justify-content: space-between ;
-    border-radius: 10px ;
-    background-color: var(--tertiary) ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-    padding: 20px ;
-    margin: 20px ;
-    width: 300px ;
-    height: 300px ;
-    transition: transform 0.3s ;    
-    border-radius: 10px ;
-}
-.card-quaternary{
-    display: flex ;
-    flex-direction: column ;
-    justify-content: space-between ;
-    border-radius: 10px ;
-    background-color: var(--quaternary) ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-    padding: 20px ;
-    margin: 20px ;
-    width: 300px ;
-    height: 300px ;
-    transition: transform 0.3s ;    
-    border-radius: 10px ;
-}
-.card-quinary{
-    display: flex ;
-    flex-direction: column ;
-    justify-content: space-between ;
-    border-radius: 10px ;
-    background-color: var(--quinary) ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-    padding: 20px ;
-    margin: 20px ;
-    width: 300px ;
-    height: 300px ;
-    transition: transform 0.3s ;    
-    border-radius: 10px ;
-}
-.card-black{
-    display: flex ;
-    flex-direction: column ;
-    justify-content: space-between ;
-    border-radius: 10px ;
-    background-color: var(--black) ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-    padding: 20px ;
-    margin: 20px ;
-    width: 300px ;
-    height: 300px ;
-    transition: transform 0.3s ;    
-    border-radius: 10px ;
-}
-.card-white{
-    display: flex ;
-    flex-direction: column ;
-    justify-content: space-between ;
-    border-radius: 10px ;
-    background-color: var(--white) ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-    padding: 20px ;
-    margin: 20px ;
-    width: 300px ;
-    height: 300px ;
-    transition: transform 0.3s ;    
-    border-radius: 10px ;
-}
-
-
-/**/
-
 .card-img-row-primary{
     display: flex ;
     flex-direction: row ;
@@ -130,9 +41,11 @@
     transition: transform 0.3s ;    
     border-radius: 10px ;
 }
+
 .card-img-row-primary:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-row-primary section {
     display: flex ;
     flex-direction: column ;display: flex ;
@@ -140,6 +53,7 @@
     justify-content: space-between ;
     justify-content: space-between ;
 }
+
 .card-img-row-secondary{
     display: flex ;
     flex-direction: row ;
@@ -154,6 +68,7 @@
     transition: transform 0.3s ;    
     border-radius: 10px ;
 }
+
 .card-img-row-secondary section {
     display: flex ;
     flex-direction: column ;display: flex ;
@@ -176,6 +91,7 @@
     transition: transform 0.3s ;    
     border-radius: 10px ;
 }
+
 .card-img-row-tertiary section {
     display: flex ;
     flex-direction: column ;display: flex ;
@@ -276,22 +192,26 @@
     justify-content: space-between ;
 }
 
-
 .card-img-row-black:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-row-white:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-row-secondary:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-row-tertiary:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-row-quaternary:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-row-quinary:hover {
     transform: scale(1.05) ;
 }
@@ -307,15 +227,18 @@
     border-radius: 10px ;
     overflow: hidden ;
 }
+
 .card-img-col-primary section{
     display: flex ;
     flex-direction: column ;
     justify-content: space-between ;
     padding: 10px 30px 40px 30px ;
 }
+
 .card-img-col-primary:hover {
     transform: scale(1.05) ;
 }   
+
 .card-img-col-secondary{
     display: flex ;
     flex-direction: column ;    
@@ -327,15 +250,18 @@
     border-radius: 10px ;
     overflow: hidden ;
 }
+
 .card-img-col-secondary section{
     display: flex ;
     flex-direction: column ;
     justify-content: space-between ;
     padding: 10px 30px 40px 30px ;
 }
+
 .card-img-col-secondary:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-col-tertiary{
     display: flex ;
     flex-direction: column ;    
@@ -347,6 +273,7 @@
     border-radius: 10px ;
     overflow: hidden ;
 }
+
 .card-img-col-tertiary section{
     display: flex ;
     flex-direction: column ;
@@ -356,6 +283,7 @@
 .card-img-col-tertiary:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-col-quaternary{
     display: flex ;
     flex-direction: column ;    
@@ -367,15 +295,18 @@
     border-radius: 10px ;
     overflow: hidden ;
 }
+
 .card-img-col-quaternary section{
     display: flex ;
     flex-direction: column ;
     justify-content: space-between ;
     padding: 10px 30px 40px 30px ;
 }
+
 .card-img-col-quaternary:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-col-quinary{
     display: flex ;
     flex-direction: column ;    
@@ -387,15 +318,18 @@
     border-radius: 10px ;
     overflow: hidden ;
 }
+
 .card-img-col-quinary section{
     display: flex ;
     flex-direction: column ;
     justify-content: space-between ;
     padding: 10px 30px 40px 30px ;
 }
+
 .card-img-col-quinary:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-col-black{
     display: flex ;
     flex-direction: column ;    
@@ -407,15 +341,18 @@
     border-radius: 10px ;
     overflow: hidden ;
 }
+
 .card-img-col-black section{
     display: flex ;
     flex-direction: column ;
     justify-content: space-between ;
     padding: 10px 30px 40px 30px ;
 }
+
 .card-img-col-black:hover {
     transform: scale(1.05) ;
 }
+
 .card-img-col-white{
     display: flex ;
     flex-direction: column ;    
@@ -427,6 +364,7 @@
     border-radius: 10px ;
     overflow: hidden ;
 }
+
 .card-img-col-white section{
     display: flex ;
     flex-direction: column ;
@@ -450,6 +388,7 @@
     transition: transform 0.3s ;    
     border-radius: 10px ;    
 }
+
 .card-custom-row-secondary{
     display: flex ;
     flex-direction: row ;
@@ -462,6 +401,7 @@
     transition: transform 0.3s ;    
     border-radius: 10px ;    
 }
+
 .card-custom-row-tertiary{
     display: flex ;
     flex-direction: row ;
@@ -474,6 +414,7 @@
     transition: transform 0.3s ;    
     border-radius: 10px ;    
 }
+
 .card-custom-row-quaternary{
     display: flex ;
     flex-direction: row ;
@@ -486,6 +427,7 @@
     transition: transform 0.3s ;    
     border-radius: 10px ;    
 }
+
 .card-custom-row-quinary{
     display: flex ;
     flex-direction: row ;
@@ -498,6 +440,7 @@
     transition: transform 0.3s ;    
     border-radius: 10px ;    
 }
+
 .card-custom-row-black{
     display: flex ;
     flex-direction: row ;
@@ -511,6 +454,7 @@
     border-radius: 10px ;
     
 }
+
 .card-custom-row-white{
     display: flex ;
     flex-direction: row ;
@@ -550,6 +494,7 @@
     text-align:justify;
     
 } 
+
 .card-button > button{
     background-color: var(--transparent);
     color: var(--quaternary);    
@@ -560,60 +505,17 @@
     cursor: pointer;
     justify-content: start;
 }
+
 .card-button > button svg{        
     fill: var(--quaternary) !important;
 }
+
 .card-button > button:hover{    
     color: var(--white);
 }
+
 .card-button > button svg:hover{        
     fill: var(--white) !important;
-}
-
-/* Definición de la animación */
-@keyframes hero-gradient-animation {
-    0% {
-        --x-0: 90%;
-        --x-1: 0%;
-        --y-0: 0%;
-        --y-1: 93%;        
-        --s-start-0: -17%;            
-        --s-start-1: -10%;
-        --s-end-0: 50%;    
-        --s-end-1: 40%;
-        --c-0: var(--quinary);
-        --c-1: var(--quinary);                
-    }    
-    25% {
-        --x-0: 97%;
-        --x-1: 2%;
-        --y-0: 84%;
-        --y-1: 0%;                                            
-    }
-    50%{
-        --x-0: 0%;
-        --x-1: 90%;
-        --y-0: 93%;
-        --y-1: 0%;
-    }
-    75% {
-        --x-0: 0%;
-        --x-1: 90%;
-        --y-0: 0%;
-        --y-1: 93%;                            
-    }
-    100%{
-        --x-0: 90%;
-        --x-1: 0%;
-        --y-0: 0%;
-        --y-1: 93%;    
-        --s-start-0: -17%;            
-        --s-start-1: -10%;
-        --s-end-0: 50%;    
-        --s-end-1: 40%;
-        --c-0: var(--quinary);
-        --c-1: var(--quinary);       
-    }
 }
 
 /* Clase actualizada con degradado animado utilizando variables */
@@ -835,4 +737,49 @@
     background-color: rgba(255, 255, 255, 0.105);
     backdrop-filter: blur(50px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes hero-gradient-animation {
+    0% {
+        --x-0: 90%;
+        --x-1: 0%;
+        --y-0: 0%;
+        --y-1: 93%;        
+        --s-start-0: -17%;            
+        --s-start-1: -10%;
+        --s-end-0: 50%;    
+        --s-end-1: 40%;
+        --c-0: var(--quinary);
+        --c-1: var(--quinary);                
+    }    
+    25% {
+        --x-0: 97%;
+        --x-1: 2%;
+        --y-0: 84%;
+        --y-1: 0%;                                            
+    }
+    50%{
+        --x-0: 0%;
+        --x-1: 90%;
+        --y-0: 93%;
+        --y-1: 0%;
+    }
+    75% {
+        --x-0: 0%;
+        --x-1: 90%;
+        --y-0: 0%;
+        --y-1: 93%;                            
+    }
+    100%{
+        --x-0: 90%;
+        --x-1: 0%;
+        --y-0: 0%;
+        --y-1: 93%;    
+        --s-start-0: -17%;            
+        --s-start-1: -10%;
+        --s-end-0: 50%;    
+        --s-end-1: 40%;
+        --c-0: var(--quinary);
+        --c-1: var(--quinary);       
+    }
 }

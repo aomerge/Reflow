@@ -1,3 +1,5 @@
+import { ButtonTemplate } from "../../button/Interface/Ibutton";
+
 export interface CardProps {
     title?: string;
     content?: string;
@@ -6,5 +8,9 @@ export interface CardProps {
     className?: string;
     Style?: React.CSSProperties;
     children?: React.ReactNode;
-    button?: string;
+    button?: { 
+        icon?: string,
+        label?: string,
+        template?: ButtonTemplate,
+    };
 }

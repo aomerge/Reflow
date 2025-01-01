@@ -8,8 +8,9 @@ import { Dropdown } from '../../../../../src/components/button/button.v1';
 import Text from '../../../../../src/components/text/Text';
 import Card from '../../../../../src/components/card/card';
 import Flex from '../../../../../src/components/container/Flex';
-import Image from '../../../../../src/components/image/thumbnail';
+import Image from '../../../../../src/components/image/image';
 import List from '../../../../../src/components/list/list';
+import Accordion from '../../../../../src/components/accordion/accordion';
 
 import { OptionTemplate as tem} from '../../../../../src/components/container/interfaces/IContainer';
 import { ButtonTemplate as btnTempleate } from '../../../../../src/components/button/Interface/Ibutton';
@@ -43,12 +44,10 @@ const App = () => {
             </Flex>
         </Block>
         <Block >
-            <Block>
-                <Text label='Documentation' type='h2' />
-            </Block>
-            <Block>
-                <Text label='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' type='p' />
-            </Block>            
+            <Accordion title="Introduction" content="Content for section 1" />
+            <Accordion title="Components" content="Content for section 2" />
+            <Accordion title="Templeate" content="Content for section 3" />                       
+            <Accordion title="Colaboration" content="Content for section 3" />
         </Block>
         <Block className='bg' >
             <Card className='head' template="custom-row-quinary" >
@@ -65,7 +64,7 @@ const App = () => {
             <Block className='sectionTwo'>
                 <Text label='User Guides' type='h2' />
                 <Flex>
-                    <Card button='Read of docs' title='Developer Onbording' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button"  />
+                    <Card button={{label: "hola"}} title='Developer Onbording' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button"  />
                     <Card title='Example' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button"  />
                     <Card title='Example' content='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' template="button"  />
                 </Flex>
