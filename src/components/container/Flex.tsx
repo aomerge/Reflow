@@ -1,5 +1,4 @@
-import React, { ReactNode, useState } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useMemo } from 'react';
 import '../../styles/tailwind.css';
 import { FlexProps, OptionTemplate } from './interfaces/IContainer';
 
@@ -9,7 +8,7 @@ import { FlexProps, OptionTemplate } from './interfaces/IContainer';
  * @param props - The properties for the Flex component.
  * @returns {JSX.Element} The rendered Flex container.
  */
-const Flex = ({ children, template, width ,...props }: FlexProps): JSX.Element => {    
+const Flex = React.memo(({ children, template, width ,...props }: FlexProps): JSX.Element => {    
     if (template && !Object.values<OptionTemplate>(OptionTemplate).includes(template)) {
         throw new Error(`Template "${template}" is not a valid option.`);
     }
@@ -20,10 +19,10 @@ const Flex = ({ children, template, width ,...props }: FlexProps): JSX.Element =
             id='flex'
             {...props}
             className={`flex ${template ? `flex-${template}` : ''}`}
-        >
-            {children}
+        >            
+            {useMemo(() => React.Children.map(children, child => React.isValidElement(child) ? React.cloneElement(child) : child), [children])}
         </div>
     );
-};
+});
 
 export default Flex;

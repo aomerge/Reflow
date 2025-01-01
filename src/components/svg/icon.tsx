@@ -34,7 +34,7 @@ export const Icon: React.FC<IconProps> = ({ icon, color = 'black', size = 24 }) 
   }
 
   try {    
-    const SvgComponent = require(`./icon/${icon}.svg`).default;
+    const SvgComponent = require(`./icon/${icon}.svg?react`).default;
     
     return (
       <SvgComponent

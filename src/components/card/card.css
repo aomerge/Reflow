@@ -524,74 +524,33 @@
     border-radius: 10px ;    
 }
 
-.card-button{
-    display: flex ;
-    flex-direction: column;
-    width: 100%;
-    height: 220px;
-    padding: 20px ;
-    margin: 40px 20px ;
-    justify-content: space-between ;
-    gap: 10px ;
-}
-
-.card-button-primary{
-    display: flex ;
-    height: 220px;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px ;
-    margin: 40px 20px ;
-    justify-content: space-between ;
-    gap: 10px ;
-    background-color: var(--primary) ;
-    padding: 20px ;
-    border-radius: 10px ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-}
-
-.card-button-secondary{
-    display: flex ;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px ;
-    margin: 40px 20px ;
-    height: 220px;
-    justify-content: space-between ;
-    gap: 10px ;
-    background-color: var(--secondary) ;    
-    border-radius: 10px ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-}
-
-.card-button-tertiary{   
+.card-button{   
     height: 220px;
     width: 100%;  
     padding: 20px ;
     margin: 40px 20px ;   
-    justify-content: space-between;
-    background-color: var(--tertiary) ;
+    justify-content: space-between;    
     padding: 20px ;
     border-radius: 10px ;
     box-shadow: 0 4px 8px rgba(var(--primary), 0.7) ;
 }
 
-.card-button-tertiary > :first-child > :first-child{
+.card-button > :first-child > :first-child{
     color: var(--white);
     font-size: 1.5rem;
     font-weight: 700;
 }
 
-.card-button-tertiary >:first-child > :nth-child(2) {    
+.card-button >:first-child > :nth-child(2) {    
     margin-top: 5px;
     font-weight: 400;
 }
 
-.card-button-tertiary >*{
+.card-button >*{
     text-align:justify;
     
 } 
-.card-button-tertiary > button{
+.card-button > button{
     background-color: var(--transparent);
     color: var(--quaternary);    
     font-size: 16px !important;    
@@ -601,63 +560,16 @@
     cursor: pointer;
     justify-content: start;
 }
-.card-button-tertiary > button svg{        
+.card-button > button svg{        
     fill: var(--quaternary) !important;
 }
-.card-button-tertiary > button:hover{    
+.card-button > button:hover{    
     color: var(--white);
 }
-.card-button-tertiary > button svg:hover{        
+.card-button > button svg:hover{        
     fill: var(--white) !important;
 }
 
-.card-button-quaternary{
-    display: flex ;
-    flex-direction: column;
-    width: 100%;
-    justify-content: space-between ;
-    gap: 10px ;
-    background-color: var(--quaternary) ;
-    padding: 20px ;
-    border-radius: 10px ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-}
-
-.card-button-quinary{
-    display: flex ;
-    flex-direction: column;
-    width: 100%;
-    justify-content: space-between ;
-    gap: 10px ;
-    background-color: var(--quinary) ;
-    padding: 20px ;
-    border-radius: 10px ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-}
-
-.card-button-black{
-    display: flex ;
-    flex-direction: column;
-    width: 100%;
-    justify-content: space-between ;
-    gap: 10px ;
-    background-color: var(--black) ;
-    padding: 20px ;
-    border-radius: 10px ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-}
-
-.card-button-white{
-    display: flex ;
-    flex-direction: column;
-    width: 100%;
-    justify-content: space-between ;
-    gap: 10px ;
-    background-color: var(--white) ;
-    padding: 20px ;
-    border-radius: 10px ;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-}
 /* Definición de la animación */
 @keyframes hero-gradient-animation {
     0% {
