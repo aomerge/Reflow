@@ -8,13 +8,12 @@ interface StorageHook<T> {
 }
 
 export function useStorage<T>(key: string): StorageHook<T> {
-    let initialValue: T;
-    const [storedValue, setStoredValue] = useState<T | null | any>(null);    
+    const [storedValue, setStoredValue] = useState<T | null | any>(null);
 
     useEffect(() => {
         try {            
             const item = window.localStorage.getItem(key);            
-            setStoredValue(item ? JSON.parse(item) as T : initialValue);                    
+            setStoredValue(item ? JSON.parse(item) as T : null);
         } catch (error) {
             console.error(error);
         }
