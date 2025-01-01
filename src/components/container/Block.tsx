@@ -7,7 +7,7 @@ import React, {
   memo,
   useMemo
 } from 'react';
-
+import { nanoid } from 'nanoid';
 import '../../styles/styles.css'; // vars of tailwind
 import '../../styles/tailwind.css';
 import CSSTransition from '../trancition/CssTrancition';
@@ -42,8 +42,7 @@ const Block = memo(<T extends ElementType = 'div'>({
   animationEffect = false,
   ...props
 }: PropsWithChildren<BlockProps<T>>) => {
-  const [outlet, setOutlet] = useState<ReactNode>(children);
-  const [id, setId] = useState<number | null>(() => globalId++);
+  const [outlet, setOutlet] = useState<ReactNode>(children);  
 
   // Use template literals more effectively for class concatenation
   const classContainer = [
@@ -71,18 +70,23 @@ const Block = memo(<T extends ElementType = 'div'>({
   );
 
   return (
-    <BlockContext.Provider value={{ outlet, setOutlet, id, setId }}>
+    <BlockContext.Provider value={{ outlet, setOutlet }}>
       <CSSTransition
         in={animationEffect}
         timeout={50000}
         classNames="fade"
         unmountOnExit={false}
       >
-        <Element id={`Block-${id}`} style={style} className={`text-white ${classContainer}`} {...(props as any)}>
+        <Element
+          id={`Block-${nanoid(6)}`} // Usas el valor de la clave como parte del id
+          style={style}
+          className={`text-white ${classContainer}`}
+          {...(props as any)}
+        >
           {renderedChildren}
         </Element>
       </CSSTransition>
-  </BlockContext.Provider>
+    </BlockContext.Provider>  
   );
 });
 

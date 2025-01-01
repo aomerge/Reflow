@@ -36,9 +36,7 @@ export interface BlockProps<T extends ElementType = 'div'> extends React.HTMLAtt
  */
 export interface BlockContextType {
   outlet: ReactNode;
-  setOutlet: React.Dispatch<React.SetStateAction<ReactNode>>;
-  id: number | null;
-  setId: React.Dispatch<React.SetStateAction<number | null>>;
+  setOutlet: React.Dispatch<React.SetStateAction<ReactNode>>;  
 }
 
 /**
