@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import './card.css';
 import { CardProps } from './interface/Icard';
 import Button from '../button/button.v1';
-import { ButtonTemplate } from '../button/Interface/Ibutton';
+import { ButtonTemplate } from '../button/components/Interface/Ibutton';
 import { nanoid } from 'nanoid';
 /**
  * Card component that displays content based on the provided template.
