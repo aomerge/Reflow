@@ -4,7 +4,7 @@ import './style.css';
 import { nanoid } from 'nanoid';
 import { Static, Custom  } from './componentes/componentes';
 
-const Accordion: React.FC<AccordionProps> = ({ title, content, template, ...props }) => {
+const Accordion: React.FC<AccordionProps> = ({ title, content, template, className ,...props }) => {
     const [isOpen, setIsOpen ] = useState(false);
     const [action, direction ] = useMemo(() => template?.split('-') || [null, null, null], [template]);
 
@@ -23,7 +23,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, content, template, ...prop
       }, [action, content, props.children, title]);
 
     return (
-        <div id={`accordion-${nanoid(6)}`} className={`accordion accordion-${direction}`}>
+        <div id={`accordion-${nanoid(6)}`} className={`accordion accordion-${direction} ${className}`}>
             {renderContent}
         </div>
     );

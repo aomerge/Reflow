@@ -5,6 +5,7 @@ export interface AccordionProps {
     content?: string ;
     template?: string;
     children?: React.ReactNode;
+    className?: string;
   }
 
 export interface ElementProps {
