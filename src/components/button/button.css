@@ -1,5 +1,22 @@
-#button {    
-    padding: 4px 16px;
+:root {    
+    --left: 15px;
+    --right: 20px;
+    --top: 20px;
+    --bottom: 5px;
+    --gap:10px;
+    --size-icon: 10px;
+    --color: var(--primary);
+    --theme: var(--white);
+    --margin:0;
+    --padding: 4px 16px; 
+    --xl:700;   
+    --xs:500;
+}
+
+.button{
+    background-color: var(--color);    
+    color: var(--theme);
+    padding: var(--padding);
     text-align: center;
     font-size: 14px;
     cursor: pointer;
@@ -7,12 +24,8 @@
     overflow: hidden;    
     border-radius: 4px;
 }
-.button{
-    background-color: var(--primary);    
-    color: var(--white);
-}
 
-#button:active::before {
+#button:hover::before {
     content: "";
     position: absolute;
     margin: 0 0.5rem;
@@ -26,128 +39,9 @@
     opacity: 0.3;
 }
 
-/* Estilos adicionales basados en la plantilla */
-.button-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-/**/
-.button-icon-affter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row-reverse;
-    gap: 8px;
-}
-
-.button-icon-linked{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-decoration: none;
-}
-
-/**/
-.button-trasparent {
-    background-color: transparent;
-    color: var(--primary);
-}
-
-.button-trasparent:hover {
-    background-color: var(--primary);
-    color: var(--white);
-}
-
-.button-trasparent-down{
-    background-color: transparent;
-    color: var(--primary);    
-    padding: 8px 16px 0px 16px !important;
-}
-
-.button-trasparent-down:hover {    
-    color: var(--white);    
-}
-
-.button-trasparent-down::before {
-    content: " ";
-    color: var(--white);
-    background-color: var(--primary);
-    height: 2px;
-    width: 100%;
-    padding: 0;
-    position: absolute;
-    left: 0;
-    bottom: 0;    
-    opacity: 0;            
-}
-
-.button-trasparent-down:hover::before {       
-    animation: ScaleFrame 1s ease-in-out;
-    animation-fill-mode: forwards;
-}
-
-.button-trasparent-down:focus::before {
-    opacity: 1;     
-    background-color: var(--secondary);       
-}
-
-.button-left {
-    flex-direction: row-reverse;
-}
-
-.button-right {
-    flex-direction: row;
-}
 
 
-.button-link {
-    background-color: transparent;    
-    color: var(--primary);
-}
 
-.button-link:hover {
-    background-color: var(--primary);
-    color: var(--white);
-}
-
-.button-link:active {
-    background-color: var(--primary);
-    color: var(--white);
-}
-
-.button-link:visited {
-    background-color: var(--primary);
-    color: var(--white);
-}
-
-.button-link:focus {
-    background-color: var(--primary);
-    color: var(--white);
-}
-
-.button-link:disabled {
-    background-color: var(--light);
-    color: var(--black);
-}
-
-.button-link:disabled:hover {
-    background-color: var(--light);
-    color: var(--black);
-}
-
-.button-link:disabled:active {
-    background-color: var(--light);
-    color: var(--black);
-}
-
-.button-link:disabled:visited {
-    background-color: var(--light);
-    color: var(--black);
-}
 
 /* dropdown */
 .relative{    

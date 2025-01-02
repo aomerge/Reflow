@@ -13,7 +13,7 @@ const List = React.lazy(() => import('../../../../../src/components/list/list'))
 const Accordion = React.lazy(() => import('../../../../../src/components/accordion/accordion'));
 
 import { OptionTemplate as tem} from '../../../../../src/components/container/interfaces/IContainer';
-import { ButtonTemplate as btnTempleate } from '../../../../../src/components/button/Interface/Ibutton';
+import { ButtonTemplate as btnTempleate } from '../../../../../src/components/button/components/Interface/Ibutton';
 
 
 
@@ -24,7 +24,11 @@ const App = () => {
             <Flex template={tem.Between} >
                 <Flex width={40} template={tem.Between}>
                     <Block>
-                        <Text label='Reflow' type='h2' />                        
+                        <Text label='Reflow' type='h2' /> 
+                        <Dropdown icon='arrow-right'  template={btnTempleate.Icon_Affter} label='Templates' >
+                            <Text label='Enterprice' type='p' />
+                            <Text label='Ecommerce' type='p' />
+                        </Dropdown>                       
                     </Block>
                     <Flex>
                         <Button template={btnTempleate.LINK} label='Docs' />
@@ -45,15 +49,26 @@ const App = () => {
         </Block>
         <Block >
             <Accordion title="Introduction" template='custom' >
-                <Text label='Welcome to the docs' type='h2' />
-                <Text 
-                    label='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' 
-                    type='p' />
-                    
+                <Button label='Instalation' />
+                <Button label='Structure of components' />
+                <Button label='Hooks' />
             </Accordion>
-            <Accordion title="Components" content="Content for section 2" />
+            <Accordion title="Components" template='custom' >
+                <Accordion title="Containers" template='custom' >
+                    <Button label='Block' />
+                    <Button label='Flex' />
+                    <Button label='Grid' />
+                    <Button label='Scroll' />                    
+                </Accordion>
+                <Button label='Button' />
+                <Button label='Text' />
+                <Button label='Card' />                
+                <Button label='Image' />
+                <Button label='List' />
+                <Button label='Accordion' />
+            </Accordion>
             <Accordion title="Loaders" content="Content for section 3" />
-            <Accordion title="Templeate" content="Content for section 3" />                       
+            <Accordion title="Templeate" content="Comming soon" />                       
             <Accordion title="Colaboration" content="Content for section 3" />
         </Block>
         <Block className='bg' >

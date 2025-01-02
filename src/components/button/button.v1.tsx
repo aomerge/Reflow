@@ -3,10 +3,10 @@ import '../../styles/tailwind.css';
 import '../../styles/styles.css';
 import './button.css';
 import { getConfig } from '../../utils/config';
-import { ButtonProps } from './Interface/Ibutton';
+import { ButtonProps } from './components/Interface/Ibutton';
 import { Icon } from '../svg/icon';
 import dropwn from './dropdown';
-import { ButtonColor } from './Interface/Ibutton';
+import { ButtonColor } from './components/Interface/Ibutton';
 import { nanoid } from 'nanoid';
 
 export const Dropdown = dropwn;

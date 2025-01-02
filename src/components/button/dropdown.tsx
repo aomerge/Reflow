@@ -3,10 +3,10 @@ import '../../styles/tailwind.css';
 import '../../styles/styles.css';
 import './button.css';
 import { getConfig } from '../../utils/config';
-import { ButtonProps } from './Interface/Ibutton';
+import { ButtonProps } from './components/Interface/Ibutton';
 import { Icon } from '../svg/icon';
 import { nanoid } from 'nanoid';
-import { ButtonColor } from './Interface/Ibutton';
+import { ButtonColor } from './components/Interface/Ibutton';
 
 const iconosDisponibles = getConfig().svg.output;
 

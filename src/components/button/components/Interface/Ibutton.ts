@@ -1,4 +1,4 @@
-import { Icon } from "../../svg/icon";
+import { Icon } from "../../../svg/icon";
 
 export enum ButtonTemplate {
     LINK = 'link',
