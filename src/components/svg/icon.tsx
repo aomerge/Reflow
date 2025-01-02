@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconProps } from './interface/Iicon';
 import { getConfig } from '../../utils/config';
+import { nanoid } from 'nanoid';
 
 const iconosDisponibles = getConfig().svg.output;
 
@@ -27,7 +28,7 @@ export const IconNamesMap = iconosDisponibles.reduce((iconMap: Record<string, st
  * If the icon is not available, a warning is logged and a fallback message is displayed.
  * If there is an error loading the icon, an error is logged and an empty paragraph is displayed.
  */
-export const Icon: React.FC<IconProps> = ({ icon, color = 'black', size = 24 }) => {
+export const Icon: React.FC<IconProps> = ({ icon, size = 24 }) => {
   if (!iconosDisponibles.includes(icon)) {
     console.warn(`El ícono "${icon}" no está disponible.`);
     return <p>Ícono no encontrado</p>;
@@ -38,7 +39,8 @@ export const Icon: React.FC<IconProps> = ({ icon, color = 'black', size = 24 }) 
     
     return (
       <SvgComponent
-        style={{ fill: color, width: size, height: size }}
+        id={`icon-${nanoid(6)}`}
+        style={{ width: size, height: size }}
         aria-label={icon}
       />
     );

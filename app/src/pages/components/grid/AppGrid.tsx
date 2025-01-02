@@ -44,7 +44,13 @@ const App = () => {
             </Flex>
         </Block>
         <Block >
-            <Accordion title="Introduction" content="Content for section 1" />
+            <Accordion title="Introduction" template='custom' >
+                <Text label='Welcome to the docs' type='h2' />
+                <Text 
+                    label='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' 
+                    type='p' />
+                    
+            </Accordion>
             <Accordion title="Components" content="Content for section 2" />
             <Accordion title="Loaders" content="Content for section 3" />
             <Accordion title="Templeate" content="Content for section 3" />                       

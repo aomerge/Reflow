@@ -1,0 +1,18 @@
+.accordion{
+    color: var(--white);
+    fill: var(--white);
+    }
+.accordion svg{
+     width: 20px;
+    }
+.accordion-header{   
+    display: flex;
+    gap: 10px;     
+    cursor: pointer;
+    padding: 8px 10px;    
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;    
+    }

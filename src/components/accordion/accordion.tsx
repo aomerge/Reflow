@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { AccordionProps } from './componentes/interface/Iaccordion';
 import './style.css';
 import { nanoid } from 'nanoid';
-import { Static } from './componentes/componentes';
+import { Static, Custom  } from './componentes/componentes';
 
 const Accordion: React.FC<AccordionProps> = ({ title, content, template, ...props }) => {
     const [isOpen, setIsOpen ] = useState(false);
@@ -15,7 +15,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, content, template, ...prop
     const renderContent = useMemo(() => {
         switch (action) {
           case 'custom':
-            return props.children;          
+            return <Custom title={title}>{props.children}</Custom>;
 
           default:
             return <Static title={title} content={content} />;
