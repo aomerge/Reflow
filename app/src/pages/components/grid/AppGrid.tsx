@@ -3,8 +3,8 @@ import {createRoot} from 'react-dom/client';
 import '../style.css';
 const Block = React.lazy(() => import('../../../../../src/components/container/Block'));
 const Grid = React.lazy(() => import('../../../../../src/components/container/Grid'));
-const Button = React.lazy(() => import('../../../../../src/components/button/button.v1'));
-const Dropdown = React.lazy(() => import('../../../../../src/components/button/button.v1').then(module => ({ default: module.Dropdown })));
+import { Button, Dropdown, ButtonColor } from '../../../../../src/components/button/button';
+//const Dropdown = React.lazy(() => import('../../../../../src/components/button/button').then(module => ({ default: module.Dropdown })));
 const Text = React.lazy(() => import('../../../../../src/components/text/Text'));
 const Card = React.lazy(() => import('../../../../../src/components/card/card'));
 const Flex = React.lazy(() => import('../../../../../src/components/container/Flex'));
@@ -25,7 +25,7 @@ const App = () => {
                 <Flex width={40} template={tem.Between}>
                     <Block>
                         <Text label='Reflow' type='h2' /> 
-                        <Dropdown icon='arrow-right'  template={btnTempleate.Icon_Affter} label='Templates' >
+                        <Dropdown icon='arrow-right' color={ButtonColor.trasparent}  template={btnTempleate.Icon_Affter} label='Templates' >
                             <Text label='Enterprice' type='p' />
                             <Text label='Ecommerce' type='p' />
                         </Dropdown>                       

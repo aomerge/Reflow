@@ -11,17 +11,20 @@
     --padding: 4px 16px; 
     --xl:700;   
     --xs:500;
+    --size-icon: 10px;
 }
+
 
 .button{
     background-color: var(--color);    
     color: var(--theme);
-    padding: var(--padding);
-    text-align: center;
+    padding: var(--padding);    
     font-size: 14px;
+    font-weight: var(--xs);
     cursor: pointer;
     position: relative;
     overflow: hidden;    
+    max-height: 30px;
     border-radius: 4px;
 }
 
@@ -39,16 +42,14 @@
     opacity: 0.3;
 }
 
-
-
-
-
 /* dropdown */
 .relative{    
     cursor: pointer;
 }
 
-.dropdown {    
+.dropdown {  
+    fill: var(--white);
+    color: var(--white);  
     padding: 4px 16px;
     text-align: center;
     font-size: 14px;    
@@ -62,8 +63,15 @@
     gap: 8px;
     text-decoration: none;  
     height: 100%;
-    color: rgba(255, 255, 255, 0.63);
+    max-height: 30px;    
 }
+
+.dropdown svg {
+    fill: var(--white);    
+    width: var(--size-icon) !important;
+    height: var(--size-icon) !important;
+}
+
 #dropdown:active::before {
     content: "";
     position: absolute;

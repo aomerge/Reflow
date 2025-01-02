@@ -1,6 +1,7 @@
 import { Icon } from "../../../svg/icon";
+import React from "react";
 
-export enum ButtonTemplate {
+enum ButtonTemplate {
     LINK = 'link',
     Icon = 'icon',
     Icon_Affter = 'icon-affter',
@@ -8,7 +9,8 @@ export enum ButtonTemplate {
     Trasparent = 'trasparent',
 }
 
-export enum ButtonColor {
+enum ButtonColor {
+    trasparent = 'trasparent',
     Primary = 'primary',
     Secondary = 'secondary',
     Success = 'success',
@@ -22,10 +24,16 @@ export enum ButtonColor {
     Black = 'black',
 }
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   element?: React.ReactElement;
   template?: ButtonTemplate;
   icon?: string;
   color?: ButtonColor;
+}
+
+export {
+  ButtonProps,
+  ButtonTemplate,
+  ButtonColor,
 }

@@ -1,6 +1,6 @@
 import React, { useState, createContext, useContext, ReactNode, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import Button from '../../src/components/button/button.v1';
+import {Button} from '../../src/components/button/button';
 import Text from '../../src/components/text/Text';
 import Block, {BlockContext, useBlockContext} from '../../src/components/container/Block';
 import Navigation from '../../src/components/navigator/Navigation';

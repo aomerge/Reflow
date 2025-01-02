@@ -1,16 +1,13 @@
 import React, {useEffect, useState, useRef} from 'react';
-import '../../styles/tailwind.css';
-import '../../styles/styles.css';
-import './button.css';
-import { getConfig } from '../../utils/config';
-import { ButtonProps } from './components/Interface/Ibutton';
-import { Icon } from '../svg/icon';
+import { getConfig } from '../../../../utils/config';
+import { ButtonProps } from '../Interface/Ibutton';
+import { Icon } from '../../../svg/icon';
 import { nanoid } from 'nanoid';
-import { ButtonColor } from './components/Interface/Ibutton';
+import { ButtonColor } from '../Interface/Ibutton';
 
 const iconosDisponibles = getConfig().svg.output;
 
-const Dropdown: React.FC<ButtonProps> = ({ label, template, icon, color,...props }) => {
+export const Dropdown: React.FC<ButtonProps> = ({ label, template, icon, color,...props }) => {
     const [action, direction] = template ? template.split('-') : [null, null];  
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -51,16 +48,16 @@ const Dropdown: React.FC<ButtonProps> = ({ label, template, icon, color,...props
 
     return (
         <div className="relative" ref={dropdownRef}>
-            <button
+            <Button
                 id={`dropdown-${nanoid(6)}`}
-                className={`${color ? color : ButtonColor.Primary }  dropdown ${template ? `dropdown-${template}` : ''} ${props.className}`}
+                className='dropdown'
+                template={template}
+                label={label}
+                icon={icon}
+                color={color}
                 onClick={toggleDropdown}
-                {...props}
-            >
-                {action === 'icon' && <Icon icon={`${icon}`} size={15} color='rgba(255, 255, 255, 0.63)' />}
-                {action === 'custom' && props.children}
-                {action !== 'custom' && label}
-            </button>
+                aria-haspopup="true"
+                aria-expanded={isOpen} />
             {isOpen && (
                 <div className="dropdown-menu">
                     <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
@@ -72,4 +69,23 @@ const Dropdown: React.FC<ButtonProps> = ({ label, template, icon, color,...props
     );
 };
 
-export default Dropdown;
+
+export const Button: React.FC<ButtonProps> = ({ label, template, icon, color,...props }) => {
+  const [action, direction] = template ? template.split('-') : [null, null];  
+  
+  return (
+    <>
+      <button        
+        id={`button-${nanoid(6)}`}
+        className={`${color ? color : ButtonColor.Primary }  button ${template ? `button-${template}` : ''} ${props.className}`}
+        aria-label={label}
+        aria-pressed={props['aria-pressed']}
+        {...props}
+      > 
+        {action === 'icon'  && <Icon icon={`${icon}`} size={20} aria-hidden="true" /> }
+        {action === 'custom' && props.children}
+        {action !== 'custom' && label}        
+      </button>
+    </>
+  );
+};

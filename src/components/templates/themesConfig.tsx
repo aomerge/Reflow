@@ -1,6 +1,6 @@
 // themesConfig.js
 import React, { Component } from 'react';
-import Button from '../button/button.v1';
+import {Button} from '../button/button';
 import {INavigatorProps} from '../navigator/INavigation';
 
 const themesConfig = {
