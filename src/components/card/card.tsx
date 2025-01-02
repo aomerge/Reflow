@@ -13,6 +13,7 @@ import { nanoid } from 'nanoid';
 const Card: React.FC<CardProps> = ({ button, title, content, template, ...props }) => {  
   const [action, direction, color] = useMemo(() => template?.split('-') || [null, null, null], [template]);
   // Render the appropriate content based on the action
+  
   const renderContent = useMemo(() => {
     switch (action) {
       case 'custom':
