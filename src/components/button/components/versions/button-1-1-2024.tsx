@@ -70,19 +70,28 @@ export const Dropdown: React.FC<ButtonProps> = ({ label, template, icon, color,.
 };
 
 
-export const Button: React.FC<ButtonProps> = ({ label, template, icon, color,...props }) => {
-  const [action, direction] = template ? template.split('-') : [null, null];  
+export const Button: React.FC<ButtonProps> = ({ label, template, className,icon, color, ...props }) => {
+  const [theme, action] = template ? template.split('-') : [null, null];  
+  const id = nanoid(6);
   
+    useEffect(() => {
+        const buttonElement = document.getElementById(`button-${id}`);    
+        if (buttonElement && color !== undefined) {
+            buttonElement.style.setProperty('--color', `var(--${color})` || ` var(--${ButtonColor.Primary})`);        
+        }
+        
+    }, [color]);
+
   return (
     <>
       <button        
-        id={`button-${nanoid(6)}`}
-        className={`${color ? color : ButtonColor.Primary }  button ${template ? `button-${template}` : ''} ${props.className}`}
+        id={`button-${id}`}
+        className={` button ${template ? `button-${template}` : ''} ${className || ''}`}
         aria-label={label}
         aria-pressed={props['aria-pressed']}
         {...props}
       > 
-        {action === 'icon'  && <Icon icon={`${icon}`} size={20} aria-hidden="true" /> }
+        {action === 'icon'  && <Icon icon={`${icon || 'home'}`} size={20} aria-hidden="true" /> }
         {action === 'custom' && props.children}
         {action !== 'custom' && label}        
       </button>

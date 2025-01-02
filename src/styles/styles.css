@@ -7,6 +7,8 @@
     --quinary: $quinary;
     --black: $black;
     --white: $white;
+    --trasparent: transparent;
+    --color: var(--primary);
   }
   
 .bg-primary {

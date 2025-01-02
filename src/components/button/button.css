@@ -4,20 +4,24 @@
     --top: 20px;
     --bottom: 5px;
     --gap:10px;
-    --size-icon: 10px;
-    --color: var(--primary);
-    --theme: var(--white);
+    --size-icon: 10px;    
+    --theme: var(--black);
+    --theme-negative: var(--white);
     --margin:0;
     --padding: 4px 16px; 
     --xl:700;   
     --xs:500;
-    --size-icon: 10px;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #997404;
+    --info: #17a2b8;
+    --link: #007bff;    
 }
 
 
 .button{
     background-color: var(--color);    
-    color: var(--theme);
+    color: var(--theme-negative);
     padding: var(--padding);    
     font-size: 14px;
     font-weight: var(--xs);
@@ -28,7 +32,7 @@
     border-radius: 4px;
 }
 
-#button:hover::before {
+.button:active:before {
     content: "";
     position: absolute;
     margin: 0 0.5rem;
@@ -40,6 +44,161 @@
     filter: blur(10px);
     animation: clickAnimation 1s forwards;
     opacity: 0.3;
+}
+
+.button-only{
+    padding: 5px 20px;
+    background-color: var(--color);
+    color: var(--theme-negative);
+    border-radius: 20px;
+}
+
+.button-only:hover{
+    background-color: var(--theme-negative);
+    color: var(--color);
+}
+
+.button-icon-after{
+    display: flex;
+    gap: var(--gap);
+    background-color: var(--color);
+    color: var(--theme-negative);
+    justify-content: center;
+    align-items: center;
+    fill: var(--theme-negative);
+}
+
+.button-icon-after svg{    
+    width: var(--size-icon) !important;
+    height: var(--size-icon) !important;
+}
+
+.button-icon-after:hover{
+    background-color: var(--theme-negative);
+    color: var(--color);
+    fill: var(--color) !important;
+}
+
+.button-icon-before{
+    display: flex;
+    gap: var(--gap);
+    background-color: var(--color);
+    color: var(--theme-negative);
+    justify-content: center;
+    align-items: center;
+    fill: var(--theme-negative);
+}
+
+.button-icon-before svg{    
+    width: var(--size-icon) !important;
+    height: var(--size-icon) !important;
+}
+
+.button-icon-before:hover{
+    background-color: var(--theme-negative);
+    color: var(--color);
+    fill: var(--color) !important;
+}
+
+.button-outline-icon-only{
+    padding: 5px 20px;
+    background-color: var(--theme);
+    color: var(--color);
+    border-radius: 20px;
+    border: 1px solid var(--color);
+}
+
+.button-outline-icon-only svg{    
+    width: var(--size-icon) !important;
+    height: var(--size-icon) !important;
+}
+
+.button-outline-icon-only:hover{
+    background-color: var(--color);
+    color: var(--theme-negative);
+}
+
+.button-link{
+    background-color: var(--color);
+    color: var(--theme-negative);
+    padding: var(--padding);
+    font-size: 14px;
+    font-weight: var(--xs);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;    
+    max-height: 30px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.button-outline{
+    background-color: var(--theme);
+    color: var(--color);
+    border: 1px solid var(--color);
+}
+
+.button-outline:hover{
+    background-color: var(--color);
+    color: var(--theme-negative);
+}
+
+.button-outline-only{
+    padding: 5px 20px;
+    background-color: var(--theme);
+    color: var(--color);
+    border-radius: 20px;
+    border: 1px solid var(--color);
+}
+
+.button-outline-only:hover{
+    background-color: var(--color);
+    color: var(--theme-negative);
+}
+
+.button-outline-icon-after{
+    display: flex;
+    gap: var(--gap);
+    background-color: var(--theme);
+    color: var(--color);
+    border: 1px solid var(--color);
+    justify-content: center;
+    align-items: center;
+    fill: var(--color);
+}
+
+.button-outline-icon-after svg{    
+    width: var(--size-icon) !important;
+    height: var(--size-icon) !important;
+}
+
+.button-outline-icon-after:hover{
+    background-color: var(--color);
+    color: var(--theme-negative); 
+    fill: var(--theme-negative) !important;   
+}
+
+.button-outline-icon-before{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: var(--gap);
+    background-color: var(--theme);
+    color: var(--color);
+    border: 1px solid var(--color);
+    justify-content: center;
+    align-items: center;
+    fill: var(--color);
+}
+
+.button-outline-icon-before svg{    
+    width: var(--size-icon) !important;
+    height: var(--size-icon) !important;
+}
+
+.button-outline-icon-before:hover{
+    background-color: var(--color);
+    color: var(--theme-negative); 
+    fill: var(--theme-negative) !important;   
 }
 
 /* dropdown */

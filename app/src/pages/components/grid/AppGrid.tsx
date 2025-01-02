@@ -3,7 +3,7 @@ import {createRoot} from 'react-dom/client';
 import '../style.css';
 const Block = React.lazy(() => import('../../../../../src/components/container/Block'));
 const Grid = React.lazy(() => import('../../../../../src/components/container/Grid'));
-import { Button, Dropdown, ButtonColor } from '../../../../../src/components/button/button';
+import { Button, Dropdown, ButtonColor, ButtonTemplate } from '../../../../../src/components/button/button';
 //const Dropdown = React.lazy(() => import('../../../../../src/components/button/button').then(module => ({ default: module.Dropdown })));
 const Text = React.lazy(() => import('../../../../../src/components/text/Text'));
 const Card = React.lazy(() => import('../../../../../src/components/card/card'));
@@ -24,26 +24,27 @@ const App = () => {
             <Flex template={tem.Between} >
                 <Flex width={40} template={tem.Between}>
                     <Block>
-                        <Text label='Reflow' type='h2' /> 
+                        <Text label='Reflow' type='h2'  /> 
                         <Dropdown icon='arrow-right' color={ButtonColor.trasparent}  template={btnTempleate.Icon_Affter} label='Templates' >
                             <Text label='Enterprice' type='p' />
                             <Text label='Ecommerce' type='p' />
                         </Dropdown>                       
                     </Block>
                     <Flex>
-                        <Button template={btnTempleate.LINK} label='Docs' />
-                        <Dropdown icon='arrow-right'  template={btnTempleate.Icon_Affter} label='Templates' >
+                        <Button color={ButtonColor.Primary} template={ButtonTemplate.Outline_Icon_Affter} label='Docs' />
+                        <Dropdown icon='arrow-right'  template={ButtonTemplate.LINK} label='Templates' >
                             <Button label='Enterprice' template={btnTempleate.Trasparent}  />     
                             <Button label='Ecommerce'  />     
                             <Button label='Landing Page'  />     
                             <Button label='Profolio'  />                        
                         </Dropdown>
-                        <Button template={btnTempleate.LINK} label='Color' />
-                        <Button  label='Colabor' />                        
+                        <Button  template={ButtonTemplate.Outline_Only} label='Color' />
+                        <Button  template={ButtonTemplate.Outline_Icon_Before}  label='Colabor' />                        
                     </Flex>
                 </Flex>
                 <Block >
-                    <Button label='Click me!' />
+                    <Button label='github' />
+                    <Button label='colab' />
                 </Block>
             </Flex>
         </Block>

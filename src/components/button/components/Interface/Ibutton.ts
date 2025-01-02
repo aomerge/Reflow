@@ -2,11 +2,21 @@ import { Icon } from "../../../svg/icon";
 import React from "react";
 
 enum ButtonTemplate {
+    Default = 'default',
+    Only = 'only',
+    Icon_Affter = 'icon-after',
+    Icon_Before = 'icon-before',
+    Icon_Only = 'icon-only',
     LINK = 'link',
-    Icon = 'icon',
-    Icon_Affter = 'icon-affter',
-    Primary = 'primary',
     Trasparent = 'trasparent',
+    Outline = 'outline',  
+    Outline_Only= 'outline-only',  
+    Outline_Icon_Affter = 'outline-icon-after',
+    Outline_Icon_Before = 'outline-icon-before',
+    Outline_Icon_Only = 'outline-icon-only',
+    Outline_Link = 'outline-link',
+    Outline_Link_Icon_Affter = 'outline-link-icon-after',
+    Outline_Link_Icon_Before = 'outline-link-icon-before'    
 }
 
 enum ButtonColor {
