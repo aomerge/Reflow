@@ -1,24 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { AccordionProps } from './componentes/interface/Iaccordion';
+import './style.css';
+import { nanoid } from 'nanoid';
+import { Static } from './componentes/componentes';
 
-interface AccordionProps {
-    title: string;
-    content: string;
-}
-
-const Accordion: React.FC<AccordionProps> = ({ title, content }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const Accordion: React.FC<AccordionProps> = ({ title, content, template, ...props }) => {
+    const [isOpen, setIsOpen ] = useState(false);
+    const [action, direction ] = useMemo(() => template?.split('-') || [null, null, null], [template]);
 
     const toggleAccordion = () => {
         setIsOpen(!isOpen);
     };
 
+    const renderContent = useMemo(() => {
+        switch (action) {
+          case 'custom':
+            return props.children;          
+
+          default:
+            return <Static title={title} content={content} />;
+        }
+      }, [action, content, props.children, title]);
+
     return (
-        <div className="accordion">
-            <div className="accordion-header" onClick={toggleAccordion}>
-                <h2>{title}</h2>
-                <span>{isOpen ? '-' : '+'}</span>
-            </div>
-            {isOpen && <div className="accordion-content">{content}</div>}
+        <div id={`accordion-${nanoid(6)}`} className="accordion">
+            {renderContent}
         </div>
     );
 };

@@ -1,16 +1,16 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import '../style.css';
-import Block from '../../../../../src/components/container/Block';
-import Grid from '../../../../../src/components/container/Grid';
-import Button from '../../../../../src/components/button/button.v1';
-import { Dropdown } from '../../../../../src/components/button/button.v1';
-import Text from '../../../../../src/components/text/Text';
-import Card from '../../../../../src/components/card/card';
-import Flex from '../../../../../src/components/container/Flex';
-import Image from '../../../../../src/components/image/image';
-import List from '../../../../../src/components/list/list';
-import Accordion from '../../../../../src/components/accordion/accordion';
+const Block = React.lazy(() => import('../../../../../src/components/container/Block'));
+const Grid = React.lazy(() => import('../../../../../src/components/container/Grid'));
+const Button = React.lazy(() => import('../../../../../src/components/button/button.v1'));
+const Dropdown = React.lazy(() => import('../../../../../src/components/button/button.v1').then(module => ({ default: module.Dropdown })));
+const Text = React.lazy(() => import('../../../../../src/components/text/Text'));
+const Card = React.lazy(() => import('../../../../../src/components/card/card'));
+const Flex = React.lazy(() => import('../../../../../src/components/container/Flex'));
+const Image = React.lazy(() => import('../../../../../src/components/image/image'));
+const List = React.lazy(() => import('../../../../../src/components/list/list'));
+const Accordion = React.lazy(() => import('../../../../../src/components/accordion/accordion'));
 
 import { OptionTemplate as tem} from '../../../../../src/components/container/interfaces/IContainer';
 import { ButtonTemplate as btnTempleate } from '../../../../../src/components/button/Interface/Ibutton';
@@ -46,6 +46,7 @@ const App = () => {
         <Block >
             <Accordion title="Introduction" content="Content for section 1" />
             <Accordion title="Components" content="Content for section 2" />
+            <Accordion title="Loaders" content="Content for section 3" />
             <Accordion title="Templeate" content="Content for section 3" />                       
             <Accordion title="Colaboration" content="Content for section 3" />
         </Block>
