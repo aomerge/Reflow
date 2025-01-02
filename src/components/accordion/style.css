@@ -1,18 +1,66 @@
+:root {    
+    --left: 15px;
+    --right: 20px;
+    --top: 20px;
+    --bottom: 5px;
+    --gap:10px;
+    --size-icon: 10px;
+    --color: var(--primary);
+    --padding: 5px 10px; 
+    --xl:700;   
+    --xs:500;
+}
 .accordion{
     color: var(--white);
     fill: var(--white);
     }
 .accordion svg{
-     width: 20px;
+     width: var(--size-icon) !important;
     }
 .accordion-header{   
     display: flex;
-    gap: 10px;     
+    gap: var(--gap);
+    margin-bottom: var(--bottom);        
     cursor: pointer;
-    padding: 8px 10px;    
+    padding: var(--padding);    
     border: none;
     text-align: left;
-    outline: none;
-    font-size: 15px;
+    outline: none;    
     transition: 0.4s;    
     }
+.accordion-header h2{
+    font-size: 17px;
+    font-weight: var(--xl);    
+    position: relative;    
+    }
+.accordion-header h2:hover::before{    
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--color);
+    }
+.accordion-content{
+    display: block;
+    flex-direction: column;
+    display: flex;
+    margin-left: var(--left);
+    gap: var(--gap);
+    }
+.accordion-header h2:focus::before{    
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--color);
+    }
+.accordion-content .accordion .accordion-header h2{
+    font-size: 15px;
+    font-weight: 500;    
+    }
+.accordion-content .accordion .accordion-content {    
+    padding: var(--padding);
+    }
+

@@ -23,7 +23,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, content, template, ...prop
       }, [action, content, props.children, title]);
 
     return (
-        <div id={`accordion-${nanoid(6)}`} className="accordion">
+        <div id={`accordion-${nanoid(6)}`} className={`accordion accordion-${direction}`}>
             {renderContent}
         </div>
     );
