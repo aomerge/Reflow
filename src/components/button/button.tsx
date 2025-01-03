@@ -9,10 +9,12 @@ const Button = compnent.Button;
 const Dropdown = compnent.Dropdown;
 const ButtonTemplate = enu.ButtonTemplate;
 const ButtonColor = enu.ButtonColor;
+const dropdownDirection = enu.dropdownDirection;
 
 export {
     Button,
     Dropdown,
     ButtonTemplate,
-    ButtonColor
+    ButtonColor,
+    dropdownDirection
 };

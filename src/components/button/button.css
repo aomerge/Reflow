@@ -46,15 +46,20 @@
     opacity: 0.3;
 }
 
+
 .button-only{
-    padding: 5px 20px;
+    padding: 5px 20px ;
     background-color: var(--color);
     color: var(--theme-negative);
     border-radius: 20px;
+    border-radius: 20px;
+    fill: var(--theme-negative);
 }
 
 .button-only:hover{
-    background-color: var(--theme-negative);
+    background-color: var(--transparent);
+    border: var(--color) 1px solid;
+    fill: var(--color);
     color: var(--color);
 }
 
@@ -104,6 +109,7 @@
     padding: 5px 20px;
     background-color: var(--theme);
     color: var(--color);
+    fill: var(--color);
     border-radius: 20px;
     border: 1px solid var(--color);
 }
@@ -115,21 +121,60 @@
 
 .button-outline-icon-only:hover{
     background-color: var(--color);
+    fill: var(--theme-negative);
     color: var(--theme-negative);
 }
 
-.button-link{
-    background-color: var(--color);
-    color: var(--theme-negative);
-    padding: var(--padding);
+.button-link {
+    background-color: var(--transparent);
+    color: var(--color);
+    fill: var(--color) ;
+    padding: var(--padding);    
     font-size: 14px;
     font-weight: var(--xs);
     cursor: pointer;
     position: relative;
     overflow: hidden;    
     max-height: 30px;
-    border-radius: 4px;
-    text-decoration: none;
+    
+}
+
+.button-link:hover {
+    background-color: var(--transparent);
+    color: var(--theme-negative);
+    fill: var(--theme-negative);
+}
+
+.button-link:hover:before {
+    content: "";
+    position: absolute;
+    margin: 0 0.5rem;
+    font-weight: normal;    
+    width: 50%;
+    justify-content: center;
+    bottom: 0;
+    height: 8%;
+    left: 15%;   
+    display: block;
+    border-radius: 50px;    
+    background-color: var(--color);    
+}
+
+.button-link:focus:before {
+    content: "";
+    position: absolute;
+    margin: 0 0.5rem;
+    font-weight: normal;    
+    width: 80%;
+    justify-content: center;
+    bottom: 0;
+    height: 8%;
+    left: 0;    
+    display: block;
+    border-radius: 50px;
+    background-color: var(--color);
+    animation: clickEndAnimation 1s forwards;
+    opacity: 0.5;
 }
 
 .button-outline{
@@ -153,6 +198,7 @@
 
 .button-outline-only:hover{
     background-color: var(--color);
+    fill: var(--theme-negative);
     color: var(--theme-negative);
 }
 
@@ -201,20 +247,56 @@
     fill: var(--theme-negative) !important;   
 }
 
+.button-lock{    
+    color: var(--theme-negative);
+    padding: var(--padding);
+    font-size: 14px;
+    font-weight: var(--xs);
+    cursor: not-allowed;
+    position: relative;
+    overflow: hidden;    
+    max-height: 30px;
+    border-radius: 4px;
+    z-index: 100;
+    background-color: var(--transparent);
+}
+.button-lock::before{
+    z-index: 10;
+    content: "";
+    position: absolute;
+    margin: 0 0.5rem;
+    font-weight: normal;
+    background-color: var(--color);
+    width: 100%;
+    height: 110%;
+    left: -8px; 
+    top: 0;       
+    opacity: 0.5;
+}
+.button-lock::after{
+    z-index: 10;
+    content: "";
+    position: absolute;
+    margin: 0 0.5rem;
+    font-weight: normal;
+    background-color: var(--black);
+    width: 100%;
+    height: 110%;
+    left: -8px; 
+    top: 0;       
+    opacity: 0.3;
+}
+
 /* dropdown */
 .relative{    
     cursor: pointer;
 }
 
-.dropdown {  
-    fill: var(--white);
-    color: var(--white);  
-    padding: 4px 16px;
+.dropdown {           
     text-align: center;
     font-size: 14px;    
     position: relative;
     overflow: hidden;    
-    border-radius: 4px;
     flex-direction: row-reverse;  
     display: flex;
     align-items: center;
@@ -225,13 +307,12 @@
     max-height: 30px;    
 }
 
-.dropdown svg {
-    fill: var(--white);    
+.dropdown svg {     
     width: var(--size-icon) !important;
     height: var(--size-icon) !important;
 }
 
-#dropdown:active::before {
+.dropdown:active::before {
     content: "";
     position: absolute;
     margin: 0 0.5rem;
@@ -244,6 +325,7 @@
     animation: clickAnimation 1s forwards;
     opacity: 0.3;
 }
+
 .dropdown p {
     margin: 0;
     padding: 0;
@@ -285,10 +367,48 @@
     width: 100%;
 }
 
-.dropdown:hover {
-    background: rgba(41, 38, 38, 0.63) ;
+.dropdown-left{
+    right: 0;
 }
 
+.dropdown-right{
+    left: 0;
+}
+
+.dropdown-top{
+    bottom: 0;
+}
+
+.dropdown-bottom{
+    top: 0;
+}
+
+.dropdown-top-left{
+    bottom: 100%;
+    right: 0;
+}
+
+.dropdown-top-right{
+    bottom: 100%;
+    left: 0;
+}
+
+.dropdown-bottom-left{
+    top: 0;
+    right: 0;
+}
+
+.dropdown-bottom-right{
+    top: 0;
+    left: 0;
+}
+
+.dropdown-menu a {
+    color: var(--theme-negative);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
 
 /* Animaciones */
 .fade-in {
@@ -375,6 +495,20 @@
         height: 0%;
         opacity: 0;
         left: 40%;
+    }
+}
+
+@keyframes clickEndAnimation {    
+    0% {
+        width: 0%;
+        height: 0%;
+        opacity: 0;
+        left: 40%;
+    }
+    100% {
+        transform: scale(1);        
+        opacity: 1;
+        left: 0%;
     }
 }
 
