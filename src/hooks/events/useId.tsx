@@ -4,7 +4,7 @@ let globalIdCounter = 0;
 
 export const useId = (template?: string): string => {
     // Genera un ID único basado en localStorage
-    const [uniqueId] = useState(() => {
+    const [uniqueId, setUniqueId] = useState(() => {
         globalIdCounter += 1;
         return globalIdCounter;
     });

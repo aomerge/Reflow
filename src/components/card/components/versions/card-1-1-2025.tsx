@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
 import './card.css';
-import { CardProps } from './components/interface/Icard';
-import {Button} from '../button/button';
-import { ButtonTemplate } from '../button/components/Interface/Ibutton';
+import { Button, ButtonTemplate } from '../../../button/button';
+import { CardProps } from '../interface/Icard';
 import { nanoid } from 'nanoid';
 /**
  * Card component that displays content based on the provided template.
@@ -60,6 +59,18 @@ const Card: React.FC<CardProps> = ({ button, title, content, template, ...props 
       {renderContent}
     </div>
   );
+};
+
+const Default: React.FC<CardProps>  = ({ title, content, ...props}) => {
+    return (
+        <>
+            <img key="img" src={props.img} alt={title} />
+            <section key="section">
+              <h2 className="card-title">{title}</h2>
+              <p className="card-content">{content}</p>
+            </section>
+        </>
+    );
 };
 
 export default Card;

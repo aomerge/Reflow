@@ -1,12 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { AccordionProps } from './componentes/interface/Iaccordion';
 import './style.css';
-import { nanoid } from 'nanoid';
+//import { nanoid } from 'nanoid';
 import { Static, Custom  } from './componentes/componentes';
+import { useId } from '../../hooks/events/useId';
 
 const Accordion: React.FC<AccordionProps> = ({ title, content, template, className ,...props }) => {
     const [isOpen, setIsOpen ] = useState(false);
     const [action, direction ] = useMemo(() => template?.split('-') || [null, null, null], [template]);
+    const id = useId(template); 
 
     const toggleAccordion = () => {
         setIsOpen(!isOpen);
@@ -23,7 +25,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, content, template, classNa
       }, [action, content, props.children, title]);
 
     return (
-        <div id={`accordion-${nanoid(6)}`} className={`accordion accordion-${direction} ${className}`}>
+        <div id={`accordion-${id}`} className={`accordion accordion-${direction} ${className}`}>
             {renderContent}
         </div>
     );

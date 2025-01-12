@@ -1,4 +1,4 @@
-import { ButtonTemplate } from "../../button/components/Interface/Ibutton";
+import { ButtonTemplate } from "../../../button/components/Interface/Ibutton";
 
 export interface CardProps {
     title?: string;
