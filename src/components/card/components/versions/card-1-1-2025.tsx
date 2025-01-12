@@ -1,17 +1,17 @@
 import React, { useMemo } from 'react';
-import './card.css';
 import { Button, ButtonTemplate } from '../../../button/button';
 import { CardProps } from '../interface/Icard';
-import { nanoid } from 'nanoid';
+import { useId } from '../../../../hooks/events/useId';
 /**
  * Card component that displays content based on the provided template.
  *
  * @param {CardProps} props - The properties for the Card component.
  * @returns {JSX.Element} The rendered Card component.
  */
-const Card: React.FC<CardProps> = ({ button, title, content, template, ...props }) => {  
+export const Card: React.FC<CardProps> = ({ button, title, content, template, ...props }) => {  
   const [action, direction, color] = useMemo(() => template?.split('-') || [null, null, null], [template]);
-  // Render the appropriate content based on the action
+  
+  const id = useId(title, template);    
   
   const renderContent = useMemo(() => {
     switch (action) {
@@ -55,7 +55,7 @@ const Card: React.FC<CardProps> = ({ button, title, content, template, ...props 
   }, [action, button, content, props.children, props.img, title]);
 
   return (
-    <div id={`card-${nanoid(6)}`} style={props.Style} className={`card ${template ? `card-${template}` : 'card'} ${props.className || ''}`}>
+    <div id={`card-${id}`} style={props.Style} className={`card ${template ? `card-${template}` : 'card'} ${props.className || ''}`}>
       {renderContent}
     </div>
   );
@@ -72,5 +72,3 @@ const Default: React.FC<CardProps>  = ({ title, content, ...props}) => {
         </>
     );
 };
-
-export default Card;

@@ -2,12 +2,29 @@ import { useState ,useRef, useEffect } from 'react';
 
 let globalIdCounter = 0; 
 
-export const useId = (template?: string): string => {
-    // Genera un ID único basado en localStorage
-    const [uniqueId, setUniqueId] = useState(() => {
-        globalIdCounter += 1;
-        return globalIdCounter;
-    });
+interface UseIdProps {
+    template?: string;
+    label: string;
+}
+
+
+
+export const useId = (label?: any, template?: any): string => {  
+
+    let abbreviated = '';
+    let labelLength = 0;
+
+    if (label) {
+        const letters = label.trim().replace(/\s+/g, '').split('') || [];
+        const firstLetter = letters[0]?.toUpperCase() || ''; 
+        const lastLetter = letters[letters.length - 1]?.toUpperCase() || ''; 
+        const middleLetter = letters.length > 0 
+            ? letters[Math.floor(letters.length / 2)].toUpperCase() 
+            : ''; 
+        labelLength = label.length;
+        abbreviated = `${firstLetter}${middleLetter}${lastLetter}`;    
+    }
+
     // Calcula las iniciales del template
     const getTemplateInitials = (template?: string) => {
         if (!template) return '';
@@ -19,8 +36,8 @@ export const useId = (template?: string): string => {
 
     // Genera el ID solo una vez
     const idRef = useRef(() => {        
-        const initials = getTemplateInitials(template);
-        return `${initials}${initials.length}${uniqueId}`;
+        const initials = getTemplateInitials(template || '');
+        return `${initials}${abbreviated}${initials.length}${labelLength}`;
     });
 
     useEffect(() => {

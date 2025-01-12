@@ -8,7 +8,7 @@ import { useId } from '../../hooks/events/useId';
 const Accordion: React.FC<AccordionProps> = ({ title, content, template, className ,...props }) => {
     const [isOpen, setIsOpen ] = useState(false);
     const [action, direction ] = useMemo(() => template?.split('-') || [null, null, null], [template]);
-    const id = useId(template); 
+    const id = useId(title, template); 
 
     const toggleAccordion = () => {
         setIsOpen(!isOpen);

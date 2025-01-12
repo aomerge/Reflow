@@ -12,7 +12,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ label, direction ,template, 
     const [action, ] = template ? template.split('-') : [null, null];  
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);    
-    const id = useId(template);    
+    const id = useId(label, template);    
 
     const handleClickOutside = (event: MouseEvent) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -73,7 +73,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ label, direction ,template, 
 
 export const Button: React.FC<ButtonProps> = ({ label, template, className,icon, color, ...props }) => {
   const [theme, action] = template ? template.split('-') : [null, null];  
-  const id = useId(template);
+  const id = useId(label, template);
   
     useEffect(() => {
         const buttonElement = document.getElementById(`button-${id}`);    

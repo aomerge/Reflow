@@ -6,7 +6,7 @@ import Block, {BlockContext, useBlockContext} from '../../src/components/contain
 import Navigation from '../../src/components/navigator/Navigation';
 import Scroll from '../../src/components/container/Scroll';
 import SkeletonLoader from '../../src/components/loaders/loader';
-import Card from '../../src/components/card/card';
+import {Card} from '../../src/components/card/card';
 import SubNavigator from '../../src/components/navigator/SubNavigator';
 import Breadcrumb from '../../src/components/breadcrumb/breadcrumb';
 import {useStorage} from '../../src/hooks/localhost/storage';
