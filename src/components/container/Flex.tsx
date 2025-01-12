@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import '../../styles/tailwind.css';
-import { FlexProps, OptionTemplate } from './interfaces/IContainer';
+import { FlexProps, OptionTemplate } from './components/interfaces/IContainer';
 
 /**
  * Flex component to create a flexible container with various layout options.

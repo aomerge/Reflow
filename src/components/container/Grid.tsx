@@ -2,7 +2,7 @@ import React, { ReactNode, useMemo } from 'react';
 import '../../styles/tailwind.css';
 import '../../styles/styles.css';
 import './container.css';
-import { GridProps } from './interfaces/IContainer';
+import { GridProps } from './components/interfaces/IContainer';
   
 const Grid = React.memo(({ children, template ,col , row, item, className,...props }: GridProps) => {
     console.log('GridProps', template);

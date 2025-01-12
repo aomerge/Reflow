@@ -12,7 +12,7 @@ const Image = React.lazy(() => import('../../../../../src/components/image/image
 const List = React.lazy(() => import('../../../../../src/components/list/list'));
 const Accordion = React.lazy(() => import('../../../../../src/components/accordion/accordion'));
 
-import { OptionTemplate as tem} from '../../../../../src/components/container/interfaces/IContainer';
+import { OptionTemplate as tem} from '../../../../../src/components/container/components/interfaces/IContainer';
 import { ButtonTemplate as btnTempleate } from '../../../../../src/components/button/components/Interface/Ibutton';
 
 

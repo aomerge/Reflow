@@ -8,7 +8,6 @@ import Scroll from '../../src/components/container/Scroll';
 import SkeletonLoader from '../../src/components/loaders/loader';
 import {Card} from '../../src/components/card/card';
 import SubNavigator from '../../src/components/navigator/SubNavigator';
-import Breadcrumb from '../../src/components/breadcrumb/breadcrumb';
 import {useStorage} from '../../src/hooks/localhost/storage';
 import { useCookies } from '../../src/hooks/localhost/cookies';
 import { useSession } from '../../src/hooks/localhost/session';

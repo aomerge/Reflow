@@ -12,7 +12,7 @@ import '../../styles/styles.css'; // vars of tailwind
 import '../../styles/tailwind.css';
 import CSSTransition from '../trancition/CssTrancition';
 //import { getConfig } from '../../utils/config';
-import { ElementType, BlockProps, BlockContextType } from "./interfaces/IContainer";
+import { ElementType, BlockProps, BlockContextType } from "./components/interfaces/IContainer";
 
 // Create context with undefined as the default value
 export const BlockContext = createContext<BlockContextType | undefined>(undefined);
