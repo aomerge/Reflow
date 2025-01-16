@@ -6,7 +6,8 @@ import React, {
     PropsWithChildren,
     memo,
     useMemo,
-    useRef
+    useRef,
+    useEffect
   } from 'react';
   import { nanoid } from 'nanoid';
   import {CssTrancition} from '../../Container';
@@ -21,72 +22,74 @@ import React, {
 //
 //****************************************************************************** */
 export const BlockContext = createContext<BlockContextType | undefined>(undefined);
-  
-  // Custom hook to use Block context
+
 export const useBlockContext = () => {
-    const context = useContext(BlockContext);
-    if (!context) {
-      throw new Error('useBlockContext must be used within a Block component');
-    }
-    return context;
+  const context = useContext(BlockContext);
+  if (!context) {
+    throw new Error('useBlockContext debe usarse dentro de un BlockContext.Provider');
+  }
+  return context;
 };
   
   
   // Block component
 export const Block = memo(<T extends ElementType = 'div'>({
-    newElement,
-    children,
-    type = 'div' as T,
-    style,
-    className = '',
-    animationEffect = false,
-    ...props
+  newElement,
+  children,
+  type = 'div' as T,
+  style,
+  className = '',
+  animationEffect = false,
+  ...props
   }: PropsWithChildren<BlockProps<T>>) => {
-    const [outlet, setOutlet] = useState<ReactNode>(children);  
-    
-    const childTemplate = React.Children.map(children, (child) => {
-        if (React.isValidElement(child) && child.props) {
-            return child.props.template || '';
-        }
-        return '';
-    })?.join('') || '';
+  const [outlet, setOutlet] = useState<ReactNode>(children);
 
-    const id = useId(`${type}-${childTemplate}`);
-  
-    // Get element type dynamically
-    const Element = useMemo(() => getElementByType(type), [type]);
+  const childTemplate = React.Children.map(children, (child) => {
+    if (React.isValidElement(child) && child.props) {
+      return child.props.template || '';
+    }
+    return '';
+  })?.join('') || '';
 
-    const renderedChildren = useMemo(
-      () =>
-        newElement
-          ? React.isValidElement(newElement)
-            ? React.cloneElement(newElement, { ...props })
-            : newElement
-          : React.Children.map(children, (child) =>
-              React.isValidElement(child) ? React.cloneElement(child, { ...props }) : child
-            ),
-      [newElement, children, props]
-    );
+  const id = useId(`${type}-${childTemplate}`);
   
-    return (
-      <BlockContext.Provider value={{ outlet, setOutlet }}>
-        <CssTrancition
-          in={animationEffect}
-          timeout={50000}
-          classNames="fade"
-          unmountOnExit={false}
-        >
-          <Element
-            id={`Block-${id}`} // Usas el valor de la clave como parte del id
-            style={style}
-            className={`text-white ${className? className : ''} `}
-            {...(props as any)}
-          >
-            {renderedChildren}
-          </Element>
-        </CssTrancition>
-      </BlockContext.Provider>  
-    );
+  useEffect(() => {
+    console.log(animationEffect);
+  }, [children, animationEffect]);
+
+  const Element = useMemo(() => getElementByType(type), [type]);
+
+  const renderedChildren = useMemo(
+    () =>
+    newElement
+      ? React.isValidElement(newElement)
+      ? React.cloneElement(newElement, { ...props })
+      : newElement
+      : React.Children.map(children, (child) =>
+        React.isValidElement(child) ? React.cloneElement(child, { ...props }) : child
+      ),
+    [newElement, children, props]
+  );
+  
+  return (
+    <BlockContext.Provider value={{ outlet, setOutlet }}>
+    <CssTrancition
+      in={animationEffect}
+      timeout={5000}
+      classNames="fade"
+      unmountOnExit={false}
+    >
+      <Element
+      id={`Block-${id}`}
+      style={style}
+      className={`text-white ${className ? className : ''}`}
+      {...(props as any)}
+      >
+      {renderedChildren}
+      </Element>
+    </CssTrancition>
+    </BlockContext.Provider>
+  );
   });
   
   // Helper function to get element by type

@@ -49,7 +49,7 @@ const App = () => {
                 </Block>
             </Flex>
         </Block>
-        <Block >
+        <Block animationEffect={true} >
             <Accordion title="Introduction" template='custom' >
                 <Button label='Instalation' />
                 <Button label='Structure of components' />
