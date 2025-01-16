@@ -25,7 +25,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, content, template, classNa
       }, [action, content, props.children, title]);
 
     return (
-        <div id={`accordion-${id}`} className={`accordion accordion-${direction} ${className}`}>
+        <div id={`accordion-${id}`} className={`accordion accordion-${direction || 'defaul'} ${className ? className : ''}`}>
             {renderContent}
         </div>
     );

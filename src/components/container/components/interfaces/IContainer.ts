@@ -29,6 +29,7 @@ export interface BlockProps<T extends ElementType = 'div'> extends React.HTMLAtt
   row_end?: number;
   type?: T;
   animationEffect?: boolean;
+  clasName?: string;
 }
 
 /**
@@ -78,3 +79,9 @@ export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: string;
 }
 
+export interface ScrollProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+  scrollStep?: number;
+  startIndex?: number;
+  scrollDirections?: ('horizontal' | 'vertical')[];
+}

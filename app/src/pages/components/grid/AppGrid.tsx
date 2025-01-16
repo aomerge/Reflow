@@ -1,13 +1,14 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import '../style.css';
-const Block = React.lazy(() => import('../../../../../src/components/container/Block'));
+import { Block, Flex } from '../../../../../src/components/container/Container';
+//const Block = React.lazy(() => import('../../../../../src/components/container/Block'));
 const Grid = React.lazy(() => import('../../../../../src/components/container/Grid'));
 import { Button, Dropdown, ButtonColor, ButtonTemplate, dropdownDirection } from '../../../../../src/components/button/button';
 //const Dropdown = React.lazy(() => import('../../../../../src/components/button/button').then(module => ({ default: module.Dropdown })));
 const Text = React.lazy(() => import('../../../../../src/components/text/Text'));
 import { Card } from '../../../../../src/components/card/card';
-const Flex = React.lazy(() => import('../../../../../src/components/container/Flex'));
+//const Flex = React.lazy(() => import('../../../../../src/components/container/Flex'));
 const Image = React.lazy(() => import('../../../../../src/components/image/image'));
 const List = React.lazy(() => import('../../../../../src/components/list/list'));
 const Accordion = React.lazy(() => import('../../../../../src/components/accordion/accordion'));

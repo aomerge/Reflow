@@ -46,7 +46,7 @@ if (!shouldRender && unmountOnExit) {
 }
 
 return React.cloneElement(children, {
-  className: `${children.props.className || ''} ${none && animationClass}`.trim(),
+  className: `${children.props.className || ''} ${none && animationClass || ''}`.trim(),
 });
 });
 
