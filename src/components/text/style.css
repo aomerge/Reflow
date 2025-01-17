@@ -54,3 +54,39 @@ p{
 .xxs{
     font-size: 10px;    
 } 
+
+.primary{
+    color: #007bff;
+}
+
+.secondary{
+    color: #6c757d;
+}
+
+.Tertiary{
+    color: #6c757d;
+}
+
+.Quaternary{
+    color: #6c757d;
+}
+
+.Quinary{
+    color: #6c757d;
+}
+
+.black{
+    color: #000000;
+}
+
+.white{
+    color: #ffffff;
+}
+
+.success{
+    color: #28a745;
+}
+
+.danger{
+    color: #dc3545;
+}
