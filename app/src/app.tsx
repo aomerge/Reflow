@@ -1,132 +1,106 @@
-import React, { useState, createContext, useContext, ReactNode, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import {Button} from '../../src/components/button/button';
-import Text from '../../src/components/text/Text';
-import Block, {BlockContext, useBlockContext} from '../../src/components/container/Block';
-import Navigation from '../../src/components/navigator/Navigation';
-import Scroll from '../../src/components/container/Scroll';
-import SkeletonLoader from '../../src/components/loaders/loader';
-import {Card} from '../../src/components/card/card';
-import SubNavigator from '../../src/components/navigator/SubNavigator';
-import {useStorage} from '../../src/hooks/localhost/storage';
-import { useCookies } from '../../src/hooks/localhost/cookies';
-import { useSession } from '../../src/hooks/localhost/session';
-import { useCache } from '../../src/hooks/localhost/cache';
-import { Icon } from '../../src/components/svg/icon';
+//***************************************************************************/
+//
+//                           IMPORTS
+//
+//************************************************************************* */
+import React, {useState, useContext} from 'react';
+import {createRoot} from 'react-dom/client';
+import './style.css';
+import * as Reflow from '../../src/setup';
+import { Body, Header, Sidebar  } from './componets/components';
 
+//***************************************************************************/
+//
+//                           COMPONENTS
+//
+//************************************************************************* */
+const Grid = Reflow.Grid;
+const Block = Reflow.Block;
+const Flex = Reflow.Flex;
+const Text = Reflow.Text;
+const Button = Reflow.Button;
+const Dropdown = Reflow.Dropdown;
+const ButtonColor = Reflow.ButtonColor;
+const ButtonTemplate = Reflow.ButtonTemplate;
+const dropdownDirection = Reflow.DropdownDirection;
+const tem = Reflow.tem;
+const Accordion = Reflow.Accordion;
+const Card = Reflow.Card;
+const Image = Reflow.Image;
 
-interface ChildProps {  
-  text: string | number ;
-  setText: React.Dispatch<React.SetStateAction<any>>;
+export {
+  Grid,
+  Block,
+  Flex,
+  Text,
+  Button,
+  Dropdown,
+  ButtonColor,
+  ButtonTemplate,
+  dropdownDirection,
+  tem,
+  Accordion,
+  Card,
+  Image
 }
 
-interface Post{
-  results: Array<IPost>;
-}
 
-interface IPost{
-  name: string;
-  image: string;
-}
-
-const SubElement = ({...props})=>{
-  console.log("hola");
-  return (
-    <SubNavigator >
-      <Button label="Products" />
-      <Button label="services" />
-      <Button label="Pricing" />
-    </SubNavigator>
-  );
-}
-
+//***************************************************************************/
+//
+//                           APP
+//
+//***************************************************************************/
 const App = () => {  
-  const [data, setData] = useState<Post | null>(null);
-  const [ text, setText ] = useState<number>(0);
-
-  const { value, performAction } = useStorage<string>('mykey');  
-
-  const { cookies,setCookie, getCookie, deleteCookie} = useCookies();
-  const { setItem, getItem, sessionData, deleteItem } = useSession();
-  const { create: createImageCache } = useCache();
-
-  setCookie('user', 'John Doe', 1, {
-    secure: false,
-    httpOnly: false,
-    sameSite: 'strict',
-  });   
-
-  useEffect(() => {
-    const storeImage = async () => {
-        const response = await fetch('');
-        if (response.ok) {
-            await createImageCache('/images/sample', response);
-        }
-        console.log("hola", response);
-    };
-    storeImage();
-  }, []);
-
-  const guardarNombre = () => {
-    setItem('nombreUsuario', 'Jane Doe');
-  };
-  //deleteItem('sessionUser');
-
-  //deleteCookie('user');
-    
-  //getCookie('user');
-
-  //performAction('search');
-  //console.log("hola", cookies);
-  //console.log("hola", value);  
+  const [sharedValue, setSharedValue] = useState('');
 
   return (
-    <Block className=' h-screen ' style={{padding:"5px 20px"}} type='section'>              
-        <Navigation template='black'>
-          <Block>
-            <img src="https://media.flaticon.com/dist/min/img/logos/flaticon-color-negative.svg" title="Logo de Flaticon" width="147" height="22" className="block" alt="Flaticon logo"></img>
-          </Block>
-          <Block className='trasnparent'>
-            {/* <Button element={<SubElement />}  label="Home" template='trasparent-down'/>           */}
-            <Button element={<p>hola</p>} label="Loging" />      
-          </Block>
-          {/* <Button element={<SubElement />}  label="Home" template='trasparent-down'/>           */}
-          <Button element={<p>hola</p>} label="Loging" />      
-        </Navigation>
-        {/* <Button label="Click me" onClick={()=>setText(text + 1)} template='black' /> */}             
-        
-
-        {/* <Scroll 
-          scrollStep={500}
-          startIndex={0}
-          scrollDirections={['vertical']}
-          className='mt-10'
-          style={{margin:"40px 0px 0px 0px", width:"500px", height:"500px", background:"gray"}}
-        >          
-          <div style={{background:"red", height:"500px", width:"500px", margin:"0px 0px 0px 0"}}>1</div>
-          <div style={{background:"blue", height:"500px", width:"500px", margin:"0px 0px"}}>2</div>
-          <div style={{background:"red", height:"500px", width:"500px", margin:"0px 0px"}}> 3</div>
-          <div style={{background:"blue", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
-          <div data-scroll-index={3} style={{background:"green", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
-          <div data-scroll-index={3} style={{background:"blue", height:"500px", width:"500px", margin:"0px 0px"}}>4</div>
-        </Scroll>
-        <ProfileSkeleton /> */}
-        </Block>
+    <MyContext.Provider value={{ sharedValue, setSharedValue }}>      
+      <Grid template='Dashboard-Sidevar-not-footer'>
+          <Header />        
+          <Sidebar />
+          <Body />        
+      </Grid>
+    </MyContext.Provider>
   );
 };
-const ProfileSkeleton = () => (
-  <SkeletonLoader width="600" height="160" viewBox="0 0 600 160">
-    <circle cx="60" cy="60" r="50" />
-    <rect x="130" y="15" rx="4" ry="4" width="250" height="13" />
-    <rect x="130" y="35" rx="4" ry="4" width="200" height="13" />
-    <rect x="130" y="55" rx="4" ry="4" width="300" height="13" />
-    <rect x="130" y="75" rx="4" ry="4" width="250" height="13" />    
-  </SkeletonLoader>
-);
+
+const MyContext = React.createContext({});
+
+export const useAppcontext = () => {
+  const context = useContext(MyContext);
+  if (!context) {
+    throw new Error('useCount must be used within a CountProvider');
+  }
+  return context;
+}
+
+export const MyContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [sharedValue, setSharedValue] = useState('');
+
+  return (
+    <MyContext.Provider value={{ sharedValue, setSharedValue }}>
+      {children}
+    </MyContext.Provider>
+  );
+};
 
 export default App;
 
-
+//***************************************************************************/
+//
+//                           Render
+//
+//************************************************************************* */
 
 // Renderiza la aplicación en el DOM
-ReactDOM.render(<App />, document.getElementById('root'));
+performance.mark('startRender');
+performance.measure('startRenderToNow', 'startRender');
+
+const container = document.getElementById('root');
+const root = createRoot(container!);
+root.render(<App />);
+
+performance.mark('endRender');
+performance.measure('renderTime', 'startRender', 'endRender');
+
+console.log(performance.getEntriesByType('measure'));

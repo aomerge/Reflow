@@ -10,10 +10,12 @@ import React, {
     useEffect
   } from 'react';
   import { nanoid } from 'nanoid';
-  import {CssTrancition} from '../../Container';
+  import {CssTrancition,} from '../../Container';
+  import { SkeletonLoader } from '../components';
   import { useId } from '../../../../hooks/events/useId';
   //import { getConfig } from '../../utils/config';
   import { ScrollProps, GridProps, ElementType, BlockProps, BlockContextType, FlexProps, OptionTemplate } from "../interfaces/IContainer";
+  
   
 
 //****************************************************************************** */}
@@ -40,8 +42,13 @@ export const Block = memo(<T extends ElementType = 'div'>({
   style,
   className = '',
   animationEffect = false,
+  loading = {
+    isLoading: false,
+    message: 'Loading...',
+    squeleton: []
+  },
   ...props
-  }: PropsWithChildren<BlockProps<T>>) => {
+  }: PropsWithChildren<BlockProps<T>>) => {    
   const [outlet, setOutlet] = useState<ReactNode>(children);
 
   const childTemplate = React.Children.map(children, (child) => {
@@ -70,27 +77,43 @@ export const Block = memo(<T extends ElementType = 'div'>({
       ),
     [newElement, children, props]
   );
+
+  const sckeletonTemplate = [
+
+  ]
   
   return (
     <BlockContext.Provider value={{ outlet, setOutlet }}>
-    <CssTrancition
-      in={animationEffect}
-      timeout={5000}
-      classNames="fade"
-      unmountOnExit={false}
-    >
-      <Element
-      id={`Block-${id}`}
-      style={style}
-      className={`text-white ${className ? className : ''}`}
-      {...(props as any)}
-      >
-      {renderedChildren}
-      </Element>
-    </CssTrancition>
+      {
+        loading.isLoading ? (
+          <div>
+            <SkeletonLoader viewBox="0 0 470 785" height='375px'  >              
+              {
+                loading.squeleton ? loading.squeleton : <p> { loading.message }</p>
+              }
+            </SkeletonLoader>
+          </div>
+        ) : (
+        <CssTrancition
+          in={animationEffect}
+          timeout={5000}
+          classNames="fade"
+          unmountOnExit={false}
+        >
+            <Element
+            id={`Block-${id}`}
+            style={style}
+            className={`text-white ${className ? className : ''}`}
+            {...(props as any)}
+            >
+            {renderedChildren}
+            </Element>      
+        </CssTrancition>
+        )
+      }
     </BlockContext.Provider>
   );
-  });
+  });  
   
   // Helper function to get element by type
 function getElementByType<T extends ElementType>(type: T): React.ElementType {

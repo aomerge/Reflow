@@ -3,8 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './app/src/app.tsx',
-    grid: './app/src/pages/components/grid/AppGrid.tsx',
+    app: './app/src/app.tsx',    
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -67,12 +66,6 @@ module.exports = {
       template: './app/public/index.html',
       filename: 'index.html',
       chunks: ['app'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './app/public/doc/grid.html',
-      filename: 'grid.html', // Nombre único para este archivo
-      chunks: ['grid'],
-    }),
-    
+    })
   ],
 };

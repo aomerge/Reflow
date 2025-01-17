@@ -4,9 +4,7 @@
     --top: 20px;
     --bottom: 5px;
     --gap:10px;
-    --size-icon: 10px;    
-    --theme: var(--black);
-    --theme-negative: var(--white);
+    --size-icon: 10px;        
     --margin:0;
     --padding: 4px 16px; 
     --xl:700;   

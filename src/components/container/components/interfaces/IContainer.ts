@@ -30,6 +30,11 @@ export interface BlockProps<T extends ElementType = 'div'> extends React.HTMLAtt
   type?: T;
   animationEffect?: boolean;
   clasName?: string;
+  loading?: {
+    isLoading: boolean;
+    message?: string;
+    squeleton?: ReactNode[] | Element | any;
+  };
 }
 
 /**

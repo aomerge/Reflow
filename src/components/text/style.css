@@ -1,0 +1,56 @@
+h1{    
+    font-size: 45px;
+    font-weight: 700;
+}
+
+h2{    
+    font-size: 35px;
+    font-weight: 600;
+}
+
+h3{   
+    font-size: 25px;
+    font-weight: 600;
+}
+
+h4{   
+    font-size: 20px;
+    font-weight: 600;
+}
+
+span{   
+    font-size: 15px;
+    font-weight: bold;
+}
+p{    
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.xxl{
+    font-size: 55px;      
+}
+
+.xl{
+    font-size: 45px;    
+}
+
+.lg{
+    font-size: 35px;    
+}
+
+.md{
+    font-size: 25px;    
+}
+
+.sm{
+    font-size: 20px;    
+}
+
+.xs{
+    font-size: 15px;    
+}
+
+.xxs{
+    font-size: 10px;    
+} 

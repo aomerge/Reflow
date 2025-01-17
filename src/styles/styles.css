@@ -9,6 +9,8 @@
     --white: $white;
     --trasparent: transparent;
     --color: var(--primary);
+    --theme: var(--black);
+    --theme-negative: var(--white);
   }
   
 .bg-primary {

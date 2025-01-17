@@ -1,0 +1,25 @@
+/* keyframes para el degradado */
+:root{
+    --opaciti:1;
+}
+@keyframes svg-shimmer {
+    0% {
+    --opaciti: 1;
+      fill: rgba(53, 53, 56, .6);
+    }
+    50% {
+        --opaciti: 1;
+        fill: rgba(149, 155, 155, .6);
+    }
+    100% {
+        --opaciti: 1;
+          fill: rgba(53, 53, 56, .6);
+        }
+  }  
+  
+  /* Opcional: Ajustar estilos base para SVG */
+  .skeleton-shimmer * {
+    
+    animation: svg-shimmer 3s  infinite;
+  }
+  
