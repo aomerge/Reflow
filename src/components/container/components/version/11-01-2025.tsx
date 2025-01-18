@@ -143,7 +143,16 @@ function getElementByType<T extends ElementType>(type: T): React.ElementType {
  * @returns {JSX.Element} The rendered Flex container.
  */
 export const Flex = React.memo(({ children, template, width ,...props }: FlexProps): JSX.Element => {    
-    const id = useId('flex', template);
+    
+    const childTemplate = React.Children.map(children, (child) => {
+      if (React.isValidElement(child) && child.props) {
+        return child.props.template || '';
+      }
+      return '';
+    })?.join('') || '';
+  
+    const id = useId(`${template}-${childTemplate}`);
+
     if (template && !Object.values<OptionTemplate>(OptionTemplate).includes(template)) {
         throw new Error(`Template "${template}" is not a valid option.`);
     }

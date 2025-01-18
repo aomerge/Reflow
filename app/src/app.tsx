@@ -50,6 +50,11 @@ export {
 //                           APP
 //
 //***************************************************************************/
+interface MyContextType {
+  sharedValue: string;
+  setSharedValue: React.Dispatch<React.SetStateAction<string>>;
+}
+
 const App = () => {  
   const [sharedValue, setSharedValue] = useState('');
 
@@ -64,15 +69,16 @@ const App = () => {
   );
 };
 
-const MyContext = React.createContext({});
+const MyContext = React.createContext<MyContextType | undefined>(undefined);
 
-export const useAppcontext = () => {
+// Hook personalizado para usar el contexto
+export const useAppContext = () => {
   const context = useContext(MyContext);
   if (!context) {
-    throw new Error('useCount must be used within a CountProvider');
+    throw new Error('useAppContext debe usarse dentro de un MyContextProvider');
   }
   return context;
-}
+};
 
 export const MyContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [sharedValue, setSharedValue] = useState('');

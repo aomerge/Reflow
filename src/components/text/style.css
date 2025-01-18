@@ -14,7 +14,7 @@ h3{
 }
 
 h4{   
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
 }
 
@@ -24,7 +24,7 @@ span{
 }
 p{    
     font-size: 15px;
-    font-weight: normal;
+    font-weight: 400;
 }
 
 .xxl{
@@ -56,23 +56,23 @@ p{
 } 
 
 .primary{
-    color: #007bff;
+    color: var(--primary);
 }
 
 .secondary{
-    color: #6c757d;
+    color: var(--secondary);
 }
 
-.Tertiary{
-    color: #6c757d;
+.tertiary{
+    color: var(--tertiary);
 }
 
-.Quaternary{
-    color: #6c757d;
+.quaternary{
+    color: var(--quaternary);
 }
 
-.Quinary{
-    color: #6c757d;
+.quinary{
+    color: var(--quinary);
 }
 
 .black{

@@ -1,11 +1,12 @@
 import React from 'react';
 import {TextProps, ElementType} from '../interfaces/IText';
-
-const Text: React.FC<TextProps> = ({ label, type, size, color }) => {
-
+import { tem } from '../../../../setup';
+import { useId } from '../../../../hooks/events/useId';
+const Text: React.FC<TextProps> = ({ label, type, size, color, className,...props }) => {
+  const id = useId(label, `${size}${type}`);
   const Element = getElementByType(type) as React.ElementType;
 
-  return <Element className={` ${size? size : ""} ${color? color : ""} `} >{label}</Element>;
+  return <Element id={`Text-${id}`} {...props} className={` ${size? size : ""} ${color? color : ""} ${className||""}`} >{label}</Element>;
 };
 
 export default Text;

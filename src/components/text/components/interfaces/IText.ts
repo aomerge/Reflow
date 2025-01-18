@@ -4,4 +4,5 @@ export interface TextProps {
   type: ElementType;
   size?: String;
   color?: string;
+  className?: string;
 }
