@@ -1,3 +1,8 @@
+/*******************************************************************/
+/*
+/*                          COMPONENTS
+/*
+/*******************************************************************/
 #grid{
     display: grid;            
 }
@@ -8,7 +13,10 @@
 }
 
 /*******************************************************************/
-
+/*
+/*                          Galery
+/*
+/*******************************************************************/
 .grid-Galery-Masonry{    
     width: 100%;
     grid-template-columns: repeat( auto-fill, minmax(200px, 1fr)) ;
@@ -566,77 +574,13 @@
     text-align: center;
 }
 
-/*----------------------------**************************----------*/
-.grid-Agnostic {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
-}
 
-.grid-Agnostic > * {
-    background: lightgray;
-    padding: 10px;
-    text-align: center;
-}
-.grid-ThreeCol {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
+/*******************************************************************/
+/*
+/*                          FLEX
+/*
+/*******************************************************************/
 
-.grid-ThreeCol > * {
-    background: lightcoral;
-    padding: 10px;
-    text-align: center;
-}
-
-.grid-FourCol {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-
-.grid-FourCol > * {
-    background: lightseagreen;
-    padding: 10px;
-    text-align: center;
-}
-
-.grid-FiveCol {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-}
-
-.grid-FiveCol > * {
-    background: lightgoldenrodyellow;
-    padding: 10px;
-    text-align: center;
-}
-
-.grid-SixCol {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-}
-
-.grid-SixCol > * {
-    background: lightpink;
-    padding: 10px;
-    text-align: center;
-}
-
-.grid-SevenCol {
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-}
-
-.grid-SevenCol > * {
-    background: lightsteelblue;
-    padding: 10px;
-    text-align: center;
-}
-
-/*---------------------*****************-------------------------*/
-
-#flex{
-}
 .Flex{
     display: flex;
     gap: 10px;

@@ -78,7 +78,7 @@ export const Button: React.FC<ButtonProps> = ({ label, template, className,icon,
     useEffect(() => {
         const buttonElement = document.getElementById(`button-${id}`);    
         if (buttonElement && color !== undefined) {
-            buttonElement.style.setProperty('--color', `var(--${color})` || ` var(--${ButtonColor.Primary})`);                    
+            buttonElement.style.setProperty('--color', `var(--${color})` || ` var(--${ButtonColor.White})`);                    
         }
         
     }, [color]);

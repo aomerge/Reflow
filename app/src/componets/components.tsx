@@ -64,9 +64,8 @@ export const Header = () => (
                     <Text label="A React UI Library" type="p" />                 
                 </Block>
                 <Flex>
-                    <Button
-                        color={ButtonColor.Primary}
-                        template={ButtonTemplate.Outline_Icon_Affter}
+                    <Button                        
+                        template={ButtonTemplate.LINK}
                         label="Docs"
                     />
                     <Dropdown
@@ -80,8 +79,8 @@ export const Header = () => (
                         <Button label="Landing Page" />
                         <Button label="Profolio" />
                     </Dropdown>
-                    <Button template={ButtonTemplate.Outline_Only} label="Color" />
-                    <Button template={ButtonTemplate.Outline_Icon_Before} label="Colabor" />
+                    <Button template={ButtonTemplate.LINK} label="Color" />
+                    <Button template={ButtonTemplate.LINK} label="Colabor" />
                 </Flex>
             </Flex>
             <Block>

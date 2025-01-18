@@ -1,3 +1,9 @@
+/***************************************************/
+/*
+/*                  VARIABLES
+/*
+/***************************************************/
+
 :root {    
     --left: 15px;
     --right: 20px;
@@ -16,7 +22,11 @@
     --link: #007bff;    
 }
 
-
+/***************************************************/
+/*
+/*                  BUTTONS
+/*
+/***************************************************/
 .button{
     background-color: var(--color);    
     color: var(--theme-negative);
@@ -44,6 +54,11 @@
     opacity: 0.3;
 }
 
+/***************************************************/
+/*
+/*                  TEMPLATES
+/*
+/***************************************************/
 
 .button-only{
     padding: 5px 20px ;
@@ -125,8 +140,8 @@
 
 .button-link {
     background-color: var(--transparent);
-    color: var(--color);
-    fill: var(--color) ;
+    color: var(--theme-negative);
+    fill: var(--theme-negative) ;
     padding: var(--padding);    
     font-size: 14px;
     font-weight: var(--xs);
@@ -258,6 +273,7 @@
     z-index: 100;
     background-color: var(--transparent);
 }
+
 .button-lock::before{
     z-index: 10;
     content: "";
@@ -271,6 +287,7 @@
     top: 0;       
     opacity: 0.5;
 }
+
 .button-lock::after{
     z-index: 10;
     content: "";
@@ -285,7 +302,12 @@
     opacity: 0.3;
 }
 
-/* dropdown */
+/***************************************************/
+/*
+/*                  DROPDOWN
+/*
+/***************************************************/
+
 .relative{    
     cursor: pointer;
 }
@@ -409,6 +431,11 @@
 }
 
 /* Animaciones */
+/***************************************************/
+/*
+/*                  ANIMATIONS
+/*
+/***************************************************/
 .fade-in {
     animation: ScaleFrame 2s ease-in-out;
 }
@@ -424,6 +451,12 @@
 .fadeInTop{
     animation: fadeInTop 1s ease-in-out;
 }
+
+/***************************************************/
+/*
+/*                  KEYFRAMES
+/*
+/***************************************************/
 
 @keyframes ScaleFrame {    
     0% {

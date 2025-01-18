@@ -8,7 +8,7 @@
     --black: $black;
     --white: $white;
     --trasparent: transparent;
-    --color: var(--primary);
+    --color: var(--theme-negative);
     --theme: var(--black);
     --theme-negative: var(--white);
   }
