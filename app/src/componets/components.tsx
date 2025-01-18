@@ -112,7 +112,7 @@ export const Sidebar = () => {
         </Dropdown>
         <Block>
             <Text label="Getting Started" type="h4" />
-            <Text color="quinary" label="Installation" type="p" />            
+            <Text label="Installation" type="p" />            
         </Block>
         <Accordion title="Components" template="custom">
             <Accordion title="Containers" template="custom">

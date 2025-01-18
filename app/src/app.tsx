@@ -60,10 +60,13 @@ const App = () => {
 
   return (
     <MyContext.Provider value={{ sharedValue, setSharedValue }}>      
-      <Grid template='Dashboard-Sidevar-not-footer'>
+      <Grid template='Dashboard-slide'>
           <Header />        
           <Sidebar />
-          <Body />        
+          <Body />   
+          <Block className='footer' >
+            <Text label='Footer' type='h2' />     
+          </Block>
       </Grid>
     </MyContext.Provider>
   );
