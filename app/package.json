@@ -4,11 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "start": "webpack serve --mode development",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@reflow-js/react": "file:public/reflow-js-react-0.8.0.tgz"
+        "@reflow-js/react": "file:public/versions/reflow-js-react-0.8.0.tgz"
     }
 }

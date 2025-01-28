@@ -6,9 +6,7 @@
 import React, {useState, useContext} from 'react';
 import {createRoot} from 'react-dom/client';
 import './style.css';
-import * as Reflow from '../../packages/react/src/setup';
-import { Body, Header, Sidebar  } from './componets/components';
-import { Grid, Block, Text } from '@reflow-js/react';
+import {Grid, Block, Text} from '@reflow-js/react';
 
 //***************************************************************************/
 //
@@ -25,11 +23,11 @@ const App = () => {
 
   return (
     <MyContext.Provider value={{ sharedValue, setSharedValue }}>      
-      <Grid template='Dashboard-slide'>                    
+      <Block>                    
           <Block className='footer' >
-            <Text label='Footer' type='h2' />     
+            <h1>hola</h1>          
           </Block>
-      </Grid>
+      </Block>
     </MyContext.Provider>
   );
 };

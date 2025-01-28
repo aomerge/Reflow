@@ -1,6 +1,5 @@
 import React from 'react';
 import {TextProps, ElementType} from '../interfaces/IText';
-import { tem } from '../../../../setup';
 import { useId } from '../../../../hooks/events/useId';
 const Text: React.FC<TextProps> = ({ label, type, size, color, className,...props }) => {
   const id = useId(label, `${size}${type}`);

@@ -4,16 +4,9 @@ import '../../styles/styles.css';
 import '../../styles/tailwind.css';
 import './container.css';
 
-const Block = components.Block;
-const Flex = components.Flex;
-const Grid = components.Grid;
-const Scroll = components.Scroll;
-
+export const Block = components.Block;
+export const Flex = components.Flex;
+export const Grid = components.Grid;
+export const Scroll = components.Scroll;
 
 export const CssTrancition = Transition.default;
-export {
-    Block,
-    Flex,
-    Grid,
-    Scroll
-}

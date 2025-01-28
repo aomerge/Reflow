@@ -1,53 +1,9 @@
-import React from 'react';
-import { Block, Flex } from '../src/components/container/Container';
-//const Block = React.lazy(() => import('../../src/components/container/Block'));
-const Grid = React.lazy(() => import('../src/components/container/Grid'));
-import * as button from '../src/components/button/button';
-//const Dropdown = React.lazy(() => import('../../../../../src/components/button/button').then(module => ({ default: module.Dropdown })));
-import { Text } from '../src/components/text/Text';
-import { Card } from '../src/components/card/card';
-//const Flex = React.lazy(() => import('../../../../src/components/container/Flex'));
+// src/index.ts
+export { Block, Flex, Grid } from './components/container/Container';
+export { Button, Dropdown, ButtonColor, ButtonTemplate } from './components/button/button';
+export { Text } from './components/text/Text';
+export { Card } from './components/card/card';
+//export { Ac } from './components/accordion/accordion';
+export { OptionTemplate as tem } from './components/container/components/interfaces/IContainer';
+export { ButtonTemplate as btnTemplate } from './components/button/components/Interface/Ibutton';
 
-const Accordion = React.lazy(() => import('../src/components/accordion/accordion'));
-
-import { OptionTemplate as tem} from '../src/components/container/components/interfaces/IContainer';
-import { ButtonTemplate as btnTempleate } from '../src/components/button/components/Interface/Ibutton';
-
-interface MiBotonProps {
-  label: string;
-}
-
-export const MiBoton: React.FC<MiBotonProps> = ({ label }) => {
-  return (
-    <button>
-        {label}
-    </button>
-    );
-};
-
-const Button = button.Button;
-const Dropdown = button.Dropdown
-const ButtonColor = button.ButtonColor;
-const ButtonTemplate = button.ButtonTemplate;
-const DropdownDirection = button.dropdownDirection;
-
-
-
-
-
-export {
-  Grid,
-  Block,
-  Flex,
-  Text,
-  Card,  
-  Accordion,
-  tem,
-  btnTempleate,
-  Button,
-  Dropdown,
-  ButtonColor,
-  ButtonTemplate,
-  DropdownDirection
-  
-}
