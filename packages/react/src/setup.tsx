@@ -7,8 +7,7 @@ import * as button from '../src/components/button/button';
 import { Text } from '../src/components/text/Text';
 import { Card } from '../src/components/card/card';
 //const Flex = React.lazy(() => import('../../../../src/components/container/Flex'));
-const Image = React.lazy(() => import('../src/components/image/image'));
-const List = React.lazy(() => import('../src/components/list/list'));
+
 const Accordion = React.lazy(() => import('../src/components/accordion/accordion'));
 
 import { OptionTemplate as tem} from '../src/components/container/components/interfaces/IContainer';
@@ -41,9 +40,7 @@ export {
   Block,
   Flex,
   Text,
-  Card,
-  Image,
-  List,
+  Card,  
   Accordion,
   tem,
   btnTempleate,

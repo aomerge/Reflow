@@ -3,13 +3,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './app/src/app.tsx',    
+    react: './src/setup.tsx',    
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js', 
+    filename: '[name].reflow.js', 
+    libraryTarget: 'commonjs2',
+    library: {
+        type: 'module', // Formato ESM
+      },
   },
-  mode: 'development',
+  experiments: {
+    outputModule: true,
+  }
+  ,
+  mode: 'production',
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
@@ -53,19 +61,9 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'public'),
-    },
-    compress: true,
-    port: 8080,
+  externals: {
+    react: 'react', // Excluir React del bundle
+    'react-dom': 'react-dom', // Excluir React DOM
   },
-  
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './app/public/index.html',
-      filename: 'index.html',
-      chunks: ['app'],
-    })
-  ],
+
 };

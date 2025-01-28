@@ -1,6 +1,6 @@
-const { getConfig } = require("./src/utils/config");
+const { getConfig } = require("./packages/utils/config.json");
 
-const colors = require('./src/utils/config.json').color;
+const colors = require('./packages/utils/config.json').color;
 
 module.exports = {
   plugins: [

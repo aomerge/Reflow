@@ -6,7 +6,7 @@
 import React, {useState, useContext} from 'react';
 import {createRoot} from 'react-dom/client';
 import './style.css';
-import * as Reflow from '../../src/setup';
+import * as Reflow from '../../packages/react/src/setup';
 import { Body, Header, Sidebar  } from './componets/components';
 
 //***************************************************************************/
@@ -26,7 +26,7 @@ const dropdownDirection = Reflow.DropdownDirection;
 const tem = Reflow.tem;
 const Accordion = Reflow.Accordion;
 const Card = Reflow.Card;
-const Image = Reflow.Image;
+
 
 export {
   Grid,
@@ -40,8 +40,7 @@ export {
   dropdownDirection,
   tem,
   Accordion,
-  Card,
-  Image
+  Card,  
 }
 
 
