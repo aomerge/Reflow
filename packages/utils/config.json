@@ -1,6 +1,6 @@
 {
   "svg": {
-    "input": "../react/src/components/svg/icon",
+    "input": "../components/svg/icon",
     "output": [
       "add-document",
       "add-light",
@@ -125,11 +125,11 @@
     "white": "#DEDEDE"
   },
   "template": {
-    "input": "/home/aomerge/Documentos/Proyects/node/Reflow-js/app/src/template"
+    "input": "/home/aomerge/Documentos/Proyects/node/UILibrari/app/src/template"
   },
   "api": {},
   "rute": {
-    "input": "/home/aomerge/Documentos/Proyects/node/Reflow-js/app/src/rute"
+    "input": "/home/aomerge/Documentos/Proyects/node/UILibrari/app/src/rute"
   },
   "output": {}
 }

@@ -13,7 +13,7 @@
     "include": [
       "./packages/react/src/**/*",
       "./packages/core/src",
-      "./packages/utils/tsunix.config.js",      
+      "./packages/utils/tsunix.config.js", "packages/utils/config.ts", "packages/utils/build-config.js", "packages/utils/registry.ts",      
     ],
   "exclude": ["node_modules", "dist"]
 }
