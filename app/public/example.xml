@@ -1,0 +1,136 @@
+<components>
+  <!-- Primer componente: Tarjeta -->
+  <component module="custom-card" description="Un componente para mostrar tarjetas con contenido dinámico">
+    <metadata>
+      <author>John Doe</author>
+      <version>1.0.0</version>
+    </metadata>
+    <template>
+      <style>
+        :host {
+          display: block;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          padding: 16px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          max-width: 300px;
+          font-family: Arial, sans-serif;
+        }
+        h2 {
+          font-size: 18px;
+          margin: 0 0 8px;
+        }
+        p {
+          font-size: 14px;
+          color: #555;
+        }
+      </style>
+      <div>
+        <h2><slot name="title">Título Predeterminado</slot></h2>
+        <p><slot name="content">Contenido predeterminado de la tarjeta</slot></p>
+      </div>
+    </template>    
+  </component>
+
+  <!-- Segundo componente: Botón -->
+  <component module="custom-button" description="Un botón reutilizable con estilos personalizados">
+    <metadata>
+      <author>Jane Doe</author>
+      <version>1.1.0</version>
+    </metadata>
+    <template>
+      <style>
+        :host {
+          display: inline-block;
+        }
+        button {
+          background-color: #007BFF;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+        button:hover {
+          background-color: #0056b3;
+        }
+        button:active {
+          background-color: #003f7f;
+        }
+      </style>
+      <button>
+        <slot>Botón</slot>
+      </button>
+    </template>
+  </component>
+
+  <component module="counter-component" description="Un botón reutilizable con estilos personalizados">
+    <template>
+      <style>
+        :host { display: inline-block; }
+        .counter-btn {
+          background-color: #28a745;
+          color: #fff;
+          padding: 10px 16px;
+          cursor: pointer;
+          border-radius: 4px;
+          border: none;
+        }
+        .value {
+          margin: 0 10px;
+          font-weight: bold;
+        }
+      </style>
+      <div>
+        <button class="counter-btn" id="decrement">-</button>
+        <span class="value" id="value"></span>
+        <button class="counter-btn" id="increment">+</button>
+      </div>
+    </template>
+  </component>
+
+  <component module="dynamic-component">
+    <template>
+      <div id="content">Contenido inicial</div>
+    </template>
+    <style>
+      #content {
+        color: blue;
+        font-weight: bold;
+      }
+    </style>
+  </component>
+
+  <component module="parent-component">
+    <template>
+      <div>
+        <h1>Componente Principal</h1>
+        <child-component />
+      </div>
+    </template>
+    <style>
+      div {
+        padding: 10px;
+        border: 2px solid #333;
+      }
+    </style>
+  </component>
+  <component module="m-component">
+    <template>
+      <div>
+        <p>Este es el componente hijo cargado dinámicamente.</p>
+      </div>
+    </template>
+    <style>
+      div {
+        background-color: #d9f7d9;
+        padding: 10px;
+        border: 1px solid #7dd17d;
+      }
+    </style>
+  </component>  
+  <element-import src="./child.xml"></element-import>
+</components>
+
+

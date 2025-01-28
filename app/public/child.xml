@@ -1,0 +1,16 @@
+<components>
+  <component module="child-component">
+    <template>
+      <div>
+        <p>Este es el componente hijo cargado dinámicamente.</p>
+      </div>
+    </template>
+    <style>
+      div {
+        background-color: #d9f7d9;
+        padding: 10px;
+        border: 1px solid #7dd17d;
+      }
+    </style>
+  </component>
+</components>

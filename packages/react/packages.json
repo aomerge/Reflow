@@ -1,0 +1,11 @@
+{
+    "name": "@reflow/core",
+    "version": "1.0.0",
+    "description": "Core package of Reflow, built with Web Components",
+    "main": "dist/reflow-core.js",
+    "module": "dist/reflow-core.esm.js",
+    "keywords": ["web-components", "ui-library", "minimal"],
+    "license": "MIT",
+    "dependencies": {}
+}
+  

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Component Import</title>  
+  <element-import src="./example.xml"></element-import>
+  <element-import src="./menu.html"></element-import>
+</head>
+<body>  
+  <custom-card class="Hola"></custom-card>
+  <custom-button class="main">click</custom-button>  
+  <simple-test></simple-test>
+  <counter-component></counter-component>
+  <dynamic-component color="blue" text="Hello, Dynamic Web!"></dynamic-component>
+  <m-component></m-component>
+  <menu-bar>
+      <menu-item>Home</menu-item>
+      <menu-item>About</menu-item>
+      <menu-item>Contact</menu-item>
+    </menu-bar>
+    <parent-component ></parent-component>
+    <p>h</p>
+    
+    <script>
+    // Cambiar atributos dinámicamente
+    // const dynamicComponent = document.querySelector('dynamic-component');
+    // const element = document.querySelector('custom-button');
+    // element.addEventListener('click', () => {
+    //     dynamicComponent.setAttribute('color', 'green');
+    //     dynamicComponent.setAttribute('text', 'Updated Text');        
+    // });    
+        
+    </script>
+  <script type="module" src="./in.js"></script>
+</body>
+</html>
+

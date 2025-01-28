@@ -1,0 +1,17 @@
+{
+    "name": "@reflow/react",
+    "version": "1.0.0",
+    "description": "React wrapper for Reflow components",
+    "main": "dist/reflow-react.js",
+    "module": "dist/reflow-react.esm.js",
+    "keywords": ["react", "ui-library", "web-components"],
+    "license": "MIT",
+    "dependencies": {
+      "@reflow/core": "^1.0.0",
+      "react": "^18.0.0"
+    },
+    "peerDependencies": {
+      "react": "^18.0.0"
+    }
+  }
+  

@@ -1,0 +1,14 @@
+[
+    {
+        "name": "app",
+        "dependencies": [
+            "app/public/component.json"
+        ]
+    },
+    {
+        "name": "app/public/component.json",
+        "dependencies": [
+            "app/public/component.json"
+        ]
+    }
+]
