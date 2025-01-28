@@ -7,6 +7,7 @@ import React, {useState, useContext} from 'react';
 import {createRoot} from 'react-dom/client';
 import './style.css';
 import * as Reflow from '../../packages/react/src/setup';
+import { Button } from '@reflow-js/react';
 import { Body, Header, Sidebar  } from './componets/components';
 
 //***************************************************************************/
@@ -15,7 +16,7 @@ import { Body, Header, Sidebar  } from './componets/components';
 //
 //************************************************************************* */
 const Grid = Reflow.Grid;
-const Block = Reflow.Block;
+//const Block = Reflow.Block;
 const Flex = Reflow.Flex;
 const Text = Reflow.Text;
 const Button = Reflow.Button;

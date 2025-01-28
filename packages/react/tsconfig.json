@@ -11,9 +11,10 @@
       "moduleResolution": "node", // Resolver módulos como Node.js
       "esModuleInterop": true, // Permitir interoperabilidad entre CommonJS y ESM
       "skipLibCheck": true, // Omitir verificación de tipos en node_modules
-      "forceConsistentCasingInFileNames": true // Consistencia en nombres de archivos
+      "forceConsistentCasingInFileNames": true, // Consistencia en nombres de archivos
+      "resolveJsonModule": true,
     },
-    "include": ["src/**/*", "../utils/config.ts", "../utils/build-config.js", "../utils/registry.ts"], // Incluye todos los archivos en la carpeta src
+    "include": ["src/**/*",  ], // Incluye todos los archivos en la carpeta src
     "exclude": ["node_modules", "dist"] // Excluye node_modules y la carpeta dist
   }
   

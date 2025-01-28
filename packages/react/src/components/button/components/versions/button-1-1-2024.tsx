@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import { getConfig } from '../../../../../../utils/config';
+import { getConfig } from '../../../../utils/config';
 import { ButtonProps } from '../Interface/Ibutton';
 import { Icon } from '../../../svg/icon';
 import { nanoid } from 'nanoid';
