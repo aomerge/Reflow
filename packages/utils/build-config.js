@@ -6,7 +6,7 @@ const fs = require('fs');
 let userConfig;
 const defaultConfig = {
   svg: {
-    input: '../components/svg/icon'
+    input: '../react/src/components/svg/icon'
   }
 };
 
@@ -19,7 +19,7 @@ function buildConfig() {
     userConfig = require(configPath);
     userConfig = { ...defaultConfig, ...userConfig };
 
-    const iconsDirectory = path.join(__dirname, userConfig.svg.input || '../components/svg/icon');
+    const iconsDirectory = path.join(__dirname, userConfig.svg.input || '../react/src/components/svg/icon');
     const availableIcons = fs.readdirSync(iconsDirectory)
       .filter(file => file.endsWith('.svg'))
       .map(file => path.basename(file, '.svg'));

@@ -1,18 +1,17 @@
 import React from "react"
+import { Button } from '@reflow-js/react';
 import { 
-    Grid,
-    Block,
+    Grid,    
     Flex,
     Text,
-    Button,
+    Block,    
     Dropdown,
     ButtonColor,
     ButtonTemplate,
     dropdownDirection,
     tem,
     Accordion,
-    Card,
-    Image,
+    Card,    
     useAppContext } from "../app"
 
 //***************************************************************************/
@@ -34,8 +33,7 @@ export const Body = ()=> {
                         label='Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' 
                         type='p' />
                 </Block>
-                <Block>
-                    <Image src='https://via.placeholder.com/300x150' alt='placeholder' width={600} height={300} />
+                <Block>                    
                </Block>
             </Card>
             <Block className='sectionTwo'>

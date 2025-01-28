@@ -7,43 +7,8 @@ import React, {useState, useContext} from 'react';
 import {createRoot} from 'react-dom/client';
 import './style.css';
 import * as Reflow from '../../packages/react/src/setup';
-import { Block } from '@reflow-js/react';
 import { Body, Header, Sidebar  } from './componets/components';
-
-//***************************************************************************/
-//
-//                           COMPONENTS
-//
-//************************************************************************* */
-const Grid = Reflow.Grid;
-//const Block = Reflow.Block;
-const Flex = Reflow.Flex;
-const Text = Reflow.Text;
-const Button = Reflow.Button;
-const Dropdown = Reflow.Dropdown;
-const ButtonColor = Reflow.ButtonColor;
-const ButtonTemplate = Reflow.ButtonTemplate;
-const dropdownDirection = Reflow.DropdownDirection;
-const tem = Reflow.tem;
-const Accordion = Reflow.Accordion;
-const Card = Reflow.Card;
-
-
-export {
-  Grid,
-  Block,
-  Flex,
-  Text,
-  Button,
-  Dropdown,
-  ButtonColor,
-  ButtonTemplate,
-  dropdownDirection,
-  tem,
-  Accordion,
-  Card,  
-}
-
+import { Grid, Block, Text } from '@reflow-js/react';
 
 //***************************************************************************/
 //
@@ -60,10 +25,7 @@ const App = () => {
 
   return (
     <MyContext.Provider value={{ sharedValue, setSharedValue }}>      
-      <Grid template='Dashboard-slide'>
-          <Header />        
-          <Sidebar />
-          <Body />   
+      <Grid template='Dashboard-slide'>                    
           <Block className='footer' >
             <Text label='Footer' type='h2' />     
           </Block>

@@ -1,6 +1,6 @@
 {
   "svg": {
-    "input": "../components/svg/icon",
+    "input": "../react/src/components/svg/icon",
     "output": [
       "add-document",
       "add-light",
