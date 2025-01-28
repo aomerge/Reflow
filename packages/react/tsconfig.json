@@ -3,10 +3,10 @@
       "target": "ES6", // Target de salida, compatible con la mayoría de navegadores
       "module": "ESNext", // Usa ESNext para exportar módulos ESM
       "jsx": "react", // Transpila JSX para React
-      "outDir": "./dist", // Carpeta donde se colocarán los archivos compilados
+      "outDir": "./dist/standalone", // Carpeta donde se colocarán los archivos compilados
       "rootDir": "./src", // Carpeta raíz donde están los archivos fuente
       "declaration": true, // Generar archivos de tipos .d.ts
-      "declarationDir": "./dist", // Colocar los archivos de tipos en la carpeta dist
+      "declarationDir": "./dist/standalone/type", // Colocar los archivos de tipos en la carpeta dist
       "strict": true, // Habilitar opciones estrictas de TypeScript
       "moduleResolution": "node", // Resolver módulos como Node.js
       "esModuleInterop": true, // Permitir interoperabilidad entre CommonJS y ESM

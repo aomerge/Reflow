@@ -6,7 +6,7 @@ module.exports = {
     react: './src/setup.tsx',    
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/webpack'),
     filename: '[name].reflow.js', 
     libraryTarget: 'commonjs2',
     library: {
