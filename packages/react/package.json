@@ -5,17 +5,25 @@
     "main": "dist/webpack/react.reflow.js",
     "module": "dist/standalone/setup.js",
     "types": "dist/standalone/type/setup.d.ts",
-    "keywords": ["react", "ui-library", "minimal"],
-    "scripts": {        
-        "build": "npx tsc && webpack --mode production"
+    "keywords": [
+        "react",
+        "ui-library",
+        "minimal"
+    ],
+    "scripts": {
+        "build:css": "postcss \"./src/**/*.css\" \"./src/**/**/*.css\" --base src --dir dist/standalone",
+        "build:svg": "sudo node ./src/utils/copy.js /src/components/svg/icon --dir=/dist/standalone/src/components/svg/icon",
+        "build": "npm run build:css && npx tsc && webpack --mode production"
     },
     "license": "MIT",
     "dependencies": {
         "react": "^18.0.2"
     },
-    "peerDependencies": {        
-        "react-dom": "^18.0.2",
-        "react": "^18.0.2"
+    "peerDependencies": {
+        "react": "^18.0.2",
+        "react-dom": "^18.0.2"
+    },
+    "devDependencies": {
+        "cssnano": "^7.0.6"
     }
 }
-  

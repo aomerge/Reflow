@@ -12,9 +12,14 @@
       "esModuleInterop": true, // Permitir interoperabilidad entre CommonJS y ESM
       "skipLibCheck": true, // Omitir verificación de tipos en node_modules
       "forceConsistentCasingInFileNames": true, // Consistencia en nombres de archivos
-      "resolveJsonModule": true,
+      "resolveJsonModule": true,      
+      "allowJs": true,
+      "baseUrl": "./",
+      "paths": {
+        "*": ["types/*"]
+      }
     },
-    "include": ["src/**/*",  ], // Incluye todos los archivos en la carpeta src
+    "include": ["src/**/*","src/**/*.svg"  ], // Incluye todos los archivos en la carpeta src
     "exclude": ["node_modules", "dist"] // Excluye node_modules y la carpeta dist
   }
   

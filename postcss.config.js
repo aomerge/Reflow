@@ -10,5 +10,6 @@ module.exports = {
     }),
     require('tailwindcss'),
     require('autoprefixer'),
+    require('cssnano')({ preset: 'default' }), // Para minimizar CSS
   ]
 };
